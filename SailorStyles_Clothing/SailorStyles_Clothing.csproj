@@ -1,0 +1,772 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A471356-293A-47AF-ADD3-120EC03E5E37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SailorStyles_Clothing</RootNamespace>
+    <AssemblyName>SailorStyles_Clothing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net45\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="PyTK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Platonymous.PyTK.1.9.3\lib\net45\PyTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\JsonAssetsApi.cs" />
+    <Compile Include="Core\Data.cs" />
+    <Compile Include="Core\Config.cs" />
+    <Compile Include="Core\ModEntry.cs" />
+    <Compile Include="Editors\StringsEditor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\cat_portraits.psd" />
+    <None Include="Assets\cat_ref.psd" />
+    <None Include="Assets\cat_tilesheet.psd" />
+    <None Include="i18n\default.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\content-pack.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Black Dress Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Deep Blue Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Green Down Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Green Hoodie and Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Maroon Buttonup\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Maroon Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Orange Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Orange Collared Tank\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Orange Striped Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Pullover Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Sporty Green Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Sporty Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\White Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\White Waistcoat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Jupiter\Yellow-Green Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Beige Super-Crop Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Black Blouse and Blazer\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Black Dress Top and Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Black Top and Blazer\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Blue Coat and Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Casual Purple Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Crimson Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Crimson Overalls\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Fiery Winter Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Green Jacket and Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Green Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Hot Pink Overalls\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Lemon Blouse and Blazer\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Orange Buttonup\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Peachy Overalls\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Red Turtleneck\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Scarlet Keyhole Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Scarlet Tie-Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Shrine Maiden Robe\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Stupid Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Summer Super-Crop Tee\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Violet Shirt and Tie\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\White Crop Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mars\Yellow Tie-Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Beige Buttonup\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Blue Cardigan\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Blue Dress and Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Blue Hoodie on Green\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Blue Waistcoat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Bright Blue Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Contrast Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Fancy Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Frilly Blue Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Green Sleeveless Turtleneck\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Green Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Mauve Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Orange Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Pink Cardigan\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Plain White Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Sapphire Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Sky Blue Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Studious Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Turtleneck and Sweater\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Ugly Pullover\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\White Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Mercury\Woolly Fleece\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Blue Jacket on Green\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Blue Jacket on Pink\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Blue Overalls on Green\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Dark Pullover\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Green Ribboned Buttonup\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Grey Hoodie on Pink\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Home-Made Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Hot Pink Velvet Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Maroon Jacket on Green\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Music Critic Outfit\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Orange Dress Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Photographers Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Photographers Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Pink Buttonup\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Pink Collared Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Pink Dress and Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Pink Sleeveless Turtleneck\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Purple Jacket on Pink\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Rainy Day Top and Blouse\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Rainy Day Top\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Sandy Overshirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Sporty Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Moon\Wicked Life\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Blue Coat and Ascot\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Blue Dungarees\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Blue Top and Pink Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Blue Winter Coat\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Brown Belted Camisole\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Orange Wrap\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Pea Green Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Salmon-Pink Hoodie\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Striking Blazer\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Stripey Green Shirt\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Stripey Pink Tank\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Trim Pink Dress\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Everyday Heroes\Venus\Trim Red Jacket\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Chibi Moon\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Jupiter\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Mars\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Mercury\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Moon\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor Venus\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Sailor Suits\Sailor V\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Chibi Blue\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Chibi White\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Jupiter\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Mars\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Mercury\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Moon\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Stars\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Objects\Uniform Operation\School Uniform - Venus\shirt.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Platonymous.PyTK.1.9.3.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Pathoschild.Stardew.ModBuildConfig.2.2.0\analyzers\dotnet\cs\StardewModdingAPI.ModBuildConfig.Analyzer.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\zss_cat_arte.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\zss_cat_cate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\zss_cat_tilesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Black Dress Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Deep Blue Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Green Down Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Green Hoodie and Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Maroon Buttonup\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Maroon Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Orange Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Orange Collared Tank\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Orange Striped Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Pullover Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Sporty Green Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Sporty Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\White Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\White Waistcoat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Jupiter\Yellow-Green Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Beige Super-Crop Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Black Blouse and Blazer\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Black Dress Top and Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Black Top and Blazer\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Blue Coat and Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Casual Purple Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Crimson Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Crimson Overalls\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Fiery Winter Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Green Jacket and Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Green Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Hot Pink Overalls\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Lemon Blouse and Blazer\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Orange Buttonup\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Peachy Overalls\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Red Turtleneck\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Scarlet Keyhole Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Scarlet Tie-Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Shrine Maiden Robe\female.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Shrine Maiden Robe\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Stupid Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Summer Super-Crop Tee\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Violet Shirt and Tie\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\White Crop Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mars\Yellow Tie-Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Beige Buttonup\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Blue Cardigan\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Blue Dress and Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Blue Hoodie on Green\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Blue Waistcoat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Bright Blue Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Contrast Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Fancy Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Frilly Blue Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Green Sleeveless Turtleneck\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Green Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Mauve Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Orange Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Pink Cardigan\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Plain White Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Sapphire Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Sky Blue Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Studious Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Turtleneck and Sweater\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Ugly Pullover\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\White Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Mercury\Woolly Fleece\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Blue Jacket on Green\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Blue Jacket on Pink\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Blue Overalls on Green\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Dark Pullover\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Green Ribboned Buttonup\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Grey Hoodie on Pink\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Home-Made Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Hot Pink Velvet Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Maroon Jacket on Green\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Music Critic Outfit\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Orange Dress Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Photographers Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Photographers Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Pink Buttonup\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Pink Collared Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Pink Dress and Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Pink Sleeveless Turtleneck\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Purple Jacket on Pink\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Rainy Day Top and Blouse\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Rainy Day Top\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Sandy Overshirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Sporty Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Moon\Wicked Life\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Blue Coat and Ascot\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Blue Dungarees\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Blue Top and Pink Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Blue Winter Coat\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Brown Belted Camisole\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Orange Wrap\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Pea Green Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Salmon-Pink Hoodie\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Striking Blazer\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Stripey Green Shirt\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Stripey Pink Tank\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Trim Pink Dress\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Everyday Heroes\Venus\Trim Red Jacket\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Chibi Moon\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Jupiter\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Mars\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Mercury\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Moon\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor Venus\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sailor Suits\Sailor V\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Chibi Blue\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Chibi White\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Jupiter\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Mars\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Mercury\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Moon\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Stars\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Uniform Operation\School Uniform - Venus\male.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Pathoschild.Stardew.ModBuildConfig.2.2.0\build\Pathoschild.Stardew.ModBuildConfig.targets" Condition="Exists('..\packages\Pathoschild.Stardew.ModBuildConfig.2.2.0\build\Pathoschild.Stardew.ModBuildConfig.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Pathoschild.Stardew.ModBuildConfig.2.2.0\build\Pathoschild.Stardew.ModBuildConfig.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pathoschild.Stardew.ModBuildConfig.2.2.0\build\Pathoschild.Stardew.ModBuildConfig.targets'))" />
+  </Target>
+</Project>

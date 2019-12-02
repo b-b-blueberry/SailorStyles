@@ -1,0 +1,11 @@
+{
+  "Name": "SailorStyles Clothing Assets",
+  "Author": "blueberry",
+  "Version": "3.0.0",
+  "Description": "Sailor Moon clothing content pack.",
+  "UniqueID": "blueberry.SailorStyles.Clothing.Assets",
+  "ContentPackFor": {
+    "UniqueID": "spacechase0.JsonAssets"
+  },
+  "UpdateKeys": [ "Nexus:4154" ]
+}
