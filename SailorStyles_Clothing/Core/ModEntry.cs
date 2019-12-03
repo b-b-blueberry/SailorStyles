@@ -30,7 +30,7 @@ namespace SailorStyles_Clothing
 		internal static IMonitor SMonitor;
 		internal static ITranslationHelper i18n => SHelper.Translation;
 
-		private static JsonAssetsApi ja;
+		private static IJsonAssetsApi ja;
 
 		private const string LocationTarget = "Forest";
 		private const string ExtraLayerID = "CatShop_Buildings";
@@ -85,14 +85,16 @@ namespace SailorStyles_Clothing
 
 		private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
 		{
-			ja = Helper.ModRegistry.GetApi<JsonAssetsApi>("spacechase0.JsonAssets");
+			ja = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
 			if (ja == null)
 			{
 				Monitor.Log("Can't access the Json Assets API. Is the mod installed correctly?",
 					LogLevel.Error);
 				return;
 			}
-			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects"));
+			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "SailorSuits"));
+			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "EverydayHeroes"));
+			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "UniformOperation"));
 		}
 
 		private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
@@ -103,12 +105,24 @@ namespace SailorStyles_Clothing
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
 		{
 			Monitor.Log("JA Objects: ", LogLevel.Debug);
-			Monitor.Log(ja.GetAllObjectIds().Count.ToString(), LogLevel.Debug);
-			foreach (var item in ja.GetAllObjectIds())
+			Monitor.Log(ja.GetAllClothingIds().Count.ToString(), LogLevel.Debug);
+			foreach (var item in ja.GetAllClothingIds())
 			{
 				Monitor.Log("Loaded " + item.Key, LogLevel.Debug);
 			}
-
+			var itemId = ja.GetClothingId("Sailor Moon");
+			Game1.clothingInformation.TryGetValue(itemId, out var itemTest);
+			Monitor.Log(itemTest, LogLevel.Debug);
+			/*
+			foreach(var item in ja.GetAllClothingIds())
+			{
+				var packs = Helper.ContentPacks.GetOwned();
+				foreach (var pack in packs)
+				{
+					//pack.
+				}
+			}
+			*/
 			DebugWarpPlayer();
 
 			var random = new Random();

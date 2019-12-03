@@ -1,0 +1,11 @@
+{
+  "Name": "Sailor Styles: Hats",
+  "Author": "blueberry",
+  "Version": "3.0.0",
+  "Description": "Sailor Moon hats and headwear for your farmer!",
+  "UniqueID": "blueberry.SailorStyles.Hats",
+  "ContentPackFor": {
+    "UniqueID": "spacechase0.JsonAssets"
+  },
+  "UpdateKeys": [ "Nexus:4154" ]
+}

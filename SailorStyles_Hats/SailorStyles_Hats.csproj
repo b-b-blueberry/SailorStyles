@@ -2,15 +2,17 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <IgnoreModFilePatterns>\.dll$, \.pdb$</IgnoreModFilePatterns>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A471356-293A-47AF-ADD3-120EC03E5E37}</ProjectGuid>
+    <ProjectGuid>{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SailorStyles_Clothing</RootNamespace>
-    <AssemblyName>SailorStyles_Clothing</AssemblyName>
+    <RootNamespace>SMAPIContentPack1</RootNamespace>
+    <AssemblyName>SMAPIContentPack1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -32,12 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.1.2.0.1\lib\net45\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="PyTK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Platonymous.PyTK.1.9.3\lib\net45\PyTK.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,48 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\IJsonAssetsApi.cs" />
-    <Compile Include="Core\Data.cs" />
-    <Compile Include="Core\Config.cs" />
-    <Compile Include="Core\ModEntry.cs" />
-    <Compile Include="Editors\StringsEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\cat_portraits.psd" />
-    <None Include="Assets\cat_ref.psd" />
-    <None Include="Assets\cat_tilesheet.psd" />
-    <None Include="Objects\*\*\*\*.json">
+    <None Include="Hats\*\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Objects\*\*\*.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="i18n\default.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Objects\content-pack.json" />
+    <None Include="manifest.json" />
     <None Include="packages.config" />
-    <None Include="Platonymous.PyTK.1.9.3.nupkg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\zss_cat_arte.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\zss_cat_cate.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\zss_cat_tilesheet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Objects\*\*\*\*.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Objects\*\*\*.png">
+    <Content Include="Hats\*\*.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

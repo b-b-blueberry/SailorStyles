@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SailorStyles_Clothing", "Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SailorStyles_Hair", "SailorStyles_Hair\SailorStyles_Hair.csproj", "{4CD75844-1CEE-468C-8B2D-A8FA542EC0D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SailorStyles_Hats", "SailorStyles_Hats\SailorStyles_Hats.csproj", "{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4CD75844-1CEE-468C-8B2D-A8FA542EC0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD75844-1CEE-468C-8B2D-A8FA542EC0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD75844-1CEE-468C-8B2D-A8FA542EC0D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4814CA9C-D446-47FE-8281-F3D3ECDA3C50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
