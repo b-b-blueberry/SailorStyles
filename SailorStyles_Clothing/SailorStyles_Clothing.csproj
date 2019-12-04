@@ -59,10 +59,10 @@
     <None Include="Assets\cat_portraits.psd" />
     <None Include="Assets\cat_ref.psd" />
     <None Include="Assets\cat_tilesheet.psd" />
-    <None Include="Objects\*\*\*\*.json">
+    <None Include="Objects\*\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Objects\*\*\*.json">
+    <None Include="Objects\*\*\*\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="i18n\default.json">
@@ -71,7 +71,6 @@
     <None Include="manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Objects\content-pack.json" />
     <None Include="packages.config" />
     <None Include="Platonymous.PyTK.1.9.3.nupkg" />
   </ItemGroup>
@@ -87,9 +86,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\*\*\*\*.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Objects\*\*\*.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

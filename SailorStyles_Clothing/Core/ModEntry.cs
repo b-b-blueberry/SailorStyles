@@ -48,7 +48,7 @@ namespace SailorStyles_Clothing
 			helper.Events.GameLoop.DayStarted += OnDayStarted;
 			//helper.Events.Player.Warped += OnWarped;
 			
-			var harmony = HarmonyInstance.Create("blueberry.SailorStyles_Shirts_Merchant");
+			var harmony = HarmonyInstance.Create("blueberry.SailorStyles.Clothing");
 
 			harmony.Patch(
 				original: AccessTools.Method(typeof(ShopMenu), nameof(ShopMenu.setUpShopOwner)),
@@ -104,15 +104,9 @@ namespace SailorStyles_Clothing
 
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
 		{
-			Monitor.Log("JA Objects: ", LogLevel.Debug);
-			Monitor.Log(ja.GetAllClothingIds().Count.ToString(), LogLevel.Debug);
-			foreach (var item in ja.GetAllClothingIds())
-			{
-				Monitor.Log("Loaded " + item.Key, LogLevel.Debug);
-			}
-			var itemId = ja.GetClothingId("Sailor Moon");
-			Game1.clothingInformation.TryGetValue(itemId, out var itemTest);
-			Monitor.Log(itemTest, LogLevel.Debug);
+			var random = new Random();
+			//cate = (random.Next(50) == 0);
+
 			/*
 			foreach(var item in ja.GetAllClothingIds())
 			{
@@ -123,12 +117,21 @@ namespace SailorStyles_Clothing
 				}
 			}
 			*/
-			DebugWarpPlayer();
 
-			var random = new Random();
-			cate = (random.Next(50) == 0);
+			// debug junk
+			Monitor.Log("JA Objects: ", LogLevel.Debug);
+			Monitor.Log(ja.GetAllClothingIds().Count.ToString(), LogLevel.Debug);
+			foreach (var item in ja.GetAllClothingIds())
+			{
+				Monitor.Log("Loaded " + item.Key, LogLevel.Debug);
+			}
+			var itemId = ja.GetClothingId("Sailor Moon");
+			Game1.clothingInformation.TryGetValue(itemId, out var itemTest);
+			Monitor.Log(itemTest, LogLevel.Debug);
+
+			DebugWarpPlayer();
 		}
-		
+
 		private void OnWarped(object sender, WarpedEventArgs e)
 		{
 			//if (Game1.dayOfMonth % 7 <= 1 && e.NewLocation.Name.Equals(LocationTarget) && e.IsLocalPlayer)
@@ -146,7 +149,7 @@ namespace SailorStyles_Clothing
 
 		private void CatShop()
 		{
-			Game1.currentLocation.playSound("cat");
+			//Game1.currentLocation.playSound("cat");
 			Game1.activeClickableMenu = new ShopMenu(
 				CatShopStock(), 0, Data.CatID, null, null, null);
 		}
@@ -156,7 +159,7 @@ namespace SailorStyles_Clothing
 			var stock = new Dictionary<ISalable, int[]>();
 
 			// todo add json assets objects
-			Utility.AddStock(stock, null, -1, 1);
+			//Utility.AddStock(stock, null, -1, 1);
 
 			return stock;
 		}
@@ -171,7 +174,7 @@ namespace SailorStyles_Clothing
 		{
 			var loc = Game1.getLocationFromName(LocationTarget);
 			AddTilesheet(loc.Map);
-			//AddLayers(loc.Map);
+			AddLayers(loc.Map);
 			AddTiles(loc.Map);
 			AddNPCs(loc);
 		}
@@ -191,8 +194,9 @@ namespace SailorStyles_Clothing
 
 		private void AddLayers(Map map)
 		{
-			var layer = new Layer(
-				ExtraLayerID, map, new Size(map.DisplayWidth / 64, map.DisplayHeight / 64), new Size(16, 16));
+			var layer = map.GetLayer("Buildings");
+			layer = new Layer(
+				ExtraLayerID, map, layer.LayerSize, layer.TileSize);
 			layer.Properties.Add("DrawAbove", "Buildings");
 			map.AddLayer(layer);
 		}
@@ -216,14 +220,13 @@ namespace SailorStyles_Clothing
 
 			if (layer == null)
 				return;
-
-			// broken
+			
 			tiles = layer.Tiles;
 
 			if (!cate)
 			{
-				tiles[30, 94] = new StaticTile(layer, sheet, mode, 29);
-				tiles[30, 95] = new StaticTile(layer, sheet, mode, 29 + sheet.SheetWidth);
+				tiles[30, 94] = new StaticTile(layer, sheet, mode, 31);
+				tiles[30, 95] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
 
 				if (Game1.timeOfDay < 1300)
 				{
