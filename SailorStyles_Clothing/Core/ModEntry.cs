@@ -9,60 +9,55 @@ using StardewModdingAPI.Events;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-using xTile;
 using xTile.Dimensions;
-using xTile.Layers;
 using xTile.ObjectModel;
-using xTile.Tiles;
-
-using PyTK.Extensions;
-using PyTK.Types;
-
-using Harmony;  // el diavolo
 
 namespace SailorStyles_Clothing
 {
 	public class ModEntry : Mod
 	{
-		internal static Config config;
+		internal static Config SConfig;
 		internal static IModHelper SHelper;
 		internal static IMonitor SMonitor;
 		internal static ITranslationHelper i18n => SHelper.Translation;
 
-		private static IJsonAssetsApi ja;
+		private static IJsonAssetsApi JsonAssets;
 
-		private const string LocationTarget = "Forest";
-		private const string ExtraLayerID = "CatShop_Buildings";
+		private NPC CatNPC;
+		private NPC CateNPC;
 		internal static bool cate;
+
+		private const bool IsDebugging = true;
+
+		private Dictionary<ISalable, int[]> CatShopStock;
 
 		public override void Entry(IModHelper helper)
 		{
-			config = helper.ReadConfig<Config>();
+			SConfig = helper.ReadConfig<Config>();
 			SHelper = helper;
 			SMonitor = Monitor;
 
 			helper.Events.Input.ButtonReleased += OnButtonReleased;
 			helper.Events.GameLoop.GameLaunched += OnGameLaunched;
-			helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
 			helper.Events.GameLoop.DayStarted += OnDayStarted;
-			//helper.Events.Player.Warped += OnWarped;
-			
-			var harmony = HarmonyInstance.Create("blueberry.SailorStyles.Clothing");
+			helper.Events.Player.Warped += OnWarped;
 
-			harmony.Patch(
-				original: AccessTools.Method(typeof(ShopMenu), nameof(ShopMenu.setUpShopOwner)),
-				prefix: new HarmonyMethod(typeof(ShopMenuPatch), nameof(ShopMenuPatch.Prefix)));
+			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper, Monitor));
 		}
 
 		private void OnButtonReleased(object sender, ButtonReleasedEventArgs e)
 		{
+			e.Button.TryGetKeyboard(out Keys keyPressed);
+
 			if (Game1.activeClickableMenu == null && !Game1.player.UsingTool && !Game1.pickingTool && !Game1.menuUp
 				&& (!Game1.eventUp || Game1.currentLocation.currentEvent.playerControlSequence) && !Game1.nameSelectUp
 				&& Game1.numberOfSelectedItems == -1)
 			{
 				if (e.Button.IsActionButton())
 				{
+					// thanks sundrop
 					var grabTile = new Vector2(
 						Game1.getOldMouseX() + Game1.viewport.X, Game1.getOldMouseY() + Game1.viewport.Y) / Game1.tileSize;
 					if (!Utility.tileWithinRadiusOfPlayer((int)grabTile.X, (int)grabTile.Y, 1, Game1.player))
@@ -80,245 +75,167 @@ namespace SailorStyles_Clothing
 							CatShop();
 					}
 				}
+
+				// debug junk
+				if (keyPressed.ToSButton().Equals(SButton.U) && IsDebugging)
+				{
+					DebugWarpPlayer();
+				}
 			}
 		}
 
 		private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
 		{
-			ja = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
-			if (ja == null)
+			CatShopStock = new Dictionary<ISalable, int[]>();
+
+			JsonAssets = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
+			if (JsonAssets == null)
 			{
 				Monitor.Log("Can't access the Json Assets API. Is the mod installed correctly?",
 					LogLevel.Error);
 				return;
 			}
-			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "SailorSuits"));
-			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "EverydayHeroes"));
-			ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "UniformOperation"));
+			JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "SailorSuits"));
+			JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "EverydayHeroes"));
+			JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, "Objects", "UniformOperation"));
 		}
-
-		private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
-		{
-			PrepareLocation();
-		}
-
+		
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
 		{
+			CatShopRestock();
+
+			// mmmmswsswsss
 			var random = new Random();
-			//cate = (random.Next(50) == 0);
-
-			/*
-			foreach(var item in ja.GetAllClothingIds())
-			{
-				var packs = Helper.ContentPacks.GetOwned();
-				foreach (var pack in packs)
-				{
-					//pack.
-				}
-			}
-			*/
-
-			// debug junk
-			Monitor.Log("JA Objects: ", LogLevel.Debug);
-			Monitor.Log(ja.GetAllClothingIds().Count.ToString(), LogLevel.Debug);
-			foreach (var item in ja.GetAllClothingIds())
-			{
-				Monitor.Log("Loaded " + item.Key, LogLevel.Debug);
-			}
-			var itemId = ja.GetClothingId("Sailor Moon");
-			Game1.clothingInformation.TryGetValue(itemId, out var itemTest);
-			Monitor.Log(itemTest, LogLevel.Debug);
-
-			DebugWarpPlayer();
+			var randint = random.Next(Data.CateRate);
+			cate = randint == 0;
+			Monitor.Log("CateRate: " + randint + "/" + Data.CateRate + ", " + cate.ToString(),
+				LogLevel.Trace);
 		}
-
+		
 		private void OnWarped(object sender, WarpedEventArgs e)
 		{
-			//if (Game1.dayOfMonth % 7 <= 1 && e.NewLocation.Name.Equals(LocationTarget) && e.IsLocalPlayer)
-			if (e.NewLocation.Name.Equals(LocationTarget) && e.IsLocalPlayer)
+			ResetLocation(e);
+		}
+
+		private void ResetLocation(WarpedEventArgs e)
+		{
+			if (e.OldLocation.Name.Equals(Data.LocationTarget))
 			{
-				e.OldLocation.Map.GetLayer("Buildings").AfterDraw -= DrawOverBuildings;
-				e.NewLocation.Map.GetLayer("Buildings").AfterDraw += DrawOverBuildings;
+				RemoveNPCs();
+			}
+
+			if (e.NewLocation.Name.Equals(Data.LocationTarget))
+			{
+				if (CatNPC == null && Game1.dayOfMonth % 7 <= 1)
+					AddNPCs();
+
+				Monitor.Log("Invalidating cache for map file " + Data.LocationTarget,
+					LogLevel.Trace);
+				Helper.Content.InvalidateCache(Path.Combine("Maps", Data.LocationTarget));
 			}
 		}
 
-		private void DebugWarpPlayer()
+		private void RemoveNPCs()
 		{
-			Game1.warpFarmer(LocationTarget, 31, 97, 2);
+			Monitor.Log("Removing NPCs at " + Data.LocationTarget,
+				LogLevel.Trace);
+
+			CatNPC = null;
+			CateNPC = null;
 		}
 
-		private void CatShop()
+		private void AddNPCs()
 		{
-			//Game1.currentLocation.playSound("cat");
-			Game1.activeClickableMenu = new ShopMenu(
-				CatShopStock(), 0, Data.CatID, null, null, null);
-		}
-
-		private Dictionary<ISalable, int[]> CatShopStock()
-		{
-			var stock = new Dictionary<ISalable, int[]>();
-
-			// todo add json assets objects
-			//Utility.AddStock(stock, null, -1, 1);
-
-			return stock;
-		}
-		
-		private void DrawOverBuildings(object s, LayerEventArgs e)
-		{
-			Game1.currentLocation.map.GetLayer(ExtraLayerID)?.Draw(
-				Game1.mapDisplayDevice, Game1.viewport, Location.Origin, false, 4);
-		}
-		
-		private void PrepareLocation()
-		{
-			var loc = Game1.getLocationFromName(LocationTarget);
-			AddTilesheet(loc.Map);
-			AddLayers(loc.Map);
-			AddTiles(loc.Map);
-			AddNPCs(loc);
-		}
-		
-		private void AddTilesheet(Map map)
-		{
-			var path = Helper.Content.GetActualAssetKey(
-				Path.Combine("Assets", Data.CatID + "_tilesheet" + Data.ImgExt));
-
-			var texture = Helper.Content.Load<Texture2D>(path);
-			var sheet = new TileSheet(
-				Data.CatID, map, path, new Size(texture.Width / 16, texture.Height / 16), new Size(16, 16));
-
-			map.AddTileSheet(sheet);
-			map.LoadTileSheets(Game1.mapDisplayDevice);
-		}
-
-		private void AddLayers(Map map)
-		{
-			var layer = map.GetLayer("Buildings");
-			layer = new Layer(
-				ExtraLayerID, map, layer.LayerSize, layer.TileSize);
-			layer.Properties.Add("DrawAbove", "Buildings");
-			map.AddLayer(layer);
-		}
-
-		private void AddTiles(Map map)
-		{
-			var sheet = map.GetTileSheet(Data.CatID);
-			var layer = map.GetLayer("Front");
-			var tiles = layer.Tiles;
-			var mode = BlendMode.Additive;
+			Monitor.Log("Adding NPCs for " + Data.LocationTarget,
+				LogLevel.Trace);
 			
-			tiles[30, 94] = new StaticTile(layer, sheet, mode, 28);
-			tiles[31, 94] = new StaticTile(layer, sheet, mode, 29);
-			tiles[32, 94] = new StaticTile(layer, sheet, mode, 30);
-			
-			layer = map.GetLayer("Buildings");
-			tiles = layer.Tiles;
-			tiles[31, 95].Properties.Add("Action", new PropertyValue(Data.CatID));
-			
-			layer = map.GetLayer(ExtraLayerID);
-
-			if (layer == null)
-				return;
-			
-			tiles = layer.Tiles;
-
-			if (!cate)
-			{
-				tiles[30, 94] = new StaticTile(layer, sheet, mode, 31);
-				tiles[30, 95] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
-
-				if (Game1.timeOfDay < 1300)
-				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 0);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 0 + sheet.SheetWidth);
-				}
-				else if (Game1.timeOfDay < 2100)
-				{
-					tiles[31, 94] = new AnimatedTile(layer, new StaticTile[]{
-						new StaticTile(layer, sheet, mode, 1),
-						new StaticTile(layer, sheet, mode, 2)
-						}, 10000);
-					tiles[31, 95] = new AnimatedTile(layer, new StaticTile[]{
-						new StaticTile(layer, sheet, mode, 1 + sheet.SheetWidth),
-						new StaticTile(layer, sheet, mode, 2 + sheet.SheetWidth)
-						}, 10000);
-				}
-				else
-				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 6);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 6 + sheet.SheetWidth);
-				}
-			}
-			else
-			{
-				// eeeewwsws
-				if (Game1.timeOfDay < 2100)
-				{
-					tiles[30, 95] = new StaticTile(layer, sheet, mode, 15);
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 14 + sheet.SheetWidth);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 15 + sheet.SheetWidth);
-				}
-				else
-				{
-					tiles[30, 95] = new StaticTile(layer, sheet, mode, 17);
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 16 + sheet.SheetWidth);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 17 + sheet.SheetWidth);
-				}
-			}
-		}
-
-		private void AddNPCs(GameLocation loc)
-		{
-			loc.addCharacter(new NPC(
+			CatNPC = new NPC(
 				new AnimatedSprite("Characters\\Bouncer", 0, 16, 32),
 				new Vector2(-64000f, 128f),
-				LocationTarget,
+				Data.LocationTarget,
 				2,
 				Data.CatID,
 				false,
 				null,
-				Helper.Content.Load<Texture2D>(Path.Combine("Assets", Data.CatID + "_arte" + Data.ImgExt))));
-			
+				Helper.Content.Load<Texture2D>(
+					Path.Combine("Assets", Data.CatID + "_arte" + Data.ImgExt)));
+
 			// ahahaha
-			loc.addCharacter(new NPC(
+			CateNPC = new NPC(
 				new AnimatedSprite("Characters\\Bouncer", 0, 64, 128),
 				new Vector2(-64000f, 128f),
-				LocationTarget,
+				Data.LocationTarget,
 				2,
 				Data.CatID + "e",
 				false,
 				null,
-				Helper.Content.Load<Texture2D>(Path.Combine("Assets", Data.CatID + "_cate" + Data.ImgExt))));
+				Helper.Content.Load<Texture2D>(
+					Path.Combine("Assets", Data.CatID + "_cate" + Data.ImgExt)));
 		}
-	}
 
-	class ShopMenuPatch
-	{
-		internal static bool Prefix(string ___potraitPersonDialogue, NPC ___portraitPerson, string who)
+		private void CatShopRestock()
 		{
-			if (who.Equals(Data.CatID))
+			CatShopStock.Clear();
+
+			var stock = new List<int>();
+			var random = new Random();
+
+			var index = JsonAssets.GetClothingId("Sailor Chibi Moon");
+			var end = JsonAssets.GetClothingId("School Uniform - Venus");
+			var goalQty = Math.Min(Data.CatShopQuantity, end - index);
+
+			Monitor.Log("CatShop Restock bounds:",
+				LogLevel.Trace);
+			Monitor.Log("index: " + index + ", end: " + end + ", goalQty: " + goalQty,
+				LogLevel.Trace);
+
+			while (stock.Count < goalQty)
 			{
-				var text = (string)null;
-				var name = Data.CatID;
-
-				if (!ModEntry.cate)
-				{
-					var random = new Random((int)((long)Game1.uniqueIDForThisGame + Game1.stats.DaysPlayed));
-					text = ModEntry.i18n.Get(Data.StringKey + random.Next(5));
-				}
-				else
-				{
-					// bllblblbl
-					name += "e";
-					text = ModEntry.i18n.Get(Data.StringKey + "cate");
-				}
-
-				___potraitPersonDialogue = Game1.parseText(text, Game1.dialogueFont, 304);
-				___portraitPerson = Game1.getCharacterFromName(name, false);
-				return false;
+				var id = random.Next(index, end);
+				if (!stock.Contains(id))
+					stock.Add(id);
 			}
-			return true;
+
+			foreach (var id in stock)
+			{
+				CatShopStock.Add(
+					new StardewValley.Objects.Clothing(id), new int[2]
+					{ Data.ClothingCost, 1 });
+			}
+		}
+
+		private void CatShop()
+		{
+			Game1.playSound("cat");
+
+			var name = Data.CatID;
+			var text = (string) null;
+
+			if (!cate)
+			{
+				var random = new Random((int)((long)Game1.uniqueIDForThisGame + Game1.stats.DaysPlayed));
+				var whichDialogue = Data.ShopDialogueRoot + random.Next(5);
+				if (whichDialogue.EndsWith("5"))
+					whichDialogue += Game1.currentSeason;
+				text = i18n.Get(whichDialogue);
+			}
+			else
+			{
+				// bllblblbl
+				name += "e";
+				text = i18n.Get(Data.ShopDialogueRoot + "cate");
+			}
+			
+			Game1.activeClickableMenu = new ShopMenu(CatShopStock);
+			((ShopMenu)Game1.activeClickableMenu).portraitPerson
+				= cate ? CateNPC : CatNPC;
+			((ShopMenu)Game1.activeClickableMenu).potraitPersonDialogue
+				= Game1.parseText(text, Game1.dialogueFont, 304);
+		}
+
+		private void DebugWarpPlayer()
+		{
+			Game1.warpFarmer(Data.LocationTarget, 31, 97, 2);
 		}
 	}
 }
