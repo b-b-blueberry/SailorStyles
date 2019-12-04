@@ -52,7 +52,7 @@
     <Compile Include="Core\Data.cs" />
     <Compile Include="Core\Config.cs" />
     <Compile Include="Core\ModEntry.cs" />
-    <Compile Include="Editors\StringsEditor.cs" />
+    <Compile Include="Editors\MapEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
