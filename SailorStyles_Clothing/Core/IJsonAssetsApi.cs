@@ -7,6 +7,8 @@ namespace SailorStyles_Clothing
 		void LoadAssets(string path);
 
 		int GetClothingId(string name);
+		int GetHatId(string name);
 		IDictionary<string, int> GetAllClothingIds();
+		IDictionary<string, int> GetAllHatIds();
 	}
 }

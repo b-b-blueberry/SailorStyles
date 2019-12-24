@@ -94,9 +94,13 @@ namespace SailorStyles_Clothing
 				return;
 			}
 			
-			var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAObjDir));
+			var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAShirtsDir));
 			foreach (var subfolder in objFolder.GetDirectories())
-				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Data.JAObjDir, subfolder.Name));
+				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Data.JAShirtsDir, subfolder.Name));
+
+			objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAHatsDir));
+			foreach (var subfolder in objFolder.GetDirectories())
+				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Data.JAHatsDir, subfolder.Name));
 		}
 		
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
@@ -176,33 +180,53 @@ namespace SailorStyles_Clothing
 		{
 			CatShopStock.Clear();
 
-			var stock = new List<int>();
-			var random = new Random();
-			
+			Monitor.Log("JA Hat IDs:", LogLevel.Debug);
+			foreach (var id in JsonAssets.GetAllHatIds())
+				Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
+
+			PopulateShop(Data.JAHatsDir, 0);
+
+			Monitor.Log("JA Shirt IDs:", LogLevel.Debug);
+			foreach (var id in JsonAssets.GetAllClothingIds())
+				Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
+
+			PopulateShop(Data.JAShirtsDir, 1);
+		}
+		
+		private void PopulateShop(string dir, int type)
+		{
 			try
 			{
-				var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAObjDir));
+				var stock = new List<int>();
+				var random = new Random();
+
+				var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, dir));
 				var firstFolder = objFolder.GetDirectories()[0].GetDirectories()[0].GetDirectories()[0];
-				var lastFolder = objFolder.GetDirectories()[objFolder.GetDirectories().Length-1];
+				var lastFolder = objFolder.GetDirectories()[objFolder.GetDirectories().Length - 1];
 				lastFolder = lastFolder.GetDirectories()[0].GetDirectories()[lastFolder.GetDirectories()[0]
 					.GetDirectories().Length - 1];
 
-				Monitor.Log("JA IDs:", LogLevel.Debug);
-				foreach (var id in JsonAssets.GetAllClothingIds())
-				{
-					Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
-				}
-
 				Monitor.Log($"CatShop first object: {firstFolder.Name}",
 					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
-
 				Monitor.Log($"CatShop last object: {lastFolder.Name}",
 					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
 
-				var firstObject = JsonAssets.GetClothingId(firstFolder.Name);
-				var lastObject = JsonAssets.GetClothingId(lastFolder.Name);
-				
-				var goalQty = Math.Min(Data.CatShopQuantity, lastObject - firstObject);
+				var firstObject = 0;
+				var lastObject = 0;
+
+				switch(type)
+				{
+					case 0:
+						firstObject = JsonAssets.GetHatId(firstFolder.Name);
+						lastObject = JsonAssets.GetHatId(lastFolder.Name);
+						break;
+					case 1:
+						firstObject = JsonAssets.GetClothingId(firstFolder.Name);
+						lastObject = JsonAssets.GetClothingId(lastFolder.Name);
+						break;
+				}
+
+				var goalQty = (lastObject - firstObject) / Data.CatShopQtyRatio;
 
 				Monitor.Log("CatShop Restock bounds:",
 					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
@@ -218,9 +242,19 @@ namespace SailorStyles_Clothing
 
 				foreach (var id in stock)
 				{
-					CatShopStock.Add(
-						new StardewValley.Objects.Clothing(id), new int[2]
-						{ Data.ClothingCost, 1 });
+					switch (type)
+					{
+						case 0:
+							CatShopStock.Add(
+								new StardewValley.Objects.Hat(id), new int[2]
+								{ Data.ClothingCost, 1 });
+							break;
+						case 1:
+							CatShopStock.Add(
+								new StardewValley.Objects.Clothing(id), new int[2]
+								{ Data.ClothingCost, 1 });
+							break;
+					}
 				}
 			}
 			catch (Exception ex)

@@ -3,12 +3,10 @@
 using StardewValley;
 using StardewModdingAPI;
 
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using xTile;
 using xTile.Dimensions;
-using xTile.Layers;
 using xTile.ObjectModel;
 using xTile.Tiles;
 
