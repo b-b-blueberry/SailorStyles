@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.IO;
 
 namespace SailorStyles_Clothing
 {
@@ -8,11 +8,12 @@ namespace SailorStyles_Clothing
 		internal const string CatID = "zss_cat";
 		internal const string ShopDialogueRoot = "catshop.text.";
 		internal const string ImgExt = ".png";
-		internal const string JAObjDir = "Objects";
+		internal const string AssetsDir = "Assets";
+		internal static readonly string JAObjDir = Path.Combine(Data.AssetsDir, "Objects");
 
 		// keys
 		internal const string LocationTarget = "Forest";
-		internal const string ExtraLayerID = "CatShop_Buildings";
+		//internal const string ExtraLayerID = "CatShop_Buildings";
 
 		// values
 		internal const int CatShopQuantity = 25;

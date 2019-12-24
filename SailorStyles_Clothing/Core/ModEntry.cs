@@ -18,8 +18,6 @@ namespace SailorStyles_Clothing
 {
 	public class ModEntry : Mod
 	{
-		internal static ModEntry Instance;
-
 		internal static Config SConfig;
 		internal static IModHelper SHelper;
 		internal static IMonitor SMonitor;
@@ -35,8 +33,6 @@ namespace SailorStyles_Clothing
 
 		public override void Entry(IModHelper helper)
 		{
-			Instance = this;
-
 			SConfig = helper.ReadConfig<Config>();
 			SHelper = helper;
 			SMonitor = Monitor;
@@ -110,7 +106,7 @@ namespace SailorStyles_Clothing
 			// mmmmswsswsss
 			var random = new Random();
 			var randint = random.Next(Data.CateRate);
-			cate = randint == 0;
+			cate = randint == 0 || (SConfig.debugMode && SConfig.debugCate);
 			Monitor.Log("CateRate: " + randint + "/" + Data.CateRate + ", " + cate.ToString(),
 				SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
 		}
@@ -161,7 +157,7 @@ namespace SailorStyles_Clothing
 				false,
 				null,
 				Helper.Content.Load<Texture2D>(
-					Path.Combine("Assets", Data.CatID + "_arte" + Data.ImgExt)));
+					Path.Combine(Data.AssetsDir, Data.CatID + "_arte" + Data.ImgExt)));
 
 			// ahahaha
 			CateNPC = new NPC(
@@ -173,7 +169,7 @@ namespace SailorStyles_Clothing
 				false,
 				null,
 				Helper.Content.Load<Texture2D>(
-					Path.Combine("Assets", Data.CatID + "_cate" + Data.ImgExt)));
+					Path.Combine(Data.AssetsDir, Data.CatID + "_cate" + Data.ImgExt)));
 		}
 
 		private void CatShopRestock()
@@ -186,15 +182,26 @@ namespace SailorStyles_Clothing
 			try
 			{
 				var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAObjDir));
-
 				var firstFolder = objFolder.GetDirectories()[0].GetDirectories()[0].GetDirectories()[0];
 				var lastFolder = objFolder.GetDirectories()[objFolder.GetDirectories().Length-1];
+				lastFolder = lastFolder.GetDirectories()[0].GetDirectories()[lastFolder.GetDirectories()[0]
+					.GetDirectories().Length - 1];
 
-				var firstObject = JsonAssets.GetClothingId(
-					firstFolder.Name);
-				var lastObject = JsonAssets.GetClothingId(
-					lastFolder.GetDirectories()[0].GetDirectories()[lastFolder.GetDirectories()[0].GetDirectories().Length-1].Name);
+				Monitor.Log("JA IDs:", LogLevel.Debug);
+				foreach (var id in JsonAssets.GetAllClothingIds())
+				{
+					Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
+				}
 
+				Monitor.Log($"CatShop first object: {firstFolder.Name}",
+					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+
+				Monitor.Log($"CatShop last object: {lastFolder.Name}",
+					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+
+				var firstObject = JsonAssets.GetClothingId(firstFolder.Name);
+				var lastObject = JsonAssets.GetClothingId(lastFolder.Name);
+				
 				var goalQty = Math.Min(Data.CatShopQuantity, lastObject - firstObject);
 
 				Monitor.Log("CatShop Restock bounds:",
