@@ -8,6 +8,7 @@ namespace SailorStyles_Clothing
 		internal const string CatID = "zss_cat";
 		internal const string ShopDialogueRoot = "catshop.text.";
 		internal const string ImgExt = ".png";
+		internal const string JAObjDir = "Objects";
 
 		// keys
 		internal const string LocationTarget = "Forest";

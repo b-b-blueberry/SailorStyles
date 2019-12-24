@@ -17,11 +17,13 @@ namespace SailorStyles_Clothing.Editors
 	{
 		private IModHelper Helper;
 		private IMonitor Monitor;
+		private bool IsDebugging;
 
-		public MapEditor(IModHelper helper, IMonitor monitor)
+		public MapEditor(IModHelper helper, IMonitor monitor, bool isDebugging)
 		{
 			Helper = helper;
 			Monitor = monitor;
+			IsDebugging = isDebugging;
 		}
 
 		public bool CanEdit<T>(IAssetInfo asset)
@@ -33,7 +35,7 @@ namespace SailorStyles_Clothing.Editors
 		{
 			if (asset.AssetNameEquals(Path.Combine("Maps", Data.LocationTarget)))
 			{
-				if (Game1.dayOfMonth % 7 <= 1)
+				if (Game1.dayOfMonth % 7 <= 1 || IsDebugging)
 				{
 					Monitor.Log("Patching map file " + Data.LocationTarget,
 						LogLevel.Trace);
@@ -90,58 +92,62 @@ namespace SailorStyles_Clothing.Editors
 
 			layer = map.GetLayer(Data.ExtraLayerID);
 
-			if (layer == null)
+			if (layer != null)
 			{
-				Monitor.Log("Failed to add CatShop sprites: " +
-					"Extra map layer couldn't be added.",
-					LogLevel.Error);
-				return;
-			}
+				Monitor.Log($"Added layer: {layer.Id}",
+					IsDebugging ? LogLevel.Debug : LogLevel.Trace);
 
-			tiles = layer.Tiles;
+				tiles = layer.Tiles;
 
-			if (!ModEntry.cate)
-			{
-				tiles[30, 94] = new StaticTile(layer, sheet, mode, 31);
-				tiles[30, 95] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
-
-				if (Game1.timeOfDay < 1300)
+				if (!ModEntry.cate)
 				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 0);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 0 + sheet.SheetWidth);
-				}
-				else if (Game1.timeOfDay < 2100)
-				{
-					tiles[31, 94] = new AnimatedTile(layer, new StaticTile[]{
-						new StaticTile(layer, sheet, mode, 1),
-						new StaticTile(layer, sheet, mode, 2)
-						}, 10000);
-					tiles[31, 95] = new AnimatedTile(layer, new StaticTile[]{
-						new StaticTile(layer, sheet, mode, 1 + sheet.SheetWidth),
-						new StaticTile(layer, sheet, mode, 2 + sheet.SheetWidth)
-						}, 10000);
+					tiles[30, 94] = new StaticTile(layer, sheet, mode, 31);
+					tiles[30, 95] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
+
+					if (Game1.timeOfDay < 1300)
+					{
+						tiles[31, 94] = new StaticTile(layer, sheet, mode, 0);
+						tiles[31, 95] = new StaticTile(layer, sheet, mode, 0 + sheet.SheetWidth);
+					}
+					else if (Game1.timeOfDay < 2100)
+					{
+						tiles[31, 94] = new AnimatedTile(layer, new StaticTile[]{
+							new StaticTile(layer, sheet, mode, 1),
+							new StaticTile(layer, sheet, mode, 2)
+							}, 10000);
+						tiles[31, 95] = new AnimatedTile(layer, new StaticTile[]{
+							new StaticTile(layer, sheet, mode, 1 + sheet.SheetWidth),
+							new StaticTile(layer, sheet, mode, 2 + sheet.SheetWidth)
+							}, 10000);
+					}
+					else
+					{
+						tiles[31, 94] = new StaticTile(layer, sheet, mode, 6);
+						tiles[31, 95] = new StaticTile(layer, sheet, mode, 6 + sheet.SheetWidth);
+					}
 				}
 				else
 				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 6);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 6 + sheet.SheetWidth);
+					// eeeewwsws
+					if (Game1.timeOfDay < 2100)
+					{
+						tiles[31, 94] = new StaticTile(layer, sheet, mode, 15);
+						tiles[30, 95] = new StaticTile(layer, sheet, mode, 14 + sheet.SheetWidth);
+						tiles[31, 95] = new StaticTile(layer, sheet, mode, 15 + sheet.SheetWidth);
+					}
+					else
+					{
+						tiles[31, 94] = new StaticTile(layer, sheet, mode, 17);
+						tiles[30, 95] = new StaticTile(layer, sheet, mode, 16 + sheet.SheetWidth);
+						tiles[31, 95] = new StaticTile(layer, sheet, mode, 17 + sheet.SheetWidth);
+					}
 				}
 			}
 			else
 			{
-				// eeeewwsws
-				if (Game1.timeOfDay < 2100)
-				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 15);
-					tiles[30, 95] = new StaticTile(layer, sheet, mode, 14 + sheet.SheetWidth);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 15 + sheet.SheetWidth);
-				}
-				else
-				{
-					tiles[31, 94] = new StaticTile(layer, sheet, mode, 17);
-					tiles[30, 95] = new StaticTile(layer, sheet, mode, 16 + sheet.SheetWidth);
-					tiles[31, 95] = new StaticTile(layer, sheet, mode, 17 + sheet.SheetWidth);
-				}
+				Monitor.Log("Failed to add CatShop sprites: Extra map layer couldn't be added.",
+					LogLevel.Error);
+				return;
 			}
 		}
 	}
