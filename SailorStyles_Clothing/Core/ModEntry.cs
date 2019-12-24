@@ -75,7 +75,7 @@ namespace SailorStyles_Clothing
 				}
 
 				// debug junk
-				if (keyPressed.ToSButton().Equals(SButton.U) && SConfig.debugMode)
+				if (keyPressed.ToSButton().Equals(SConfig.debugWarpKey) && SConfig.debugMode)
 				{
 					DebugWarpPlayer();
 				}

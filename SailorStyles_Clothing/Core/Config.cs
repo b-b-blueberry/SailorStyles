@@ -4,14 +4,14 @@ namespace SailorStyles_Clothing
 {
 	class Config
 	{
-		public SButton debugKey { get; set; }
+		public SButton debugWarpKey { get; set; }
 		public bool debugMode { get; set; }
 		public bool debugCate { get; set; }
 
 		public Config()
 		{
-			debugMode = true;
-			debugKey = SButton.J;
+			debugMode = false;
+			debugWarpKey = SButton.U;
 			debugCate = true;
 		}
 	}
