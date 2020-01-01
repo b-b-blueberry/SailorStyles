@@ -15,13 +15,11 @@ namespace SailorStyles_Clothing.Editors
 	class MapEditor : IAssetEditor
 	{
 		private IModHelper Helper;
-		private IMonitor Monitor;
 		private bool IsDebugging;
 
-		public MapEditor(IModHelper helper, IMonitor monitor, bool isDebugging)
+		public MapEditor(IModHelper helper, bool isDebugging)
 		{
 			Helper = helper;
-			Monitor = monitor;
 			IsDebugging = isDebugging;
 		}
 
@@ -36,8 +34,8 @@ namespace SailorStyles_Clothing.Editors
 			{
 				if (Game1.dayOfMonth % 7 <= 1 || IsDebugging)
 				{
-					Monitor.Log("Patching map file " + Data.LocationTarget,
-						LogLevel.Trace);
+					Log.D("Patching map file " + Data.LocationTarget,
+						IsDebugging);
 					PrepareMap((Map)asset.Data);
 				}
 			}
@@ -95,8 +93,8 @@ namespace SailorStyles_Clothing.Editors
 			
 			if (layer != null)
 			{
-				Monitor.Log($"Added layer: {layer.Id}",
-					IsDebugging ? LogLevel.Debug : LogLevel.Trace);
+				Log.D($"Added layer: {layer.Id}",
+					IsDebugging);
 
 				tiles = layer.Tiles;
 
@@ -153,8 +151,7 @@ namespace SailorStyles_Clothing.Editors
 			}
 			else
 			{
-				Monitor.Log("Failed to add CatShop sprites: Extra map layer couldn't be added.",
-					LogLevel.Error);
+				Log.E("Failed to add CatShop sprites: Extra map layer couldn't be added.");
 				return;
 			}
 		}
