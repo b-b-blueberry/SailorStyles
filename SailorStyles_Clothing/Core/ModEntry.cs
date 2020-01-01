@@ -14,10 +14,20 @@ using Microsoft.Xna.Framework.Input;
 using xTile.Dimensions;
 using xTile.ObjectModel;
 
+/*
+ * 
+ * authors note
+ * 
+ * update all the manifest and content-pack files u idiot
+ *
+ */
+
 namespace SailorStyles_Clothing
 {
 	public class ModEntry : Mod
 	{
+		internal static ModEntry Instance;
+
 		internal static Config SConfig;
 		internal static IModHelper SHelper;
 		internal static IMonitor SMonitor;
@@ -33,6 +43,8 @@ namespace SailorStyles_Clothing
 
 		public override void Entry(IModHelper helper)
 		{
+			Instance = this;
+
 			SConfig = helper.ReadConfig<Config>();
 			SHelper = helper;
 			SMonitor = Monitor;
@@ -42,7 +54,7 @@ namespace SailorStyles_Clothing
 			helper.Events.GameLoop.DayStarted += OnDayStarted;
 			helper.Events.Player.Warped += OnWarped;
 
-			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper, Monitor, SConfig.debugMode));
+			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper, SConfig.debugMode));
 		}
 		
 		private void OnButtonReleased(object sender, ButtonReleasedEventArgs e)
@@ -89,8 +101,7 @@ namespace SailorStyles_Clothing
 			JsonAssets = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
 			if (JsonAssets == null)
 			{
-				Monitor.Log("Can't access the Json Assets API. Is the mod installed correctly?",
-					LogLevel.Error);
+				Log.E("Can't access the Json Assets API. Is the mod installed correctly?");
 				return;
 			}
 			
@@ -111,8 +122,8 @@ namespace SailorStyles_Clothing
 			var random = new Random();
 			var randint = random.Next(Data.CateRate);
 			cate = randint == 0 || (SConfig.debugMode && SConfig.debugCate);
-			Monitor.Log("CateRate: " + randint + "/" + Data.CateRate + ", " + cate.ToString(),
-				SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+			Log.D("CateRate: " + randint + "/" + Data.CateRate + ", " + cate.ToString(),
+				SConfig.debugMode);
 		}
 		
 		private void OnWarped(object sender, WarpedEventArgs e)
@@ -132,16 +143,16 @@ namespace SailorStyles_Clothing
 				if (CatNPC == null && (Game1.dayOfMonth % 7 <= 1 || SConfig.debugMode))
 					AddNPCs();
 
-				Monitor.Log("Invalidating cache for map file " + Data.LocationTarget,
-					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+				Log.D("Invalidating cache for map file " + Data.LocationTarget,
+					SConfig.debugMode);
 				Helper.Content.InvalidateCache(Path.Combine("Maps", Data.LocationTarget));
 			}
 		}
 
 		private void RemoveNPCs()
 		{
-			Monitor.Log("Removing NPCs at " + Data.LocationTarget,
-				SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+			Log.D("Removing NPCs at " + Data.LocationTarget,
+				SConfig.debugMode);
 
 			CatNPC = null;
 			CateNPC = null;
@@ -149,9 +160,9 @@ namespace SailorStyles_Clothing
 
 		private void AddNPCs()
 		{
-			Monitor.Log("Adding NPCs for " + Data.LocationTarget,
-				LogLevel.Trace);
-			
+			Log.D("Adding NPCs for " + Data.LocationTarget,
+				SConfig.debugMode);
+
 			CatNPC = new NPC(
 				new AnimatedSprite("Characters\\Bouncer", 0, 16, 32),
 				new Vector2(-64000f, 128f),
@@ -179,17 +190,21 @@ namespace SailorStyles_Clothing
 		private void CatShopRestock()
 		{
 			CatShopStock.Clear();
-
-			Monitor.Log("JA Hat IDs:", LogLevel.Debug);
+			/*
+			Log.D("JA Hat IDs:",
+				SConfig.debugMode);
 			foreach (var id in JsonAssets.GetAllHatIds())
-				Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
-
+				Log.D($"{id.Key}: {id.Value}",
+					SConfig.debugMode);
+			*/
 			PopulateShop(Data.JAHatsDir, 0);
-
-			Monitor.Log("JA Shirt IDs:", LogLevel.Debug);
+			/*
+			Log.D("JA Shirt IDs:",
+				SConfig.debugMode);
 			foreach (var id in JsonAssets.GetAllClothingIds())
-				Monitor.Log($"{id.Key}: {id.Value}", LogLevel.Debug);
-
+				Log.D($"{id.Key}: {id.Value}",
+					SConfig.debugMode);
+			*/
 			PopulateShop(Data.JAShirtsDir, 1);
 		}
 		
@@ -206,10 +221,10 @@ namespace SailorStyles_Clothing
 				lastFolder = lastFolder.GetDirectories()[0].GetDirectories()[lastFolder.GetDirectories()[0]
 					.GetDirectories().Length - 1];
 
-				Monitor.Log($"CatShop first object: {firstFolder.Name}",
-					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
-				Monitor.Log($"CatShop last object: {lastFolder.Name}",
-					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+				Log.D($"CatShop first object: {firstFolder.Name}",
+					SConfig.debugMode);
+				Log.D($"CatShop last object: {lastFolder.Name}",
+					SConfig.debugMode);
 
 				var firstObject = 0;
 				var lastObject = 0;
@@ -228,10 +243,10 @@ namespace SailorStyles_Clothing
 
 				var goalQty = (lastObject - firstObject) / Data.CatShopQtyRatio;
 
-				Monitor.Log("CatShop Restock bounds:",
-					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
-				Monitor.Log("index: " + firstObject + ", end: " + lastObject + ", goalQty: " + goalQty,
-					SConfig.debugMode ? LogLevel.Debug : LogLevel.Trace);
+				Log.D("CatShop Restock bounds:",
+					SConfig.debugMode);
+				Log.D("index: " + firstObject + ", end: " + lastObject + ", goalQty: " + goalQty,
+					SConfig.debugMode);
 
 				while (stock.Count < goalQty)
 				{
@@ -259,11 +274,9 @@ namespace SailorStyles_Clothing
 			}
 			catch (Exception ex)
 			{
-				Monitor.Log("Sailor Styles failed to populate the clothes shop."
-					+ "Did you remove all the clothing folders, or did I do something wrong?",
-					LogLevel.Error);
-				Monitor.Log("Exception logged:\n" + ex,
-					LogLevel.Error);
+				Log.E("Sailor Styles failed to populate the clothes shop."
+					+ "Did you remove all the clothing folders, or did I do something wrong?");
+				Log.E("Exception logged:\n" + ex);
 			}
 		}
 
@@ -299,8 +312,7 @@ namespace SailorStyles_Clothing
 		private void DebugWarpPlayer()
 		{
 			Game1.warpFarmer(Data.LocationTarget, 31, 97, 2);
-			Monitor.Log($"Warped {Game1.player.Name} to the CatShop.",
-				LogLevel.Debug);
+			Log.D($"Warped {Game1.player.Name} to the CatShop.");
 		}
 	}
 }
