@@ -53,6 +53,7 @@
     <Compile Include="Core\Config.cs" />
     <Compile Include="Core\ModEntry.cs" />
     <Compile Include="Editors\MapEditor.cs" />
+    <Compile Include="Core\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
