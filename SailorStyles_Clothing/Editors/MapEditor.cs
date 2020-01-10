@@ -10,32 +10,38 @@ using xTile.Dimensions;
 using xTile.ObjectModel;
 using xTile.Tiles;
 
+/*
+ *
+ * todo: correct tilesheet indexes for anything in zss_cat, ie. Cate, noren, clothes
+ *
+ */
+
 namespace SailorStyles_Clothing.Editors
 {
-	class MapEditor : IAssetEditor
+	internal class MapEditor : IAssetEditor
 	{
-		private IModHelper Helper;
-		private bool IsDebugging;
+		private readonly IModHelper _helper;
+		private readonly bool _isDebugging;
 
 		public MapEditor(IModHelper helper, bool isDebugging)
 		{
-			Helper = helper;
-			IsDebugging = isDebugging;
+			_helper = helper;
+			_isDebugging = isDebugging;
 		}
 
 		public bool CanEdit<T>(IAssetInfo asset)
 		{
-			return asset.AssetNameEquals(Path.Combine("Maps", Data.LocationTarget));
+			return asset.AssetNameEquals(Path.Combine("Maps", Const.LocationTarget));
 		}
 
 		public void Edit<T>(IAssetData asset)
 		{
-			if (asset.AssetNameEquals(Path.Combine("Maps", Data.LocationTarget)))
+			if (asset.AssetNameEquals(Path.Combine("Maps", Const.LocationTarget)))
 			{
-				if (Game1.dayOfMonth % 7 <= 1 || IsDebugging)
+				if (Game1.dayOfMonth % 7 <= 1 || _isDebugging)
 				{
-					Log.D("Patching map file " + Data.LocationTarget,
-						IsDebugging);
+					Log.D("Patching map file " + Const.LocationTarget,
+						_isDebugging);
 					PrepareMap((Map)asset.Data);
 				}
 			}
@@ -50,12 +56,11 @@ namespace SailorStyles_Clothing.Editors
 
 		private void AddTilesheet(Map map)
 		{
-			var path = Helper.Content.GetActualAssetKey(
-				Path.Combine(Data.AssetsDir, Data.CatID + "_tilesheet" + Data.ImgExt));
+			var path = _helper.Content.GetActualAssetKey(Const.CatTiles + Const.ImgExt);
 
-			var texture = Helper.Content.Load<Texture2D>(path);
+			var texture = _helper.Content.Load<Texture2D>(path);
 			var sheet = new TileSheet(
-				Data.CatID, map, path,
+				Const.CatID, map, path,
 				new Size(texture.Width / 16, texture.Height / 16),
 				new Size(16, 16));
 
@@ -67,19 +72,18 @@ namespace SailorStyles_Clothing.Editors
 		{
 			var layer = map.GetLayer("Buildings");
 			layer = new Layer(
-				Data.ExtraLayerID, map, layer.LayerSize, layer.TileSize);
+				Const.ExtraLayerID, map, layer.LayerSize, layer.TileSize);
 			layer.Properties.Add("DrawAbove", "Buildings");
 			map.AddLayer(layer);
 		}
 		*/
 		private void AddTiles(Map map)
 		{
-			var catX = 33;
-			var catY = 95;
-			var sheet = map.GetTileSheet(Data.CatID);
-			var layer = map.GetLayer("Front");
-			var tiles = layer.Tiles;
-			var mode = BlendMode.Additive;
+			const BlendMode mode = BlendMode.Additive;
+
+			var sheet = map.GetTileSheet(Const.CatID);
+			//var layer = map.GetLayer("Front");
+			//var tiles = layer.Tiles;
 			/* 
 			 * noren
 			 * 
@@ -87,45 +91,46 @@ namespace SailorStyles_Clothing.Editors
 			tiles[31, 94] = new StaticTile(layer, sheet, mode, 29);
 			tiles[32, 94] = new StaticTile(layer, sheet, mode, 30);
 			*/
-			map.GetLayer("Back").Tiles[catX, catY] = map.GetLayer("Buildings").Tiles[catX, catY];
 
-			layer = map.GetLayer("Buildings");
-			
+			var layer = map.GetLayer("Buildings");
+			if (layer.Tiles[Const.CatX, Const.CatY] == null)
+				layer.Tiles[Const.CatX, Const.CatY] = new StaticTile(layer, sheet, mode, 0);
+			layer.Tiles[Const.CatX, Const.CatY].Properties.Add("Action", new PropertyValue(Const.CatID));
+
+			/*
 			if (layer != null)
 			{
 				Log.D($"Added layer: {layer.Id}",
-					IsDebugging);
+					_isDebugging);
 
 				tiles = layer.Tiles;
 
-				if (!ModEntry.cate)
+				if (!ModEntry.Cate)
 				{
-					/*
-					 * kimono
-					 * 
-					tiles[catX-1, catY] = new StaticTile(layer, sheet, mode, 31);
-					tiles[catX-1, catY+1] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
-					*/
+					
+					// kimono
+					//tiles[CatX-1, CatY] = new StaticTile(layer, sheet, mode, 31);
+					//tiles[CatX-1, CatY+1] = new StaticTile(layer, sheet, mode, 31 + sheet.SheetWidth);
 					if (Game1.timeOfDay < 1300)
 					{
-						tiles[catX, catY] = new StaticTile(layer, sheet, mode, 0);
-						tiles[catX, catY+1] = new StaticTile(layer, sheet, mode, 0 + sheet.SheetWidth);
+						tiles[CatX, CatY] = new StaticTile(layer, sheet, mode, 0);
+						tiles[CatX, CatY+1] = new StaticTile(layer, sheet, mode, 0 + sheet.SheetWidth);
 					}
 					else if (Game1.timeOfDay < 2100)
 					{
-						tiles[catX, catY] = new AnimatedTile(layer, new StaticTile[]{
+						tiles[CatX, CatY] = new AnimatedTile(layer, new StaticTile[]{
 							new StaticTile(layer, sheet, mode, 1),
 							new StaticTile(layer, sheet, mode, 2)
 							}, 10000);
-						tiles[catX, catY+1] = new AnimatedTile(layer, new StaticTile[]{
+						tiles[CatX, CatY+1] = new AnimatedTile(layer, new StaticTile[]{
 							new StaticTile(layer, sheet, mode, 1 + sheet.SheetWidth),
 							new StaticTile(layer, sheet, mode, 2 + sheet.SheetWidth)
 							}, 10000);
 					}
 					else
 					{
-						tiles[catX, catY] = new StaticTile(layer, sheet, mode, 6);
-						tiles[catX, catY+1] = new StaticTile(layer, sheet, mode, 6 + sheet.SheetWidth);
+						tiles[CatX, CatY] = new StaticTile(layer, sheet, mode, 6);
+						tiles[CatX, CatY+1] = new StaticTile(layer, sheet, mode, 6 + sheet.SheetWidth);
 					}
 				}
 				else
@@ -133,27 +138,27 @@ namespace SailorStyles_Clothing.Editors
 					// eeeewwsws
 					if (Game1.timeOfDay < 2100)
 					{
-						tiles[catX, catY] = new StaticTile(layer, sheet, mode, 15);
-						tiles[catX-1, catY+1] = new StaticTile(layer, sheet, mode, 14 + sheet.SheetWidth);
-						tiles[catX, catY+1] = new StaticTile(layer, sheet, mode, 15 + sheet.SheetWidth);
+						tiles[CatX, CatY] = new StaticTile(layer, sheet, mode, 15);
+						tiles[CatX-1, CatY+1] = new StaticTile(layer, sheet, mode, 14 + sheet.SheetWidth);
+						tiles[CatX, CatY+1] = new StaticTile(layer, sheet, mode, 15 + sheet.SheetWidth);
 					}
 					else
 					{
-						tiles[catX, catY] = new StaticTile(layer, sheet, mode, 17);
-						tiles[catX-1, catY+1] = new StaticTile(layer, sheet, mode, 16 + sheet.SheetWidth);
-						tiles[catX, catY+1] = new StaticTile(layer, sheet, mode, 17 + sheet.SheetWidth);
+						tiles[CatX, CatY] = new StaticTile(layer, sheet, mode, 17);
+						tiles[CatX-1, CatY+1] = new StaticTile(layer, sheet, mode, 16 + sheet.SheetWidth);
+						tiles[CatX, CatY+1] = new StaticTile(layer, sheet, mode, 17 + sheet.SheetWidth);
 					}
 				}
 
 				//layer = map.GetLayer("Buildings");
 				//tiles = layer.Tiles;
-				tiles[catX, catY+1].Properties.Add("Action", new PropertyValue(Data.CatID));
 			}
 			else
 			{
 				Log.E("Failed to add CatShop sprites: Extra map layer couldn't be added.");
 				return;
 			}
+			*/
 		}
 	}
 }

@@ -9,16 +9,22 @@ using StardewModdingAPI.Events;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 using xTile.Dimensions;
 using xTile.ObjectModel;
 
 /*
- * 
+ *
  * authors note
- * 
+ *
  * update all the manifest and content-pack files u idiot
+ *
+ */
+
+/*
+ * todo
+ *
+ * create an npc for artemis to dodge the custom house layering issues
  *
  */
 
@@ -28,90 +34,87 @@ namespace SailorStyles_Clothing
 	{
 		internal static ModEntry Instance;
 
-		internal static Config SConfig;
-		internal static IModHelper SHelper;
-		internal static IMonitor SMonitor;
-		internal static ITranslationHelper i18n => SHelper.Translation;
+		internal Config Config;
+		internal ITranslationHelper i18n => Helper.Translation;
 		
-		private static IJsonAssetsApi JsonAssets;
+		private static IJsonAssetsApi _jsonAssets;
 		
-		private NPC CatNPC;
-		private NPC CateNPC;
-		internal static bool cate;
+		private NPC _catNPC;
+		private NPC _cateNPC;
+		internal static bool Cate;
 
-		private Dictionary<ISalable, int[]> CatShopStock;
+		private Dictionary<ISalable, int[]> _catShopStock;
 
 		public override void Entry(IModHelper helper)
 		{
 			Instance = this;
-
-			SConfig = helper.ReadConfig<Config>();
-			SHelper = helper;
-			SMonitor = Monitor;
+			Config = helper.ReadConfig<Config>();
 
 			helper.Events.Input.ButtonReleased += OnButtonReleased;
 			helper.Events.GameLoop.GameLaunched += OnGameLaunched;
 			helper.Events.GameLoop.DayStarted += OnDayStarted;
 			helper.Events.Player.Warped += OnWarped;
 
-			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper, SConfig.debugMode));
+			helper.Content.AssetLoaders.Add(new Editors.CustomNPCLoader(helper, Config.debugMode));
+			helper.Content.AssetEditors.Add(new Editors.AnimDescEditor(helper, Config.debugMode));
+			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper, Config.debugMode));
 		}
 		
 		private void OnButtonReleased(object sender, ButtonReleasedEventArgs e)
 		{
-			e.Button.TryGetKeyboard(out Keys keyPressed);
+			e.Button.TryGetKeyboard(out var keyPressed);
 
-			if (Game1.activeClickableMenu == null && !Game1.player.UsingTool && !Game1.pickingTool && !Game1.menuUp
-				&& (!Game1.eventUp || Game1.currentLocation.currentEvent.playerControlSequence) && !Game1.nameSelectUp
-				&& Game1.numberOfSelectedItems == -1)
+			if (Game1.activeClickableMenu != null || Game1.player.UsingTool || Game1.pickingTool || Game1.menuUp ||
+			    (Game1.eventUp && !Game1.currentLocation.currentEvent.playerControlSequence) || Game1.nameSelectUp ||
+			    Game1.numberOfSelectedItems != -1)
+				return;
+
+			if (e.Button.IsActionButton())
 			{
-				if (e.Button.IsActionButton())
+				// thanks sundrop
+				var grabTile = new Vector2(
+					               Game1.getOldMouseX() + Game1.viewport.X, Game1.getOldMouseY() + Game1.viewport.Y) / Game1.tileSize;
+				if (!Utility.tileWithinRadiusOfPlayer((int)grabTile.X, (int)grabTile.Y, 1, Game1.player))
+					grabTile = Game1.player.GetGrabTile();
+				var tile = Game1.currentLocation.map.GetLayer("Buildings").PickTile(new Location(
+					(int)grabTile.X * Game1.tileSize, (int)grabTile.Y * Game1.tileSize), Game1.viewport.Size);
+				PropertyValue action = null;
+				tile?.Properties.TryGetValue("Action", out action);
+				if (action != null)
 				{
-					// thanks sundrop
-					var grabTile = new Vector2(
-						Game1.getOldMouseX() + Game1.viewport.X, Game1.getOldMouseY() + Game1.viewport.Y) / Game1.tileSize;
-					if (!Utility.tileWithinRadiusOfPlayer((int)grabTile.X, (int)grabTile.Y, 1, Game1.player))
-						grabTile = Game1.player.GetGrabTile();
-					var tile = Game1.currentLocation.map.GetLayer("Buildings").PickTile(new Location(
-						(int)grabTile.X * Game1.tileSize, (int)grabTile.Y * Game1.tileSize), Game1.viewport.Size);
-					PropertyValue action = null;
-					tile?.Properties.TryGetValue("Action", out action);
-					if (action != null)
-					{
-						string[] strArray = ((string)action).Split(' ');
-						string[] args = new string[strArray.Length - 1];
-						Array.Copy(strArray, 1, args, 0, args.Length);
-						if (strArray[0].Equals(Data.CatID))
-							CatShop();
-					}
+					var strArray = ((string)action).Split(' ');
+					var args = new string[strArray.Length - 1];
+					Array.Copy(strArray, 1, args, 0, args.Length);
+					if (strArray[0].Equals(Const.CatID))
+						CatShop();
 				}
+			}
 
-				// debug junk
-				if (keyPressed.ToSButton().Equals(SConfig.debugWarpKey) && SConfig.debugMode)
-				{
-					DebugWarpPlayer();
-				}
+			// debug junk
+			if (keyPressed.ToSButton().Equals(Config.debugWarpKey) && Config.debugMode)
+			{
+				DebugWarpPlayer();
 			}
 		}
 
 		private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
 		{
-			CatShopStock = new Dictionary<ISalable, int[]>();
+			_catShopStock = new Dictionary<ISalable, int[]>();
 
-			JsonAssets = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
-			if (JsonAssets == null)
+			_jsonAssets = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
+			if (_jsonAssets == null)
 			{
 				Log.E("Can't access the Json Assets API. Is the mod installed correctly?");
 				return;
 			}
 			
-			var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAShirtsDir));
+			var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Const.JAShirtsDir));
 			foreach (var subfolder in objFolder.GetDirectories())
-				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Data.JAShirtsDir, subfolder.Name));
+				_jsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Const.JAShirtsDir, subfolder.Name));
 
-			objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Data.JAHatsDir));
+			objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Const.JAHatsDir));
 			foreach (var subfolder in objFolder.GetDirectories())
-				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Data.JAHatsDir, subfolder.Name));
+				_jsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Const.JAHatsDir, subfolder.Name));
 		}
 		
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
@@ -119,11 +122,13 @@ namespace SailorStyles_Clothing
 			CatShopRestock();
 
 			// mmmmswsswsss
+			/*
 			var random = new Random();
-			var randint = random.Next(Data.CateRate);
-			cate = randint == 0 || (SConfig.debugMode && SConfig.debugCate);
-			Log.D("CateRate: " + randint + "/" + Data.CateRate + ", " + cate.ToString(),
-				SConfig.debugMode);
+			var randint = random.Next(Const.CateRate);
+			Cate = randint == 0 || (Config.debugMode && Config.debugCate);
+			Log.D("CateRate: " + randint + "/" + Const.CateRate + ", " + Cate,
+				Config.debugMode);
+			*/
 		}
 		
 		private void OnWarped(object sender, WarpedEventArgs e)
@@ -133,79 +138,104 @@ namespace SailorStyles_Clothing
 
 		private void ResetLocation(WarpedEventArgs e)
 		{
-			if (e.OldLocation.Name.Equals(Data.LocationTarget))
+			Log.D($"Resetting location and NPC data ({Const.LocationTarget})",
+				Config.debugMode);
+
+			Helper.Content.InvalidateCache(Const.AnimDescs);
+
+			if (e.OldLocation.Name.Equals(Const.LocationTarget))
 			{
 				RemoveNPCs();
 			}
 
-			if (e.NewLocation.Name.Equals(Data.LocationTarget))
-			{
-				if (CatNPC == null && (Game1.dayOfMonth % 7 <= 1 || SConfig.debugMode))
-					AddNPCs();
+			if (!e.NewLocation.Name.Equals(Const.LocationTarget))
+				return;
 
-				Log.D("Invalidating cache for map file " + Data.LocationTarget,
-					SConfig.debugMode);
-				Helper.Content.InvalidateCache(Path.Combine("Maps", Data.LocationTarget));
-			}
+			if (_catNPC == null && (Game1.dayOfMonth % 7 <= 1 || Config.debugMode))
+				AddNPCs();
+
+			Helper.Content.InvalidateCache(Path.Combine("Maps", Const.LocationTarget));
 		}
 
 		private void RemoveNPCs()
 		{
-			Log.D("Removing NPCs at " + Data.LocationTarget,
-				SConfig.debugMode);
+			Log.D($"Removing NPCs at {Const.LocationTarget}",
+				Config.debugMode);
 
-			CatNPC = null;
-			CateNPC = null;
+			Game1.getLocationFromName(Const.LocationTarget).characters.Remove(_catNPC);
+			_catNPC = null;
+
+			Game1.getLocationFromName(Const.LocationTarget).characters.Remove(_cateNPC);
+			_cateNPC = null;
 		}
 
 		private void AddNPCs()
 		{
-			Log.D("Adding NPCs for " + Data.LocationTarget,
-				SConfig.debugMode);
+			Log.D($"Adding NPCs for {Const.LocationTarget}",
+				Config.debugMode);
 
-			CatNPC = new NPC(
-				new AnimatedSprite("Characters\\Bouncer", 0, 16, 32),
-				new Vector2(-64000f, 128f),
-				Data.LocationTarget,
+			_catNPC = new NPC(
+				new AnimatedSprite(Const.CatSprite, 0, 16, 32),
+				new Vector2(Const.CatX, Const.CatY) * 64.0f,
+				Const.LocationTarget,
 				2,
-				Data.CatID,
+				Const.CatID,
 				false,
 				null,
-				Helper.Content.Load<Texture2D>(
-					Path.Combine(Data.AssetsDir, Data.CatID + "_arte" + Data.ImgExt)));
+				Helper.Content.Load<Texture2D>($@"Portraits/{Const.CatID}",
+					ContentSource.GameContent));
+			
+			Game1.getLocationFromName(Const.LocationTarget).addCharacter(_catNPC);
+
+			_catNPC.Schedule = _catNPC.getSchedule(Game1.dayOfMonth);
+			_catNPC.scheduleTimeToTry = 9999999;
+			_catNPC.ignoreScheduleToday = false;
+			_catNPC.followSchedule = true;
+			
+			Log.D($"Cat name     : {_catNPC.Name}");
+			Log.D($"Cat position : {_catNPC.position.X}, {_catNPC.position.Y}");
+			Log.D($"Cat texture  : {Const.CatSprite}");
+
+			Log.D("Cat schedule : ");
+			if (_catNPC.Schedule != null)
+				foreach (var entry in _catNPC.Schedule)
+					Log.D($"{entry.Key}: {entry.Value.endOfRouteBehavior}");
+			else
+				Log.D("null");
 
 			// ahahaha
-			CateNPC = new NPC(
+			/*
+			_cateNPC = new NPC(
 				new AnimatedSprite("Characters\\Bouncer", 0, 64, 128),
 				new Vector2(-64000f, 128f),
-				Data.LocationTarget,
+				Const.LocationTarget,
 				2,
-				Data.CatID + "e",
+				Const.CatID + "e",
 				false,
 				null,
-				Helper.Content.Load<Texture2D>(
-					Path.Combine(Data.AssetsDir, Data.CatID + "_cate" + Data.ImgExt)));
+				Helper.Content.Load<Texture2D>(Const.CatePortrait));
+			*/
 		}
 
 		private void CatShopRestock()
 		{
-			CatShopStock.Clear();
+			_catShopStock.Clear();
 			/*
 			Log.D("JA Hat IDs:",
-				SConfig.debugMode);
+				Config.debugMode);
 			foreach (var id in JsonAssets.GetAllHatIds())
 				Log.D($"{id.Key}: {id.Value}",
-					SConfig.debugMode);
+					Config.debugMode);
 			*/
-			PopulateShop(Data.JAHatsDir, 0);
+			PopulateShop(Const.JAHatsDir, 0);
 			/*
 			Log.D("JA Shirt IDs:",
-				SConfig.debugMode);
+				Config.debugMode);
 			foreach (var id in JsonAssets.GetAllClothingIds())
 				Log.D($"{id.Key}: {id.Value}",
-					SConfig.debugMode);
+					Config.debugMode);
 			*/
-			PopulateShop(Data.JAShirtsDir, 1);
+			PopulateShop(Const.JAShirtsDir, 1);
 		}
 		
 		private void PopulateShop(string dir, int type)
@@ -222,9 +252,9 @@ namespace SailorStyles_Clothing
 					.GetDirectories().Length - 1];
 
 				Log.D($"CatShop first object: {firstFolder.Name}",
-					SConfig.debugMode);
+					Config.debugMode);
 				Log.D($"CatShop last object: {lastFolder.Name}",
-					SConfig.debugMode);
+					Config.debugMode);
 
 				var firstObject = 0;
 				var lastObject = 0;
@@ -232,21 +262,24 @@ namespace SailorStyles_Clothing
 				switch(type)
 				{
 					case 0:
-						firstObject = JsonAssets.GetHatId(firstFolder.Name);
-						lastObject = JsonAssets.GetHatId(lastFolder.Name);
+						firstObject = _jsonAssets.GetHatId(firstFolder.Name);
+						lastObject = _jsonAssets.GetHatId(lastFolder.Name);
 						break;
 					case 1:
-						firstObject = JsonAssets.GetClothingId(firstFolder.Name);
-						lastObject = JsonAssets.GetClothingId(lastFolder.Name);
+						firstObject = _jsonAssets.GetClothingId(firstFolder.Name);
+						lastObject = _jsonAssets.GetClothingId(lastFolder.Name);
 						break;
+					default:
+						Log.E("The CatShop hit a dead end. This feature wasn't finished!");
+						throw new NotImplementedException();
 				}
 
-				var goalQty = (lastObject - firstObject) / Data.CatShopQtyRatio;
+				var goalQty = (lastObject - firstObject) / Const.CatShopQtyRatio;
 
 				Log.D("CatShop Restock bounds:",
-					SConfig.debugMode);
-				Log.D("index: " + firstObject + ", end: " + lastObject + ", goalQty: " + goalQty,
-					SConfig.debugMode);
+					Config.debugMode);
+				Log.D($"index: {firstObject}, end: {lastObject}, goalQty: {goalQty}",
+					Config.debugMode);
 
 				while (stock.Count < goalQty)
 				{
@@ -260,15 +293,18 @@ namespace SailorStyles_Clothing
 					switch (type)
 					{
 						case 0:
-							CatShopStock.Add(
-								new StardewValley.Objects.Hat(id), new int[2]
-								{ Data.ClothingCost, 1 });
+							_catShopStock.Add(
+								new StardewValley.Objects.Hat(id), new[]
+								{ Const.ClothingCost, 1 });
 							break;
 						case 1:
-							CatShopStock.Add(
-								new StardewValley.Objects.Clothing(id), new int[2]
-								{ Data.ClothingCost, 1 });
+							_catShopStock.Add(
+								new StardewValley.Objects.Clothing(id), new[]
+								{ Const.ClothingCost, 1 });
 							break;
+						default:
+							Log.E("The CatShop hit a dead end. This feature wasn't finished!");
+							throw new NotImplementedException();
 					}
 				}
 			}
@@ -283,14 +319,13 @@ namespace SailorStyles_Clothing
 		private void CatShop()
 		{
 			Game1.playSound("cat");
-
-			var name = Data.CatID;
+			
 			var text = (string) null;
 
-			if (!cate)
+			if (!Cate)
 			{
 				var random = new Random((int)((long)Game1.uniqueIDForThisGame + Game1.stats.DaysPlayed));
-				var whichDialogue = Data.ShopDialogueRoot + random.Next(5);
+				var whichDialogue = Const.ShopDialogueRoot + random.Next(5);
 				if (whichDialogue.EndsWith("5"))
 					whichDialogue += $".{Game1.currentSeason}";
 				text = i18n.Get(whichDialogue);
@@ -298,20 +333,19 @@ namespace SailorStyles_Clothing
 			else
 			{
 				// bllblblbl
-				name += "e";
-				text = i18n.Get(Data.ShopDialogueRoot + "cate");
+				text = i18n.Get(Const.ShopDialogueRoot + "Cate");
 			}
 			
-			Game1.activeClickableMenu = new ShopMenu(CatShopStock);
+			Game1.activeClickableMenu = new ShopMenu(_catShopStock);
 			((ShopMenu)Game1.activeClickableMenu).portraitPerson
-				= cate ? CateNPC : CatNPC;
+				= Cate ? _cateNPC : _catNPC;
 			((ShopMenu)Game1.activeClickableMenu).potraitPersonDialogue
 				= Game1.parseText(text, Game1.dialogueFont, 304);
 		}
 
-		private void DebugWarpPlayer()
+		private static void DebugWarpPlayer()
 		{
-			Game1.warpFarmer(Data.LocationTarget, 31, 97, 2);
+			Game1.warpFarmer(Const.LocationTarget, 31, 97, 2);
 			Log.D($"Warped {Game1.player.Name} to the CatShop.");
 		}
 	}
