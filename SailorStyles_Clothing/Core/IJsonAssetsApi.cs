@@ -2,7 +2,7 @@
 
 namespace SailorStyles_Clothing
 {
-	public interface IJsonAssetsApi
+	internal interface IJsonAssetsApi
 	{
 		void LoadAssets(string path);
 

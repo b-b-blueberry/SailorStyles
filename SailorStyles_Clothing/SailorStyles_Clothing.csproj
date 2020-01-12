@@ -71,7 +71,7 @@
     <Compile Include="Core\Const.cs" />
     <Compile Include="Core\Config.cs" />
     <Compile Include="Core\ModEntry.cs" />
-    <Compile Include="Editors\CustomNPCLoader.cs" />
+    <Compile Include="Editors\CustomNpcLoader.cs" />
     <Compile Include="Editors\MapEditor.cs" />
     <Compile Include="Core\Log.cs" />
     <Compile Include="Editors\AnimDescEditor.cs" />
@@ -87,23 +87,35 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Cat\*.png">
+    <None Include="Assets\Cat\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Assets\Cat\*.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\Cat\*\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Assets\Cat\*\*.png">
+    <Content Include="Assets\Cat\*\*.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Assets\Cat\*\*\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Assets\Cat\*\*\*.png">
+    <Content Include="Assets\Cat\*\*\*.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Hats\Hats and Pieces\content-pack.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Pants\Pants Name\pants.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Pants\Pants Name\pants.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Include="Assets\Cat\Data\animationDescriptions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -113,25 +125,14 @@
     <None Include="Assets\Pants\Pants Name\pants.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Assets\Shirts\Everyday Heroes\content-pack.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Shirts\Sailor Suits\content-pack.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Shirts\Uniform Operation\content-pack.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Assets\*\*\*\*\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Assets\*\*\*\*\*.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\*\*.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Pathoschild.Stardew.ModBuildConfig.3.0.0\build\Pathoschild.Stardew.ModBuildConfig.targets" Condition="Exists('..\packages\Pathoschild.Stardew.ModBuildConfig.3.0.0\build\Pathoschild.Stardew.ModBuildConfig.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

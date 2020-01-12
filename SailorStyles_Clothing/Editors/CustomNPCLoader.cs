@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Microsoft.Xna.Framework.Graphics;
+
 using StardewModdingAPI;
-using xTile.Format;
+
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SailorStyles_Clothing.Editors
 {
-	class CustomNPCLoader : IAssetLoader
+	internal class CustomNpcLoader : IAssetLoader
 	{
 		private readonly IModHelper _helper;
-		private readonly bool _isDebugging;
 
-		public CustomNPCLoader(IModHelper helper, bool isDebugging)
+		public CustomNpcLoader(IModHelper helper)
 		{
 			_helper = helper;
-			_isDebugging = isDebugging;
 		}
 
 		public bool CanLoad<T>(IAssetInfo asset)
@@ -26,29 +25,18 @@ namespace SailorStyles_Clothing.Editors
 
 		public T Load<T>(IAssetInfo asset)
 		{
+			Log.D($"Loaded custom asset ({asset.AssetName})",
+				ModEntry.Instance.Config.DebugMode);
+
 			if (asset.AssetNameEquals(Const.CatSchedule))
-			{
-				Log.D($"Loaded schedule data: {asset.AssetName}", _isDebugging);
-				var data = _helper.Content.Load<Dictionary<string, string>>(
+				return (T)(object)_helper.Content.Load<Dictionary<string, string>>(
 					Path.Combine(Const.CatDir, Const.CatSchedule + Const.JsonExt));
-				foreach (var line in data)
-				{
-					Log.D($"{line.Key}: {line.Value}", _isDebugging);
-				}
-				return (T)(object)data;
-			}
 			if (asset.AssetNameEquals(Const.CatSprite))
-			{
-				Log.D($"Loaded sprite data: {asset.AssetName}", _isDebugging);
-				return (T)(object)_helper.Content.Load<Texture2D>(
+				return (T) (object) _helper.Content.Load<Texture2D>(
 					Path.Combine(Const.CatDir, Const.CatSprite + Const.ImgExt));
-			}
 			if (asset.AssetNameEquals(Const.CatPortrait))
-			{
-				Log.D($"Loaded portrait data: {asset.AssetName}", _isDebugging);
 				return (T)(object)_helper.Content.Load<Texture2D>(
 					Path.Combine(Const.CatDir, Const.CatPortrait + Const.ImgExt));
-			}
 			return (T) (object) null;
 		}
 	}

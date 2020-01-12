@@ -21,12 +21,10 @@ namespace SailorStyles_Clothing.Editors
 	internal class MapEditor : IAssetEditor
 	{
 		private readonly IModHelper _helper;
-		private readonly bool _isDebugging;
 
-		public MapEditor(IModHelper helper, bool isDebugging)
+		public MapEditor(IModHelper helper)
 		{
 			_helper = helper;
-			_isDebugging = isDebugging;
 		}
 
 		public bool CanEdit<T>(IAssetInfo asset)
@@ -36,15 +34,8 @@ namespace SailorStyles_Clothing.Editors
 
 		public void Edit<T>(IAssetData asset)
 		{
-			if (asset.AssetNameEquals(Path.Combine("Maps", Const.LocationTarget)))
-			{
-				if (Game1.dayOfMonth % 7 <= 1 || _isDebugging)
-				{
-					Log.D("Patching map file " + Const.LocationTarget,
-						_isDebugging);
-					PrepareMap((Map)asset.Data);
-				}
-			}
+			if (Game1.dayOfMonth % 7 <= 1 || ModEntry.Instance.Config.DebugMode)
+				PrepareMap((Map)asset.Data);
 		}
 
 		private void PrepareMap(Map map)
@@ -60,7 +51,7 @@ namespace SailorStyles_Clothing.Editors
 
 			var texture = _helper.Content.Load<Texture2D>(path);
 			var sheet = new TileSheet(
-				Const.CatID, map, path,
+				Const.CatId, map, path,
 				new Size(texture.Width / 16, texture.Height / 16),
 				new Size(16, 16));
 
@@ -81,7 +72,7 @@ namespace SailorStyles_Clothing.Editors
 		{
 			const BlendMode mode = BlendMode.Additive;
 
-			var sheet = map.GetTileSheet(Const.CatID);
+			var sheet = map.GetTileSheet(Const.CatId);
 			//var layer = map.GetLayer("Front");
 			//var tiles = layer.Tiles;
 			/* 
@@ -95,13 +86,13 @@ namespace SailorStyles_Clothing.Editors
 			var layer = map.GetLayer("Buildings");
 			if (layer.Tiles[Const.CatX, Const.CatY] == null)
 				layer.Tiles[Const.CatX, Const.CatY] = new StaticTile(layer, sheet, mode, 0);
-			layer.Tiles[Const.CatX, Const.CatY].Properties.Add("Action", new PropertyValue(Const.CatID));
+			layer.Tiles[Const.CatX, Const.CatY].Properties.Add("Action", new PropertyValue(Const.CatId));
 
 			/*
 			if (layer != null)
 			{
 				Log.D($"Added layer: {layer.Id}",
-					_isDebugging);
+					ModEntry.Instance.Config.DebugMode);
 
 				tiles = layer.Tiles;
 
