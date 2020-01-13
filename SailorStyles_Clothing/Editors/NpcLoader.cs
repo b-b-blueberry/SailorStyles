@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SailorStyles_Clothing.Editors
 {
-	internal class CustomNpcLoader : IAssetLoader
+	internal class NpcLoader : IAssetLoader
 	{
 		private readonly IModHelper _helper;
 
-		public CustomNpcLoader(IModHelper helper)
+		public NpcLoader(IModHelper helper)
 		{
 			_helper = helper;
 		}
@@ -30,13 +30,13 @@ namespace SailorStyles_Clothing.Editors
 
 			if (asset.AssetNameEquals(Const.CatSchedule))
 				return (T)(object)_helper.Content.Load<Dictionary<string, string>>(
-					Path.Combine(Const.CatDir, Const.CatSchedule + Const.JsonExt));
+					Path.Combine("Assets", Const.CatDir, Const.CatSchedule + Const.JsonExt));
 			if (asset.AssetNameEquals(Const.CatSprite))
 				return (T) (object) _helper.Content.Load<Texture2D>(
-					Path.Combine(Const.CatDir, Const.CatSprite + Const.ImgExt));
+					Path.Combine("Assets", Const.CatDir, Const.CatSprite + Const.ImgExt));
 			if (asset.AssetNameEquals(Const.CatPortrait))
 				return (T)(object)_helper.Content.Load<Texture2D>(
-					Path.Combine(Const.CatDir, Const.CatPortrait + Const.ImgExt));
+					Path.Combine("Assets", Const.CatDir, Const.CatPortrait + Const.ImgExt));
 			return (T) (object) null;
 		}
 	}

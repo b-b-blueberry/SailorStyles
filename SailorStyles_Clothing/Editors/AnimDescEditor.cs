@@ -21,7 +21,7 @@ namespace SailorStyles_Clothing.Editors
 		public void Edit<T>(IAssetData asset)
 		{
 			var json = _helper.Content.Load<Dictionary<string, string>>(
-				System.IO.Path.Combine(Const.CatDir, Const.AnimDescs + Const.JsonExt));
+				System.IO.Path.Combine("Assets", Const.CatDir, Const.AnimDescs + Const.JsonExt));
 
 			Log.D($"Adding {json.Count} lines to {Const.AnimDescs}.",
 				ModEntry.Instance.Config.DebugMode);

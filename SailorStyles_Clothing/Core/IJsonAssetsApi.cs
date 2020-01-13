@@ -2,13 +2,15 @@
 
 namespace SailorStyles_Clothing
 {
-	internal interface IJsonAssetsApi
+	public interface IJsonAssetsApi
 	{
 		void LoadAssets(string path);
 
-		int GetClothingId(string name);
 		int GetHatId(string name);
-		IDictionary<string, int> GetAllClothingIds();
+		int GetClothingId(string name);
 		IDictionary<string, int> GetAllHatIds();
+		IDictionary<string, int> GetAllClothingIds();
+		List<string> GetAllHatsFromContentPack(string cp);
+		List<string> GetAllClothingFromContentPack(string cp);
 	}
 }

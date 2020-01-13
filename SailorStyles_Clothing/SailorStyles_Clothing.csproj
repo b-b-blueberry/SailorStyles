@@ -71,7 +71,7 @@
     <Compile Include="Core\Const.cs" />
     <Compile Include="Core\Config.cs" />
     <Compile Include="Core\ModEntry.cs" />
-    <Compile Include="Editors\CustomNpcLoader.cs" />
+    <Compile Include="Editors\NpcLoader.cs" />
     <Compile Include="Editors\MapEditor.cs" />
     <Compile Include="Core\Log.cs" />
     <Compile Include="Editors\AnimDescEditor.cs" />
@@ -107,22 +107,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Hats\Hats and Pieces\content-pack.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Pants\Pants Name\pants.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Pants\Pants Name\pants.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Cat\Data\animationDescriptions.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Hats\Hats and Pieces\content-pack.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Assets\Pants\Pants Name\pants.json">
+    <None Include="Assets\*\*\*.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Assets\*\*\*\*\*.json">

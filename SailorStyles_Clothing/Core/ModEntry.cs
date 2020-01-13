@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 using StardewValley;
 using StardewValley.Menus;
@@ -35,11 +36,9 @@ namespace SailorStyles_Clothing
 		internal Config Config;
 		internal ITranslationHelper i18n => Helper.Translation;
 		
-		private static IJsonAssetsApi _jsonAssets;
+		private static IJsonAssetsApi _ja;
 		
 		private NPC _catNpc;
-		//private NPC _cateNpc;
-		//internal static bool Cate;
 
 		private Dictionary<ISalable, int[]> _catShopStock;
 
@@ -54,7 +53,7 @@ namespace SailorStyles_Clothing
 			helper.Events.Player.Warped += OnWarped;
 
 			helper.Content.AssetEditors.Add(new Editors.AnimDescEditor(helper));
-			helper.Content.AssetLoaders.Add(new Editors.CustomNpcLoader(helper));
+			helper.Content.AssetLoaders.Add(new Editors.NpcLoader(helper));
 			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper));
 		}
 		
@@ -99,34 +98,22 @@ namespace SailorStyles_Clothing
 		{
 			_catShopStock = new Dictionary<ISalable, int[]>();
 
-			_jsonAssets = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
-			if (_jsonAssets == null)
+			_ja = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
+			if (_ja == null)
 			{
 				Log.E("Can't access the Json Assets API. Is the mod installed correctly?");
 				return;
 			}
 			
-			var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Const.JsonShirtsDir));
-			foreach (var subfolder in objFolder.GetDirectories())
-				_jsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Const.JsonShirtsDir, subfolder.Name));
-
-			objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, Const.JsonHatsDir));
-			foreach (var subfolder in objFolder.GetDirectories())
-				_jsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, Const.JsonHatsDir, subfolder.Name));
+			foreach (var pack in Const.HatPacks)
+				_ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Assets", Const.HatsDir, pack));
+			foreach (var pack in Const.ClothingPacks)
+				_ja.LoadAssets(Path.Combine(Helper.DirectoryPath, "Assets", Const.ClothingDir, pack));
 		}
 		
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
 		{
 			CatShopRestock();
-
-			// mmmmswsswsss
-			/*
-			var random = new Random();
-			var randint = random.Next(Const.CateRate);
-			Cate = randint == 0 || (Config.DebugMode && Config.DebugCate);
-			Log.D("CateRate: " + randint + "/" + Const.CateRate + ", " + Cate,
-				Config.DebugMode);
-			*/
 		}
 		
 		private void OnWarped(object sender, WarpedEventArgs e)
@@ -160,10 +147,6 @@ namespace SailorStyles_Clothing
 
 			Game1.getLocationFromName(Const.LocationTarget).characters.Remove(_catNpc);
 			_catNpc = null;
-			/*
-			Game1.getLocationFromName(Const.LocationTarget).characters.Remove(_cateNpc);
-			_cateNpc = null;
-			*/
 		}
 
 		private void AddNpcs()
@@ -183,51 +166,13 @@ namespace SailorStyles_Clothing
 					ContentSource.GameContent));
 			LoadNpcSchedule(_catNpc);
 			Game1.getLocationFromName(Const.LocationTarget).addCharacter(_catNpc);
-			/*
-			Log.D($"Cat name     : {_catNpc.Name}");
-			Log.D($"Cat position : {_catNpc.position.X}, {_catNpc.position.Y}");
-			Log.D($"Cat texture  : {Const.CatSprite}");
-
-			Log.D("Cat schedule : ");
-			if (_catNpc.Schedule != null)
-				foreach (var entry in _catNpc.Schedule)
-					Log.D($"{entry.Key}: {entry.Value.endOfRouteBehavior}");
-			else
-				Log.D("null");
-			*/
-			// ahahaha
-			/*
-			_cateNpc = new NPC(
-				new AnimatedSprite("Characters\\Bouncer", 0, 64, 128),
-				new Vector2(-64000f, 128f),
-				Const.LocationTarget,
-				2,
-				Const.CatId + "e",
-				false,
-				null,
-				Helper.Content.Load<Texture2D>(Const.CatePortrait));
-			*/
 		}
 
 		private void CatShopRestock()
 		{
 			_catShopStock.Clear();
-			/*
-			Log.D("JA Hat IDs:",
-				Config.DebugMode);
-			foreach (var id in JsonAssets.GetAllHatIds())
-				Log.D($"{id.Key}: {id.Value}",
-					Config.DebugMode);
-			*/
-			PopulateShop(Const.JsonHatsDir, 0);
-			/*
-			Log.D("JA Shirt IDs:",
-				Config.DebugMode);
-			foreach (var id in JsonAssets.GetAllClothingIds())
-				Log.D($"{id.Key}: {id.Value}",
-					Config.DebugMode);
-			*/
-			PopulateShop(Const.JsonShirtsDir, 1);
+			PopulateShop(true);
+			PopulateShop(false);
 		}
 
 		private void LoadNpcSchedule(NPC npc)
@@ -238,80 +183,77 @@ namespace SailorStyles_Clothing
 			npc.followSchedule = true;
 		}
 
-		private void PopulateShop(string dir, int type)
+		private void PopulateShop(bool isHat)
 		{
 			try
 			{
-				var stock = new List<int>();
 				var random = new Random();
-
-				var objFolder = new DirectoryInfo(Path.Combine(Helper.DirectoryPath, dir));
-				var firstFolder = objFolder.GetDirectories()[0].GetDirectories()[0].GetDirectories()[0];
-				var lastFolder = objFolder.GetDirectories()[objFolder.GetDirectories().Length - 1];
-				lastFolder = lastFolder.GetDirectories()[0].GetDirectories()[lastFolder.GetDirectories()[0]
-					.GetDirectories().Length - 1];
-
-				Log.D($"CatShop first object: {firstFolder.Name}",
-					Config.DebugMode);
-				Log.D($"CatShop last object: {lastFolder.Name}",
+				var stock = new List<int>();
+				var contentPacks = isHat
+					? Const.HatPacks
+					: Const.ClothingPacks;
+				
+				Log.D($"Hats : {_ja.GetAllHatIds().Count} -- Clothing : {_ja.GetAllClothingIds().Count}",
 					Config.DebugMode);
 
-				var firstObject = 0;
-				var lastObject = 0;
-
-				switch(type)
+				foreach (var pack in contentPacks)
 				{
-					case 0:
-						firstObject = _jsonAssets.GetHatId(firstFolder.Name);
-						lastObject = _jsonAssets.GetHatId(lastFolder.Name);
-						break;
-					case 1:
-						firstObject = _jsonAssets.GetClothingId(firstFolder.Name);
-						lastObject = _jsonAssets.GetClothingId(lastFolder.Name);
-						break;
-					default:
-						Log.E("The CatShop hit a dead end. This feature wasn't finished!");
-						throw new NotImplementedException();
-				}
+					var packName = $"{Const.ContentPackPrefix} {pack}";
+					var contentNames = isHat
+						? _ja.GetAllHatsFromContentPack("HAT")
+						: _ja.GetAllClothingFromContentPack(packName);
 
-				var goalQty = (lastObject - firstObject) / Const.CatShopQtyRatio;
+					Log.D($"Using content pack [{packName}]",
+						Config.DebugMode);
 
-				Log.D("CatShop Restock bounds:",
-					Config.DebugMode);
-				Log.D($"index: {firstObject}, end: {lastObject}, goalQty: {goalQty}",
-					Config.DebugMode);
-
-				while (stock.Count < goalQty)
-				{
-					var id = random.Next(firstObject, lastObject);
-					if (!stock.Contains(id))
-						stock.Add(id);
-				}
-
-				foreach (var id in stock)
-				{
-					switch (type)
+					if (contentNames == null || contentNames.Count == 0)
 					{
-						case 0:
-							_catShopStock.Add(
-								new StardewValley.Objects.Hat(id), new[]
-								{ Const.ClothingCost, 1 });
-							break;
-						case 1:
-							_catShopStock.Add(
-								new StardewValley.Objects.Clothing(id), new[]
-								{ Const.ClothingCost, 1 });
-							break;
-						default:
-							Log.E("The CatShop hit a dead end. This feature wasn't finished!");
-							throw new NotImplementedException();
+						Log.E("Failed to populate content names.");
+						throw new NullReferenceException();
 					}
+
+					Log.D("ContentNames : ",
+						Config.DebugMode);
+					foreach (var name in contentNames)
+						Log.D(name,
+							Config.DebugMode);
+
+					var goalQty = contentNames.Count / Const.CatShopQtyRatio;
+					foreach (var name in contentNames)
+					{
+						var currentQty = 0;
+						while (currentQty < goalQty)
+						{
+							var id = isHat
+								? random.Next(
+									_ja.GetHatId(contentNames.First()),
+									_ja.GetHatId(contentNames.Last()))
+								: random.Next(
+									_ja.GetClothingId(contentNames.First()),
+									_ja.GetClothingId(contentNames.Last()));
+
+							if (!stock.Contains(id))
+							{
+								stock.Add(isHat
+									? _ja.GetHatId(name)
+									: _ja.GetClothingId(name));
+								++currentQty;
+							}
+						}
+					}
+					foreach (var id in stock)
+						if (isHat)
+							_catShopStock.Add(new StardewValley.Objects.Hat(id), new[]
+								{Const.ClothingCost, 1});
+						else
+							_catShopStock.Add(new StardewValley.Objects.Clothing(id), new[]
+								{ Const.ClothingCost, 1 });
 				}
 			}
 			catch (Exception ex)
 			{
 				Log.E("Sailor Styles failed to populate the clothes shop."
-					+ "Did you remove all the clothing folders, or did I do something wrong?");
+					+ " Did you install the clothing folders, or did I break something?");
 				Log.E("Exception logged:\n" + ex);
 			}
 		}
@@ -320,29 +262,14 @@ namespace SailorStyles_Clothing
 		{
 			Game1.playSound("cat");
 			
-			var text = (string) null;
-			/*
-			if (!Cate)
-			{
-			*/
-				var random = new Random((int)((long)Game1.uniqueIDForThisGame + Game1.stats.DaysPlayed));
-				var whichDialogue = Const.ShopDialogueRoot + random.Next(5);
-				if (whichDialogue.EndsWith("5"))
-					whichDialogue += $".{Game1.currentSeason}";
-				text = i18n.Get(whichDialogue);
-			/*
-			}
-			else
-			{
-				// bllblblbl
-				text = i18n.Get(Const.ShopDialogueRoot + "Cate");
-			}
-			*/
+			var random = new Random((int)((long)Game1.uniqueIDForThisGame + Game1.stats.DaysPlayed));
+			var whichDialogue = Const.ShopDialogueRoot + random.Next(5);
+			if (whichDialogue.EndsWith("5"))
+				whichDialogue += $".{Game1.currentSeason}";
+			var text = i18n.Get(whichDialogue);
 			
 			Game1.activeClickableMenu = new ShopMenu(_catShopStock);
-			((ShopMenu) Game1.activeClickableMenu).portraitPerson
-				//= Cate ? _cateNpc : _catNpc;
-				= _catNpc;
+			((ShopMenu) Game1.activeClickableMenu).portraitPerson = _catNpc;
 			((ShopMenu)Game1.activeClickableMenu).potraitPersonDialogue
 				= Game1.parseText(text, Game1.dialogueFont, 304);
 		}
@@ -350,7 +277,7 @@ namespace SailorStyles_Clothing
 		private static void DebugWarpPlayer()
 		{
 			Game1.warpFarmer(Const.LocationTarget, 31, 97, 2);
-			Log.D($"Pressed {Instance.Config.DebugWarpKey}: Warped {Game1.player.Name} to the CatShop.");
+			Log.D($"Pressed {Instance.Config.DebugWarpKey} : Warped {Game1.player.Name} to the CatShop.");
 		}
 	}
 }
