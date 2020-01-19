@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-
+using System.Text.RegularExpressions;
 using StardewValley;
 using StardewValley.Menus;
 using StardewModdingAPI;
@@ -15,15 +14,16 @@ using xTile.Dimensions;
 using xTile.ObjectModel;
 
 /*
+ *
  * authors note
  * update all the manifest and content-pack files u idiot
+ *
  */
 
 /*
  * todo
  *
  * find a way to bring back my blessed cate
- * remove pants before release
  *
  */
 
@@ -36,11 +36,9 @@ namespace SailorStyles_Clothing
 		internal Config Config;
 		internal ITranslationHelper i18n => Helper.Translation;
 		
-		private static IJsonAssetsApi _ja;
-		
 		private NPC _catNpc;
-
 		private Dictionary<ISalable, int[]> _catShopStock;
+		private static IJsonAssetsApi _ja;
 
 		public override void Entry(IModHelper helper)
 		{
@@ -53,8 +51,9 @@ namespace SailorStyles_Clothing
 			helper.Events.Player.Warped += OnWarped;
 
 			helper.Content.AssetEditors.Add(new Editors.AnimDescEditor(helper));
-			helper.Content.AssetLoaders.Add(new Editors.NpcLoader(helper));
 			helper.Content.AssetEditors.Add(new Editors.MapEditor(helper));
+
+			helper.Content.AssetLoaders.Add(new Editors.NpcLoader(helper));
 		}
 		
 		private void OnButtonReleased(object sender, ButtonReleasedEventArgs e)
@@ -86,8 +85,7 @@ namespace SailorStyles_Clothing
 						CatShop();
 				}
 			}
-
-			// debug junk
+			
 			if (keyPressed.ToSButton().Equals(Config.DebugWarpKey) && Config.DebugMode)
 			{
 				DebugWarpPlayer();
@@ -183,71 +181,69 @@ namespace SailorStyles_Clothing
 			npc.followSchedule = true;
 		}
 
+		private string GetContentPackId(string name)
+		{
+			return Regex.Replace(Const.ContentPackPrefix + name,
+				"[^a-zA-Z0-9_.]", "");
+		}
+
 		private void PopulateShop(bool isHat)
 		{
 			try
 			{
 				var random = new Random();
-				var stock = new List<int>();
+				var stock = new List<string>();
 				var contentPacks = isHat
 					? Const.HatPacks
 					: Const.ClothingPacks;
 				
-				Log.D($"Hats : {_ja.GetAllHatIds().Count} -- Clothing : {_ja.GetAllClothingIds().Count}",
-					Config.DebugMode);
-
-				foreach (var pack in contentPacks)
+				foreach (var contentPack in contentPacks)
 				{
-					var packName = $"{Const.ContentPackPrefix} {pack}";
+					var contentPackId = GetContentPackId(contentPack);
 					var contentNames = isHat
-						? _ja.GetAllHatsFromContentPack("HAT")
-						: _ja.GetAllClothingFromContentPack(packName);
-
-					Log.D($"Using content pack [{packName}]",
-						Config.DebugMode);
-
-					if (contentNames == null || contentNames.Count == 0)
+						? _ja.GetAllHatsFromContentPack(contentPackId)
+						: _ja.GetAllClothingFromContentPack(contentPackId);
+					if (contentNames == null || contentNames.Count < 1)
 					{
-						Log.E("Failed to populate content names.");
+						Log.E($"Failed to populate content from {contentPack}\n({contentPackId}).");
 						throw new NullReferenceException();
 					}
 
-					Log.D("ContentNames : ",
+					Log.D($"Stocking content from {contentPack}\n({contentPackId}).",
 						Config.DebugMode);
-					foreach (var name in contentNames)
-						Log.D(name,
-							Config.DebugMode);
 
-					var goalQty = contentNames.Count / Const.CatShopQtyRatio;
-					foreach (var name in contentNames)
+					stock.Clear();
+					var currentQty = 0;
+					var goalQty = Math.Max(1, contentNames.Count / Const.CatShopQtyRatio);
+					while (currentQty < goalQty)
 					{
-						var currentQty = 0;
-						while (currentQty < goalQty)
-						{
-							var id = isHat
-								? random.Next(
-									_ja.GetHatId(contentNames.First()),
-									_ja.GetHatId(contentNames.Last()))
-								: random.Next(
-									_ja.GetClothingId(contentNames.First()),
-									_ja.GetClothingId(contentNames.Last()));
+						if (contentPack.EndsWith("Kimono"))
+							contentNames.RemoveAll(n => n.EndsWith("wer"));
+						var name = contentNames[random.Next(contentNames.Count - 1)];
 
-							if (!stock.Contains(id))
-							{
-								stock.Add(isHat
-									? _ja.GetHatId(name)
-									: _ja.GetClothingId(name));
-								++currentQty;
-							}
-						}
+						if (stock.Contains(name))
+							continue;
+						++currentQty;
+						stock.Add(name);
+
+						if (!contentPack.EndsWith("Kimono"))
+							continue;
+						++currentQty;
+						var extra = name;
+						stock.Add(extra.Replace("Upp", "Low"));
 					}
-					foreach (var id in stock)
+
+					foreach (var name in stock)
+					{
+						Log.D($"CatShop: Adding {name}",
+							Config.DebugMode);
 						if (isHat)
-							_catShopStock.Add(new StardewValley.Objects.Hat(id), new[]
-								{Const.ClothingCost, 1});
+							_catShopStock.Add(new StardewValley.Objects.Hat(_ja.GetHatId(name)), new[]
+								{ Const.PackCosts[contentPack], 1 });
 						else
-							_catShopStock.Add(new StardewValley.Objects.Clothing(id), new[]
-								{ Const.ClothingCost, 1 });
+							_catShopStock.Add(new StardewValley.Objects.Clothing(_ja.GetClothingId(name)), new[]
+								{ Const.PackCosts[contentPack], 1 });
+					}
 				}
 			}
 			catch (Exception ex)
@@ -276,8 +272,11 @@ namespace SailorStyles_Clothing
 
 		private static void DebugWarpPlayer()
 		{
-			Game1.warpFarmer(Const.LocationTarget, 31, 97, 2);
-			Log.D($"Pressed {Instance.Config.DebugWarpKey} : Warped {Game1.player.Name} to the CatShop.");
+			Log.D($"Pressed {Instance.Config.DebugWarpKey} : Warped {Game1.player.Name}.");
+			if (Game1.player.currentLocation.Name.Equals(Const.LocationTarget))
+				Game1.warpFarmer("FarmHouse", 30, 15, 2);
+			else
+				Game1.warpFarmer(Const.LocationTarget, 31, 97, 2);
 		}
 	}
 }
