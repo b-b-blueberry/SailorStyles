@@ -10,12 +10,6 @@ using xTile.Dimensions;
 using xTile.ObjectModel;
 using xTile.Tiles;
 
-/*
- *
- * todo: correct tilesheet indexes for anything in zss_cat, ie. Cate, noren, clothes
- *
- */
-
 namespace SailorStyles_Clothing.Editors
 {
 	internal class MapEditor : IAssetEditor
