@@ -60,7 +60,7 @@ namespace SailorStyles_Clothing.Editors
 			var layer = map.GetLayer("Buildings");
 			if (layer.Tiles[Const.CatX, Const.CatY] == null)
 				layer.Tiles[Const.CatX, Const.CatY] = new StaticTile(layer, sheet, mode, 0);
-			layer.Tiles[Const.CatX, Const.CatY].Properties.Add("Action", new PropertyValue(Const.CatId));
+			layer.Tiles[Const.CatX, Const.CatY].Properties["Action"] = new PropertyValue(Const.CatId);
 		}
 	}
 }

@@ -29,6 +29,5 @@ namespace SailorStyles_Clothing.Editors
 			foreach (var line in json)
 				asset.AsDictionary<string, string>().Data.Add(line);
 		}
-
 	}
 }
