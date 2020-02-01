@@ -1,9 +1,9 @@
 {
-    "Name": "SailorStyles 3: Character",
+    "Name": "SailorStyles 4: Character Customisation",
     "Author": "blueberry",
     "Version": "4.0.0",
     "Description": "Sailor Moon character options - hairstyles!",
-    "UniqueID": "blueberry.SailorStyles.Character",
+    "UniqueID": "blueberry.SailorStyles.CharacterCustomisation",
     "MinimumApiVersion": "3.0.0",
     "UpdateKeys": [ "Nexus:4154" ],
     "ContentPackFor": {
