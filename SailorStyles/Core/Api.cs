@@ -11,7 +11,7 @@
 	{
 		public bool AreHairstylesEnabled()
 		{
-			return ModEntry.Instance.Config.EnableHairstyles;
+			return ModEntry.Config.EnableHairstyles;
 		}
 
 		public int GetHairstylesInitialIndex()
@@ -22,7 +22,7 @@
 		public string GetCharacterForHairstyle(int hairstyle)
 		{
 			string chara = null;
-			var index = ModConsts.HairstylesInitialIndex;
+			int index = ModConsts.HairstylesInitialIndex;
 			hairstyle -= index;
 
 			if (index < 0 || hairstyle < 0)
