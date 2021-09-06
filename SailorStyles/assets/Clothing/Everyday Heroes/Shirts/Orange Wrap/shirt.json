@@ -1,7 +1,7 @@
 {
     "Name": "Orange Wrap",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }

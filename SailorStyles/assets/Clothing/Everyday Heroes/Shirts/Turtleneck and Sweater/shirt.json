@@ -1,7 +1,7 @@
 {
     "Name": "Turtleneck and Sweater",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }

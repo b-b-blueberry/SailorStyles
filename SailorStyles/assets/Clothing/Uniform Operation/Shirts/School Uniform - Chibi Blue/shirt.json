@@ -1,7 +1,7 @@
 {
     "Name": "School Uniform - Chibi Blue",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }

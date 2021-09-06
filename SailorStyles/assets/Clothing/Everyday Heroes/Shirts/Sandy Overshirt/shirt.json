@@ -1,7 +1,7 @@
 {
     "Name": "Sandy Overshirt",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }

@@ -1,7 +1,7 @@
 {
     "Name": "Fiery Winter Coat",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }

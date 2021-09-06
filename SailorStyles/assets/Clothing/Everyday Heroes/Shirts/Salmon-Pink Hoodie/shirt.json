@@ -1,7 +1,7 @@
 {
     "Name": "Salmon-Pink Hoodie",
     "Description": "...",
-    "HasFemaleVariant": false,
+    "HasFemaleVariant": "true",
     "Price": 50,
     "Dyeable": false
 }
