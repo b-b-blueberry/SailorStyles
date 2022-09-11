@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using StardewModdingAPI.Events;
+using SailorStyles.Core;
 
 namespace SailorStyles.Editors
 {
@@ -66,8 +67,8 @@ namespace SailorStyles.Editors
 
             foreach (var (name, id) in itemsGrouped)
             {
-                string nameNormalized = name.Split('/')[0].ToLower().Replace(" ", "");
-                List<string> entry = source[id].Split('/').ToList();
+                string nameNormalized = name.GetNthChunk('/', 0).ToString().ToLowerInvariant().Replace(" ", "");
+                List<string> entry = source[id].Split('/', Math.Max(nameIndex, descriptionIndex) + 1).ToList();
                 while (entry.Count < Math.Max(nameIndex, descriptionIndex))
                     entry.Add("");
                 entry[nameIndex] = i18n.Get($"item.{nameNormalized}.name").ToString();
