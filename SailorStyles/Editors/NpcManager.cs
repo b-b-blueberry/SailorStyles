@@ -1,50 +1,46 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
+using StardewModdingAPI.Events;
 using System.Collections.Generic;
 
 namespace SailorStyles.Editors
 {
-	internal class NpcManager : IAssetLoader, IAssetEditor
+	internal static class NpcManager
 	{
-		private IModHelper Helper => ModEntry.Instance.Helper;
+        internal static bool TryLoad(AssetRequestedEventArgs e)
+        {
+            if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentCatSchedulePath))
+                e.LoadFromModFile<Dictionary<string, string>>(ModConsts.LocalCatSchedulePath + ".json", AssetLoadPriority.Exclusive);
+            else if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentCatSpritesPath))
+                e.LoadFromModFile<Texture2D>(ModConsts.LocalCatSpritesPath + ".png", AssetLoadPriority.Exclusive);
+            else if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentCatPortraitPath))
+                e.LoadFromModFile<Texture2D>(ModConsts.LocalCatPortraitPath + ".png", AssetLoadPriority.Exclusive);
+            else
+                return false;
+            return true;
+        }
 
-		public bool CanLoad<T>(IAssetInfo asset)
-		{
-			return asset.AssetNameEquals(ModConsts.GameContentCatSchedulePath) 
-				|| asset.AssetNameEquals(ModConsts.GameContentCatSpritesPath) 
-				|| asset.AssetNameEquals(ModConsts.GameContentCatPortraitPath);
-		}
+        internal static bool TryEdit(AssetRequestedEventArgs e, IModContentHelper helper)
+        {
+            if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentAnimationsPath))
+            {
+                e.Edit((asset) => Edit(asset, helper), AssetEditPriority.Default);
+                return true;
+            }
+            return false;
+        }
 
-		public T Load<T>(IAssetInfo asset)
+		private static void Edit(IAssetData asset, IModContentHelper helper)
 		{
-			if (asset.AssetNameEquals(ModConsts.GameContentCatSchedulePath))
-				return (T)(object) Helper.Content.Load
-					<Dictionary<string, string>>
-					(ModConsts.LocalCatSchedulePath + ".json");
-			if (asset.AssetNameEquals(ModConsts.GameContentCatSpritesPath))
-				return (T) (object) Helper.Content.Load
-					<Texture2D>
-					(ModConsts.LocalCatSpritesPath + ".png");
-			if (asset.AssetNameEquals(ModConsts.GameContentCatPortraitPath))
-				return (T) (object) Helper.Content.Load
-					<Texture2D>
-					(ModConsts.LocalCatPortraitPath + ".png");
-			return (T) (object) null;
-		}
-
-		public bool CanEdit<T>(IAssetInfo asset)
-		{
-			return asset.AssetNameEquals(ModConsts.GameContentAnimationsPath);
-		}
-
-		public void Edit<T>(IAssetData asset)
-		{
-			var json = Helper.Content.Load
+			var json = helper.Load
 				<Dictionary<string, string>>
 				(ModConsts.LocalAnimationsPath + ".json");
-			foreach (var pair in json)
-				if (!asset.AsDictionary<string, string>().Data.ContainsKey(pair.Key))
-					asset.AsDictionary<string, string>().Data.Add(pair);
-		}
+            var data = asset.AsDictionary<string, string>().Data;
+
+            foreach ((string key, string value) in json)
+            {
+                _ = data.TryAdd(key, value);
+            }
+        }
 	}
 }
