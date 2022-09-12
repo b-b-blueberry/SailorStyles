@@ -68,7 +68,7 @@ namespace SailorStyles.Editors
             foreach (var (name, id) in itemsGrouped)
             {
                 string nameNormalized = name.GetNthChunk('/', 0).ToString().ToLowerInvariant().Replace(" ", "");
-                List<string> entry = source[id].Split('/', Math.Max(nameIndex, descriptionIndex) + 1).ToList();
+                List<string> entry = source[id].Split('/').ToList();
                 while (entry.Count < Math.Max(nameIndex, descriptionIndex))
                     entry.Add("");
                 entry[nameIndex] = i18n.Get($"item.{nameNormalized}.name").ToString();
