@@ -168,17 +168,14 @@ namespace SailorStyles
 				|| location.getCharacterFromName(ModConsts.CatId) != null)
 				return;
 			CatNpc.modData.Remove(ModConsts.CatMutexKey);
-			ForceNpcSchedule(CatNpc);
-			location.addCharacter(CatNpc);
+            location.addCharacter(CatNpc);
+            ForceNpcSchedule(CatNpc);
 		}
 
 		private static void ForceNpcSchedule(NPC npc)
 		{
 			try
 			{
-                GameLocation location = Game1.getLocationFromName(ModConsts.CatLocation);
-                AddCatToLocation(location);
-
                 npc.Schedule = npc.getSchedule(Game1.dayOfMonth);
 				npc.ignoreScheduleToday = false;
 				npc.followSchedule = true;
@@ -211,11 +208,12 @@ namespace SailorStyles
 			return ModConsts.ContentPackPrefix + (isHat ? ModConsts.HatPackPrefix : ModConsts.ClothingPackPrefix) + name;
 		}
 
+        private static Regex IsNotAscii = new("[^a-zA-Z0-9_.]", RegexOptions.Compiled);
+
 		public static string GetIdFromContentPackName(string name, bool isHat)
 		{
-			return Regex.Replace(
+			return IsNotAscii.Replace(
 				input: GetFullContentPackName(name: name, isHat: isHat),
-				pattern: "[^a-zA-Z0-9_.]",
 				replacement: "");
 		}
 

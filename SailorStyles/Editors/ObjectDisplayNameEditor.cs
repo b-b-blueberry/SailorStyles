@@ -68,7 +68,7 @@ namespace SailorStyles.Editors
             foreach (var (name, id) in itemsGrouped)
             {
                 string nameNormalized = name.GetNthChunk('/', 0).ToString().ToLowerInvariant().Replace(" ", "");
-                var entry = source[id].Split('/');
+                var entry = source[id].Split('/', Math.Max(nameIndex, descriptionIndex) + 2);
                 if (entry.Length < Math.Max(nameIndex, descriptionIndex))
                 {
                     var preLength = entry.Length;
