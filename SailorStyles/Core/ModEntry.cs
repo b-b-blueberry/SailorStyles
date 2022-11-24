@@ -165,6 +165,7 @@ namespace SailorStyles
 				Breather = false, // Breathing looks not good
 				HideShadow = false, // This is fine
 				Gender = 0, // Male
+				displayName = ModEntry.Instance.i18n.Get("catshop.text.name"), // Display name does not appear in usual play
 				ignoreMovementAnimation = true, // Ensure movement animations aren't played
 				farmerPassesThrough = false, // Ensure players collide
 				willDestroyObjectsUnderfoot = false // Ensure objects aren't destroyed if in the CatShop tile location
