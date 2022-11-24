@@ -41,6 +41,7 @@ namespace SailorStyles.Editors
                 var json = helper.Load
                     <Dictionary<string, string>>
                     (ModConsts.LocalAnimationsPath + ".json");
+
                 foreach ((string key, string value) in json)
                 {
                     _ = data.TryAdd(key, value);
@@ -53,9 +54,9 @@ namespace SailorStyles.Editors
                 var data = asset.AsDictionary<string, string>().Data;
                 data["spring"] = string.Format(
                     data["spring"],
-                    ModConsts.CatLocation,
-                    ModConsts.CatPosition.X,
-                    ModConsts.CatPosition.Y,
+                    ModConsts.CatLocationId,
+                    ModConsts.CatTileLocation.X,
+                    ModConsts.CatTileLocation.Y,
                     Game1.down);
                 asset.ReplaceWith(data);
             }
