@@ -7,9 +7,9 @@ namespace SailorStyles
 	internal static class ModConsts
 	{
 		/* Files */
-		internal const string CatId = "zss_cat";
+		internal const string CatId = "blueberry.SailorStyles.CatShopNPC";
 		internal const string ShopDialogueRoot = "catshop.text.";
-		internal const string HairstylesSheetId = "sailorstyles";
+		internal const string HairstylesSheetId = "blueberry.SailorStyles.Hairstyles";
 		
 		/* Content */
 		internal const string CatDir = "Cat";
