@@ -231,8 +231,8 @@ namespace SailorStyles
 		public static void RestockCatShop()
 		{
 			CatShopStock.Clear();
-			PopulateCatShop(isHat: true);
 			PopulateCatShop(isHat: false);
+			PopulateCatShop(isHat: true);
 		}
 
 		private static void PopulateCatShop(bool isHat)
