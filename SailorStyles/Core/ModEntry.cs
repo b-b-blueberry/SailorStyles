@@ -82,10 +82,14 @@ namespace SailorStyles
 
         [EventPriority(EventPriority.Low)]
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
-        {
-            _ = NpcManager.TryLoad(e)
-                || NpcManager.TryEdit(e, this.Helper.ModContent)
-                || (JAInitialized && ObjectDisplayNameEditor.TryEdit(e));
+		{
+			NpcManager.TryLoad(e);
+			NpcManager.TryEdit(e, this.Helper.ModContent);
+
+			if (JAInitialized)
+			{
+				ObjectDisplayNameEditor.TryEdit(e);
+			}
 
             if (Config.EnableHairstyles)
             {

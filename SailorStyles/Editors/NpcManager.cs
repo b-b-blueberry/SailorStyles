@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
+using StardewValley;
 using System.Collections.Generic;
 
 namespace SailorStyles.Editors
@@ -23,23 +24,40 @@ namespace SailorStyles.Editors
         internal static bool TryEdit(AssetRequestedEventArgs e, IModContentHelper helper)
         {
             if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentAnimationsPath))
-            {
-                e.Edit((asset) => Edit(asset, helper), AssetEditPriority.Default);
-                return true;
-            }
-            return false;
+                e.Edit((IAssetData asset) => Edit(asset, helper), AssetEditPriority.Default);
+            else if (e.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentCatSchedulePath))
+                e.Edit((IAssetData asset) => Edit(asset, helper), AssetEditPriority.Default);
+            else
+                return false;
+            return true;
         }
 
 		private static void Edit(IAssetData asset, IModContentHelper helper)
-		{
-			var json = helper.Load
-				<Dictionary<string, string>>
-				(ModConsts.LocalAnimationsPath + ".json");
-            var data = asset.AsDictionary<string, string>().Data;
-
-            foreach ((string key, string value) in json)
+        {
+            if (asset.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentAnimationsPath))
             {
-                _ = data.TryAdd(key, value);
+                // Add CatShop character animation sequence definitions to data asset
+                var data = asset.AsDictionary<string, string>().Data;
+                var json = helper.Load
+                    <Dictionary<string, string>>
+                    (ModConsts.LocalAnimationsPath + ".json");
+                foreach ((string key, string value) in json)
+                {
+                    _ = data.TryAdd(key, value);
+                }
+                asset.ReplaceWith(data);
+            }
+            else if (asset.NameWithoutLocale.IsEquivalentTo(ModConsts.GameContentCatSchedulePath))
+            {
+                // Add CatShop game and tile location values to character schedule data asset
+                var data = asset.AsDictionary<string, string>().Data;
+                data["spring"] = string.Format(
+                    data["spring"],
+                    ModConsts.CatLocation,
+                    ModConsts.CatPosition.X,
+                    ModConsts.CatPosition.Y,
+                    Game1.down);
+                asset.ReplaceWith(data);
             }
         }
 	}
