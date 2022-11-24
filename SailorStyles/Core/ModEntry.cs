@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SailorStyles.Core;
+using SailorStyles.Editors;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
@@ -19,6 +21,8 @@ namespace SailorStyles
 		internal static ModEntry Instance;
 		internal static Config Config;
 		internal static IJsonAssetsApi JsonAssets;
+        internal static bool JAInitialized = false;
+
 		internal ITranslationHelper i18n => Helper.Translation;
 
 		private static NPC CatNpc = null;
@@ -41,24 +45,21 @@ namespace SailorStyles
 			helper.Events.GameLoop.DayEnding += this.OnDayEnding;
 			helper.Events.Input.ButtonReleased += this.OnButtonReleased;
 
-			var npcloader = new Editors.NpcManager();
-			helper.Content.AssetLoaders.Add(npcloader);
-			helper.Content.AssetEditors.Add(npcloader);
-			
-			var objecteditor = new Editors.ObjectDisplayNameEditor();
-			helper.Content.AssetEditors.Add(objecteditor);
+            helper.Events.GameLoop.ReturnedToTitle += this.GameLoop_ReturnedToTitle;
 
-			if (Config.EnableHairstyles)
-			{
-				var hairloader = new Editors.HairstylesManager();
-				helper.Content.AssetLoaders.Add(hairloader);
-				helper.Content.AssetEditors.Add(hairloader);
-			}
+            helper.Events.Content.AssetRequested += this.OnAssetRequested;
+
 		}
 
-		#region Game Events
+        [EventPriority(EventPriority.High)]
+        private void GameLoop_ReturnedToTitle(object sender, ReturnedToTitleEventArgs e)
+        {
+            JAInitialized = false;
+        }
 
-		private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        #region Game Events
+
+        private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
 		{
 			GenerateCat();
 
@@ -74,12 +75,29 @@ namespace SailorStyles
 				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, "assets", ModConsts.HatsDir, pack));
 			foreach (string pack in ModConsts.ClothingPacks)
 				JsonAssets.LoadAssets(Path.Combine(Helper.DirectoryPath, "assets", ModConsts.ClothingDir, pack));
+
+            JsonAssets.IdsFixed += (_, _) => JAInitialized = true;
 		}
 
-		private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
+
+        [EventPriority(EventPriority.Low)]
+        private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
+        {
+            _ = NpcManager.TryLoad(e)
+                || NpcManager.TryEdit(e, this.Helper.ModContent)
+                || (JAInitialized && ObjectDisplayNameEditor.TryEdit(e));
+
+            if (Config.EnableHairstyles)
+            {
+                _ = HairstylesManager.TryLoad(e)
+                    || HairstylesManager.TryEdit(e);
+            }
+        }
+
+        private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
 		{
-			Helper.Content.InvalidateCache(Path.Combine("Data", "hats"));
-			Helper.Content.InvalidateCache(Path.Combine("Data", "ClothingInformation"));
+			Helper.GameContent.InvalidateCacheAndLocalized(Path.Combine("Data", "hats"));
+			Helper.GameContent.InvalidateCacheAndLocalized(Path.Combine("Data", "ClothingInformation"));
 		}
 
 		private void OnDayStarted(object sender, DayStartedEventArgs e)
@@ -150,15 +168,15 @@ namespace SailorStyles
 				|| location.getCharacterFromName(ModConsts.CatId) != null)
 				return;
 			CatNpc.modData.Remove(ModConsts.CatMutexKey);
-			ForceNpcSchedule(CatNpc);
-			location.addCharacter(CatNpc);
+            location.addCharacter(CatNpc);
+            ForceNpcSchedule(CatNpc);
 		}
 
 		private static void ForceNpcSchedule(NPC npc)
 		{
 			try
 			{
-				npc.Schedule = npc.getSchedule(Game1.dayOfMonth);
+                npc.Schedule = npc.getSchedule(Game1.dayOfMonth);
 				npc.ignoreScheduleToday = false;
 				npc.followSchedule = true;
 			}
@@ -190,11 +208,12 @@ namespace SailorStyles
 			return ModConsts.ContentPackPrefix + (isHat ? ModConsts.HatPackPrefix : ModConsts.ClothingPackPrefix) + name;
 		}
 
+        private static Regex IsNotAscii = new("[^a-zA-Z0-9_.]", RegexOptions.Compiled);
+
 		public static string GetIdFromContentPackName(string name, bool isHat)
 		{
-			return Regex.Replace(
+			return IsNotAscii.Replace(
 				input: GetFullContentPackName(name: name, isHat: isHat),
-				pattern: "[^a-zA-Z0-9_.]",
 				replacement: "");
 		}
 
