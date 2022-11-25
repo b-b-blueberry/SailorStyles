@@ -1,7 +1,6 @@
 ![Banner](https://i.imgur.com/mnLpY3B.png)
 ### – Sailor Moon Hairstyles, Clothing, and Kimono
-A Stardew Valley mod big on new custom content for character sprites.  
-Clothing component also includes the logic for a new NPC shop.
+A Stardew Valley mod big on new custom content for character sprites.
 
 ![How to install](https://i.imgur.com/bwKQKF2.png)
 
