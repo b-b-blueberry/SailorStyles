@@ -1,0 +1,201 @@
+﻿{
+    "Changes": [
+        {
+            "LogName": "Sailor Styles: Shops - Tile",
+            "Action": "EditMap",
+            "Target": "Maps/Forest",
+            "MapTiles": [
+                {
+                    "Position": {
+                        "X": 33,
+                        "Y": 96
+                    },
+                    "Layer": "Buildings",
+                    "SetTilesheet": "outdoors",
+                    "SetIndex": 102,
+                    "SetProperties": {
+                        "Action": "OpenShop blueberry.SailorStyles.Shop none 0 2020 33 96 1 1"
+                    }
+                }
+            ]
+        },
+        {
+            "LogName": "Sailor Styles: Shops - Data",
+            "Action": "EditData",
+            "Target": "Data/Shops",
+            "Entries": {
+                "blueberry.SailorStyles.Shop": {
+                    "Currency": 0,
+                    "OpenSound": "cat",
+                    "Owners": [
+                        {
+                            "Id": "blueberry.SailorStyles.Character",
+                            "Name": "blueberry.SailorStyles.Character",
+                            "Portrait": "blueberry.SailorStyles.Character",
+                            "Dialogues": [
+                                {
+                                    "Id": "Default",
+                                    "RandomDialogue": [
+                                        "{{i18n:catshop.text.1}}",
+                                        "{{i18n:catshop.text.2}}",
+                                        "{{i18n:catshop.text.3}}",
+                                        "{{i18n:catshop.text.4}}",
+                                        "{{i18n:catshop.text.5.{{season}}}}"
+                                    ]
+                                }
+                            ],
+                            "RandomizeDialogueOnOpen": true
+                        }
+                    ],
+                    "Items": [
+                        {
+                            "Id": "blueberry.SailorStyles.EverydayHeroes",
+                            "ItemId": "RANDOM_ITEMS (S)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.EverydayHeroes",
+                            "MaxItems": 10,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SkirtsNStuff.1",
+                            "ItemId": "(P)blueberry.SailorStyles.SkirtsNStuff.{{Random:Black, Blue, Green, Orange, Pink, Purple, White |key=skirt}}Dress",
+                            "MaxItems": 1,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SkirtsNStuff.2",
+                            "ItemId": "(P)blueberry.SailorStyles.SkirtsNStuff.WavySkirt",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SakuraKimono.1.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.SakuraKimono.{{Random:Dye, Aqua, Blue, Green, Lemon, Orange |key=kimono}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SakuraKimono.1.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.SakuraKimono.{{Random:Dye, Aqua, Blue, Green, Lemon, Orange |key=kimono}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SakuraKimono.2.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.SakuraKimono.{{Random:Pink, Purple, Red, White, Yellow |key=kimono}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SakuraKimono.2.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.SakuraKimono.{{Random:Pink, Purple, Red, White, Yellow |key=kimono}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.ManAboutTown",
+                            "ItemId": "RANDOM_ITEMS (S)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.ManAboutTown",
+                            "MaxItems": 5,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Tuxedos.Shirts",
+                            "ItemId": "RANDOM_ITEMS (S)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.StylishRogue",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Tuxedos.1.Hats",
+                            "ItemId": "(H)blueberry.SailorStyles.TuxedoTopHats.Chapeau{{Random:Blanc, Classique, Cocktail |key=tuxedo1}}",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": false,
+                            "Price": 150
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Tuxedos.2.Hats",
+                            "ItemId": "(H)blueberry.SailorStyles.TuxedoTopHats.Chapeau{{Random:DeFiance, DeFleurs, Mask, Royale |key=tuxedo2}}",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": false,
+                            "Price": 150
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Tuxedos.1.Pants",
+                            "ItemId": "(P)blueberry.SailorStyles.TuxedoPants.Tuxedo{{Random:Blanc, Classique, Cocktail |key=tuxedo1}}",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": false
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Tuxedos.2.Pants",
+                            "ItemId": "(P)blueberry.SailorStyles.TuxedoPants.Tuxedo{{Random:DeFiance, DeFleurs, Mask, Royale |key=tuxedo2}}",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": false
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.HatsAndPieces",
+                            "ItemId": "RANDOM_ITEMS (H)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.HatsAndPieces",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": false,
+                            "Price": 50
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.UniformOperation",
+                            "ItemId": "RANDOM_ITEMS (S)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.UniformOperation",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.SailorSuits",
+                            "ItemId": "RANDOM_ITEMS (S)",
+                            "PerItemCondition": "ITEM_ID_PREFIX Target blueberry.SailorStyles.SailorSuits",
+                            "MaxItems": 2,
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

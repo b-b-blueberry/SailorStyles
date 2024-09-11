@@ -1,0 +1,1266 @@
+{
+    "Changes": [
+        {
+            "LogName": "Sailor Styles: Shirts - Sprites (M)",
+            "Action": "Load",
+            "Target": "blueberry.SailorStyles.Shirts",
+            "FromFile": "assets/shirts-male.png"
+        },
+        {
+            "LogName": "Sailor Styles: Shirts - Sprites (F)",
+            "Action": "EditImage",
+            "PatchMode": "Replace",
+            "Target": "blueberry.SailorStyles.Shirts",
+            "FromFile": "assets/shirts-female.png",
+            "When": {
+                "PlayerGender |contains=Female": true
+            }
+        },
+        {
+            "LogName": "Sailor Styles: Shirts - Data",
+            "Action": "EditData",
+            "Target": "Data/Shirts",
+            "Entries": {
+                // Everyday Heroes
+                "blueberry.SailorStyles.EverydayHeroes.BeigeButtonup": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BeigeButtonup",
+                    "DisplayName": "{{i18n:item.everydayheroes.beigebuttonup.name}}",
+                    "Description": "{{i18n:item.everydayheroes.beigebuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 0,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BeigeSuperCropTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BeigeSuperCropTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.beigesupercroptop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.beigesupercroptop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 1,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlackBlouseAndBlazer": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlackBlouseAndBlazer",
+                    "DisplayName": "{{i18n:item.everydayheroes.blackblouseandblazer.name}}",
+                    "Description": "{{i18n:item.everydayheroes.blackblouseandblazer.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 2,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlackDressTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlackDressTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.blackdresstop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.blackdresstop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 3,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlackDressTopAndJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlackDressTopAndJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.blackdresstopandjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.blackdresstopandjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 4,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlackTopAndBlazer": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlackTopAndBlazer",
+                    "DisplayName": "{{i18n:item.everydayheroes.blacktopandblazer.name}}",
+                    "Description": "{{i18n:item.everydayheroes.blacktopandblazer.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 5,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueCardigan": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueCardigan",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluecardigan.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluecardigan.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 6,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueCoatAndAscot": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueCoatAndAscot",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluecoatandascot.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluecoatandascot.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 7,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueCoatAndSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueCoatAndSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluecoatandsweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluecoatandsweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 8,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueDressAndJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueDressAndJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluedressandjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluedressandjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 9,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueDungarees": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueDungarees",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluedungarees.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluedungarees.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 10,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueHoodieOnGreen": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueHoodieOnGreen",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluehoodieongreen.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluehoodieongreen.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 11,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueJacketOnGreen": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueJacketOnGreen",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluejacketongreen.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluejacketongreen.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 12,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueJacketOnPink": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueJacketOnPink",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluejacketonpink.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluejacketonpink.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 13,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueOverallsOnGreen": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueOverallsOnGreen",
+                    "DisplayName": "{{i18n:item.everydayheroes.blueoverallsongreen.name}}",
+                    "Description": "{{i18n:item.everydayheroes.blueoverallsongreen.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 14,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueTopAndPinkDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueTopAndPinkDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluetopandpinkdress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluetopandpinkdress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 15,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueWaistcoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueWaistcoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluewaistcoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluewaistcoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 16,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BlueWinterCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BlueWinterCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.bluewintercoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.bluewintercoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 17,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BrightBlueJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BrightBlueJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.brightbluejacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.brightbluejacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 18,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.BrownBeltedCamisole": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.BrownBeltedCamisole",
+                    "DisplayName": "{{i18n:item.everydayheroes.brownbeltedcamisole.name}}",
+                    "Description": "{{i18n:item.everydayheroes.brownbeltedcamisole.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 19,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.CasualPurpleShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.CasualPurpleShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.casualpurpleshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.casualpurpleshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 20,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.ContrastJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.ContrastJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.contrastjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.contrastjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 21,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.CrimsonBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.CrimsonBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.crimsonblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.crimsonblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 22,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.CrimsonOveralls": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.CrimsonOveralls",
+                    "DisplayName": "{{i18n:item.everydayheroes.crimsonoveralls.name}}",
+                    "Description": "{{i18n:item.everydayheroes.crimsonoveralls.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 23,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.DarkPullover": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.DarkPullover",
+                    "DisplayName": "{{i18n:item.everydayheroes.darkpullover.name}}",
+                    "Description": "{{i18n:item.everydayheroes.darkpullover.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 24,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.DeepBlueSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.DeepBlueSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.deepbluesweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.deepbluesweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 25,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.FancyTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.FancyTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.fancytop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.fancytop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 26,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.FieryWinterCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.FieryWinterCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.fierywintercoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.fierywintercoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 27,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.FrillyBlueTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.FrillyBlueTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.frillybluetop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.frillybluetop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 28,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenDownJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenDownJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.greendownjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greendownjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 29,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenHoodieAndCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenHoodieAndCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.greenhoodieandcoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greenhoodieandcoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 30,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenJacketAndSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenJacketAndSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.greenjacketandsweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greenjacketandsweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 31,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenRibbonedButtonup": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenRibbonedButtonup",
+                    "DisplayName": "{{i18n:item.everydayheroes.greenribbonedbuttonup.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greenribbonedbuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 32,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenSleevelessTurtleneck": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenSleevelessTurtleneck",
+                    "DisplayName": "{{i18n:item.everydayheroes.greensleevelessturtleneck.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greensleevelessturtleneck.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 33,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.CollaredShirtAndSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.CollaredShirtAndSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.collaredshirtandsweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.collaredshirtandsweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 34,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreenTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreenTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.greentop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greentop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 35,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.GreyHoodieOnPink": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.GreyHoodieOnPink",
+                    "DisplayName": "{{i18n:item.everydayheroes.greyhoodieonpink.name}}",
+                    "Description": "{{i18n:item.everydayheroes.greyhoodieonpink.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 36,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.HomeMadeDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.HomeMadeDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.homemadedress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.homemadedress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 37,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.HotPinkOveralls": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.HotPinkOveralls",
+                    "DisplayName": "{{i18n:item.everydayheroes.hotpinkoveralls.name}}",
+                    "Description": "{{i18n:item.everydayheroes.hotpinkoveralls.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 38,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.HotPinkVelvetJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.HotPinkVelvetJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.hotpinkvelvetjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.hotpinkvelvetjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 39,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.LemonBlouseAndBlazer": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.LemonBlouseAndBlazer",
+                    "DisplayName": "{{i18n:item.everydayheroes.lemonblouseandblazer.name}}",
+                    "Description": "{{i18n:item.everydayheroes.lemonblouseandblazer.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 40,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.MaroonButtonup": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.MaroonButtonup",
+                    "DisplayName": "{{i18n:item.everydayheroes.maroonbuttonup.name}}",
+                    "Description": "{{i18n:item.everydayheroes.maroonbuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 41,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.MaroonJacketOnGreen": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.MaroonJacketOnGreen",
+                    "DisplayName": "{{i18n:item.everydayheroes.maroonjacketongreen.name}}",
+                    "Description": "{{i18n:item.everydayheroes.maroonjacketongreen.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 42,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.MaroonTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.MaroonTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.maroontop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.maroontop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 43,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.MauveSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.MauveSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.mauvesweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.mauvesweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 44,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.MusicCriticOutfit": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.MusicCriticOutfit",
+                    "DisplayName": "{{i18n:item.everydayheroes.musiccriticoutfit.name}}",
+                    "Description": "{{i18n:item.everydayheroes.musiccriticoutfit.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 45,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangeblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangeblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 46,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeButtonup": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeButtonup",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangebuttonup.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangebuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 47,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangecoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangecoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 48,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeCollaredTank": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeCollaredTank",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangecollaredtank.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangecollaredtank.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 49,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeDressTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeDressTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangedresstop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangedresstop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 50,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeStripedShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeStripedShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangestripedshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangestripedshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 51,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.OrangeWrap": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.OrangeWrap",
+                    "DisplayName": "{{i18n:item.everydayheroes.orangewrap.name}}",
+                    "Description": "{{i18n:item.everydayheroes.orangewrap.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 52,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PeaGreenDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PeaGreenDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.peagreendress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.peagreendress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 53,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PeachyOveralls": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PeachyOveralls",
+                    "DisplayName": "{{i18n:item.everydayheroes.peachyoveralls.name}}",
+                    "Description": "{{i18n:item.everydayheroes.peachyoveralls.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 54,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PhotographersCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PhotographersCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.photographerscoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.photographerscoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 55,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PhotographersTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PhotographersTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.photographerstop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.photographerstop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 56,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PinkButtonup": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PinkButtonup",
+                    "DisplayName": "{{i18n:item.everydayheroes.pinkbuttonup.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pinkbuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 57,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PinkCardigan": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PinkCardigan",
+                    "DisplayName": "{{i18n:item.everydayheroes.pinkcardigan.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pinkcardigan.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 58,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PinkCollaredCoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PinkCollaredCoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.pinkcollaredcoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pinkcollaredcoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 59,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PinkDressAndJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PinkDressAndJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.pinkdressandjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pinkdressandjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 60,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PinkSleevelessTurtleneck": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PinkSleevelessTurtleneck",
+                    "DisplayName": "{{i18n:item.everydayheroes.pinksleevelessturtleneck.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pinksleevelessturtleneck.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 61,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PlainWhiteBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PlainWhiteBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.plainwhiteblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.plainwhiteblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 62,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PulloverSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PulloverSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.pulloversweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.pulloversweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 63,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.PurpleJacketOnPink": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.PurpleJacketOnPink",
+                    "DisplayName": "{{i18n:item.everydayheroes.purplejacketonpink.name}}",
+                    "Description": "{{i18n:item.everydayheroes.purplejacketonpink.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 64,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.RainyDayTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.RainyDayTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.rainydaytop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.rainydaytop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 65,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.RainyDayTopAndBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.RainyDayTopAndBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.rainydaytopandblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.rainydaytopandblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 66,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.RedTurtleneck": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.RedTurtleneck",
+                    "DisplayName": "{{i18n:item.everydayheroes.redturtleneck.name}}",
+                    "Description": "{{i18n:item.everydayheroes.redturtleneck.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 67,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SalmonPinkHoodie": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SalmonPinkHoodie",
+                    "DisplayName": "{{i18n:item.everydayheroes.salmonpinkhoodie.name}}",
+                    "Description": "{{i18n:item.everydayheroes.salmonpinkhoodie.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 68,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SandyOvershirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SandyOvershirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.sandyovershirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.sandyovershirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 69,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SapphireShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SapphireShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.sapphireshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.sapphireshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 70,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.ScarletKeyholeTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.ScarletKeyholeTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.scarletkeyholetop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.scarletkeyholetop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 71,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.ScarletTieTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.ScarletTieTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.scarlettietop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.scarlettietop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 72,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SkyBlueBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SkyBlueBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.skyblueblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.skyblueblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 73,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SportyGreenShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SportyGreenShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.sportygreenshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.sportygreenshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 74,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SportyShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SportyShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.sportyshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.sportyshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 75,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SportyTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SportyTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.sportytop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.sportytop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 76,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.StrikingBlazer": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.StrikingBlazer",
+                    "DisplayName": "{{i18n:item.everydayheroes.strikingblazer.name}}",
+                    "Description": "{{i18n:item.everydayheroes.strikingblazer.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 77,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.StripeyGreenShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.StripeyGreenShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.stripeygreenshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.stripeygreenshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 78,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.StripeyPinkTank": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.StripeyPinkTank",
+                    "DisplayName": "{{i18n:item.everydayheroes.stripeypinktank.name}}",
+                    "Description": "{{i18n:item.everydayheroes.stripeypinktank.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 79,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.EverydayHeroes.StudiousShirt": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.StudiousShirt",
+                    "DisplayName": "{{i18n:item.everydayheroes.studiousshirt.name}}",
+                    "Description": "{{i18n:item.everydayheroes.studiousshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 80,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.StupidSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.StupidSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.stupidsweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.stupidsweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 81,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.SummerSuperCropTee": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.SummerSuperCropTee",
+                    "DisplayName": "{{i18n:item.everydayheroes.summersupercroptee.name}}",
+                    "Description": "{{i18n:item.everydayheroes.summersupercroptee.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 82,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.TrimPinkDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.TrimPinkDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.trimpinkdress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.trimpinkdress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 83,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.TrimRedJacket": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.TrimRedJacket",
+                    "DisplayName": "{{i18n:item.everydayheroes.trimredjacket.name}}",
+                    "Description": "{{i18n:item.everydayheroes.trimredjacket.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 84,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.TurtleneckAndSweater": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.TurtleneckAndSweater",
+                    "DisplayName": "{{i18n:item.everydayheroes.turtleneckandsweater.name}}",
+                    "Description": "{{i18n:item.everydayheroes.turtleneckandsweater.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 85,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.UglyPullover": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.UglyPullover",
+                    "DisplayName": "{{i18n:item.everydayheroes.uglypullover.name}}",
+                    "Description": "{{i18n:item.everydayheroes.uglypullover.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 86,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.VioletShirtAndTie": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.VioletShirtAndTie",
+                    "DisplayName": "{{i18n:item.everydayheroes.violetshirtandtie.name}}",
+                    "Description": "{{i18n:item.everydayheroes.violetshirtandtie.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 87,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WhiteBlouse": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WhiteBlouse",
+                    "DisplayName": "{{i18n:item.everydayheroes.whiteblouse.name}}",
+                    "Description": "{{i18n:item.everydayheroes.whiteblouse.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 88,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WhiteCropTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WhiteCropTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.whitecroptop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.whitecroptop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 89,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WhiteDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WhiteDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.whitedress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.whitedress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 90,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WhiteWaistcoat": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WhiteWaistcoat",
+                    "DisplayName": "{{i18n:item.everydayheroes.whitewaistcoat.name}}",
+                    "Description": "{{i18n:item.everydayheroes.whitewaistcoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 91,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WickedLife": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WickedLife",
+                    "DisplayName": "{{i18n:item.everydayheroes.wickedlife.name}}",
+                    "Description": "{{i18n:item.everydayheroes.wickedlife.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 92,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.WoollyFleece": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.WoollyFleece",
+                    "DisplayName": "{{i18n:item.everydayheroes.woollyfleece.name}}",
+                    "Description": "{{i18n:item.everydayheroes.woollyfleece.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 93,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.YellowTieTop": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.YellowTieTop",
+                    "DisplayName": "{{i18n:item.everydayheroes.yellowtietop.name}}",
+                    "Description": "{{i18n:item.everydayheroes.yellowtietop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 94,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.EverydayHeroes.YellowGreenDress": {
+                    "Name": "blueberry.SailorStyles.EverydayHeroes.YellowGreenDress",
+                    "DisplayName": "{{i18n:item.everydayheroes.yellowgreendress.name}}",
+                    "Description": "{{i18n:item.everydayheroes.yellowgreendress.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 95,
+                    "Price": 50
+                },
+
+                // Man About Town
+                "blueberry.SailorStyles.ManAboutTown.ArcadeTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.ArcadeTop",
+                    "DisplayName": "{{i18n:item.manabouttown.arcadetop.name}}",
+                    "Description": "{{i18n:item.manabouttown.arcadetop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 96,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.BeigeJacketGreenTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.BeigeJacketGreenTop",
+                    "DisplayName": "{{i18n:item.manabouttown.beigejacketgreentop.name}}",
+                    "Description": "{{i18n:item.manabouttown.beigejacketgreentop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 97,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.BlueSleevelessTrackTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.BlueSleevelessTrackTop",
+                    "DisplayName": "{{i18n:item.manabouttown.bluesleevelesstracktop.name}}",
+                    "Description": "{{i18n:item.manabouttown.bluesleevelesstracktop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 98,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.ManAboutTown.BusinessCasualShirt": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.BusinessCasualShirt",
+                    "DisplayName": "{{i18n:item.manabouttown.businesscasualshirt.name}}",
+                    "Description": "{{i18n:item.manabouttown.businesscasualshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 99,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.CrimsonJacketSandyTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.CrimsonJacketSandyTop",
+                    "DisplayName": "{{i18n:item.manabouttown.crimsonjacketsandytop.name}}",
+                    "Description": "{{i18n:item.manabouttown.crimsonjacketsandytop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 100,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.EarthyWaistcoat": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.EarthyWaistcoat",
+                    "DisplayName": "{{i18n:item.manabouttown.earthywaistcoat.name}}",
+                    "Description": "{{i18n:item.manabouttown.earthywaistcoat.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 101,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.GreenBlazerOnBlack": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.GreenBlazerOnBlack",
+                    "DisplayName": "{{i18n:item.manabouttown.greenblazeronblack.name}}",
+                    "Description": "{{i18n:item.manabouttown.greenblazeronblack.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 102,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.GreenCollarShirt": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.GreenCollarShirt",
+                    "DisplayName": "{{i18n:item.manabouttown.greencollarshirt.name}}",
+                    "Description": "{{i18n:item.manabouttown.greencollarshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 103,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.LazyPinkButtonup": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.LazyPinkButtonup",
+                    "DisplayName": "{{i18n:item.manabouttown.lazypinkbuttonup.name}}",
+                    "Description": "{{i18n:item.manabouttown.lazypinkbuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 104,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.LemonLavendarButtonup": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.LemonLavendarButtonup",
+                    "DisplayName": "{{i18n:item.manabouttown.lemonlavendarbuttonup.name}}",
+                    "Description": "{{i18n:item.manabouttown.lemonlavendarbuttonup.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 105,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.OrangeDoubleShirt": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.OrangeDoubleShirt",
+                    "DisplayName": "{{i18n:item.manabouttown.orangedoubleshirt.name}}",
+                    "Description": "{{i18n:item.manabouttown.orangedoubleshirt.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 106,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.PuffyJoggingTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.PuffyJoggingTop",
+                    "DisplayName": "{{i18n:item.manabouttown.puffyjoggingtop.name}}",
+                    "Description": "{{i18n:item.manabouttown.puffyjoggingtop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 107,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.PurpleJacketOnGreen": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.PurpleJacketOnGreen",
+                    "DisplayName": "{{i18n:item.manabouttown.purplejacketongreen.name}}",
+                    "Description": "{{i18n:item.manabouttown.purplejacketongreen.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 108,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.SchoolUniformTuxedo": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.SchoolUniformTuxedo",
+                    "DisplayName": "{{i18n:item.manabouttown.schooluniformtuxedo.name}}",
+                    "Description": "{{i18n:item.manabouttown.schooluniformtuxedo.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 109,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.SkiTop": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.SkiTop",
+                    "DisplayName": "{{i18n:item.manabouttown.skitop.name}}",
+                    "Description": "{{i18n:item.manabouttown.skitop.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 110,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.ManAboutTown.WoolScarfAndCardigan": {
+                    "Name": "blueberry.SailorStyles.ManAboutTown.WoolScarfAndCardigan",
+                    "DisplayName": "{{i18n:item.manabouttown.woolscarfandcardigan.name}}",
+                    "Description": "{{i18n:item.manabouttown.woolscarfandcardigan.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 111,
+                    "Price": 50
+                },
+
+                // Sailor Suits
+                "blueberry.SailorStyles.SailorSuits.ChibiMoon": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.ChibiMoon",
+                    "DisplayName": "{{i18n:item.sailorsuits.chibimoon.name}}",
+                    "Description": "{{i18n:item.sailorsuits.chibimoon.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 112,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Jupiter": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Jupiter",
+                    "DisplayName": "{{i18n:item.sailorsuits.jupiter.name}}",
+                    "Description": "{{i18n:item.sailorsuits.jupiter.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 113,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Mars": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Mars",
+                    "DisplayName": "{{i18n:item.sailorsuits.mars.name}}",
+                    "Description": "{{i18n:item.sailorsuits.mars.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 114,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Mercury": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Mercury",
+                    "DisplayName": "{{i18n:item.sailorsuits.mercury.name}}",
+                    "Description": "{{i18n:item.sailorsuits.mercury.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 115,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Moon": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Moon",
+                    "DisplayName": "{{i18n:item.sailorsuits.moon.name}}",
+                    "Description": "{{i18n:item.sailorsuits.moon.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 116,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Neptune": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Neptune",
+                    "DisplayName": "{{i18n:item.sailorsuits.neptune.name}}",
+                    "Description": "{{i18n:item.sailorsuits.neptune.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 117,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Pluto": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Pluto",
+                    "DisplayName": "{{i18n:item.sailorsuits.pluto.name}}",
+                    "Description": "{{i18n:item.sailorsuits.pluto.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 118,
+                    "Price": 50,
+                    "HasSleeves": false
+                },
+                "blueberry.SailorStyles.SailorSuits.Saturn": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Saturn",
+                    "DisplayName": "{{i18n:item.sailorsuits.saturn.name}}",
+                    "Description": "{{i18n:item.sailorsuits.saturn.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 119,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Uranus": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Uranus",
+                    "DisplayName": "{{i18n:item.sailorsuits.uranus.name}}",
+                    "Description": "{{i18n:item.sailorsuits.uranus.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 120,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.V": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.V",
+                    "DisplayName": "{{i18n:item.sailorsuits.v.name}}",
+                    "Description": "{{i18n:item.sailorsuits.v.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 121,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.SailorSuits.Venus": {
+                    "Name": "blueberry.SailorStyles.SailorSuits.Venus",
+                    "DisplayName": "{{i18n:item.sailorsuits.venus.name}}",
+                    "Description": "{{i18n:item.sailorsuits.venus.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 122,
+                    "Price": 50
+                },
+
+                // Sakura Kimono
+                "blueberry.SailorStyles.SakuraKimono.Dye.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Dye.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.dye.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.dye.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 123,
+                    "Price": 375,
+                    "CanBeDyed": true,
+                    "DefaultColor": "255 255 255"
+                },
+                "blueberry.SailorStyles.SakuraKimono.Aqua.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Aqua.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.aqua.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.aqua.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 124,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Blue.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Blue.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.blue.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.blue.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 125,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Green.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Green.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.green.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.green.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 126,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Lemon.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Lemon.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.lemon.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.lemon.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 127,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Orange.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Orange.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.orange.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.orange.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 128,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Pink.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Pink.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.pink.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.pink.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 129,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Purple.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Purple.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.purple.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.purple.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 130,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Red.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Red.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.red.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.red.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 131,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.White.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.White.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.white.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.white.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 132,
+                    "Price": 375
+                },
+                "blueberry.SailorStyles.SakuraKimono.Yellow.T": {
+                    "Name": "blueberry.SailorStyles.SakuraKimono.Yellow.T",
+                    "DisplayName": "{{i18n:item.sakurakimono.yellow.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.yellow.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 133,
+                    "Price": 375
+                },
+
+                // Stylish Rogue
+                "blueberry.SailorStyles.StylishRogue.TuxedoBlonde": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoBlonde",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedoblonde.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedoblonde.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 134,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoClassique": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoClassique",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedoclassique.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedoclassique.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 135,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoCocktail": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoCocktail",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedococktail.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedococktail.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 136,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoDeFiance": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoDeFiance",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedodefiance.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedodefiance.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 137,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoDeFleurs": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoDeFleurs",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedodefleurs.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedodefleurs.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 138,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoDeLuxe": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoDeLuxe",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedodeluxe.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedodeluxe.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 139,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoDeNuit": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoDeNuit",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedodenuit.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedodenuit.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 140,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoMask": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoMask",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedomask.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedomask.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 141,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoMystique": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoMystique",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedomystique.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedomystique.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 142,
+                    "Price": 150
+                },
+                "blueberry.SailorStyles.StylishRogue.TuxedoRoyale": {
+                    "Name": "blueberry.SailorStyles.StylishRogue.TuxedoRoyale",
+                    "DisplayName": "{{i18n:item.stylishrogue.tuxedoroyale.name}}",
+                    "Description": "{{i18n:item.stylishrogue.tuxedoroyale.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 143,
+                    "Price": 150
+                },
+
+                // Uniform Operation
+                "blueberry.SailorStyles.UniformOperation.ChibiBlue": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.ChibiBlue",
+                    "DisplayName": "{{i18n:item.uniformoperation.chibiblue.name}}",
+                    "Description": "{{i18n:item.uniformoperation.chibiblue.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 144,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.ChibiWhite": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.ChibiWhite",
+                    "DisplayName": "{{i18n:item.uniformoperation.chibiwhite.name}}",
+                    "Description": "{{i18n:item.uniformoperation.chibiwhite.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 145,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Jupiter": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Jupiter",
+                    "DisplayName": "{{i18n:item.uniformoperation.jupiter.name}}",
+                    "Description": "{{i18n:item.uniformoperation.jupiter.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 146,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Mars": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Mars",
+                    "DisplayName": "{{i18n:item.uniformoperation.mars.name}}",
+                    "Description": "{{i18n:item.uniformoperation.mars.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 147,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Mercury": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Mercury",
+                    "DisplayName": "{{i18n:item.uniformoperation.mercury.name}}",
+                    "Description": "{{i18n:item.uniformoperation.mercury.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 148,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Moon": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Moon",
+                    "DisplayName": "{{i18n:item.uniformoperation.moon.name}}",
+                    "Description": "{{i18n:item.uniformoperation.moon.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 149,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Stars": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Stars",
+                    "DisplayName": "{{i18n:item.uniformoperation.stars.name}}",
+                    "Description": "{{i18n:item.uniformoperation.stars.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 150,
+                    "Price": 50
+                },
+                "blueberry.SailorStyles.UniformOperation.Venus": {
+                    "Name": "blueberry.SailorStyles.UniformOperation.Venus",
+                    "DisplayName": "{{i18n:item.uniformoperation.venus.name}}",
+                    "Description": "{{i18n:item.uniformoperation.venus.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 151,
+                    "Price": 50
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "Changes": [
+        {
+            "LogName": "Sailor Styles: Hats - Sprites",
+            "Action": "Load",
+            "Target": "blueberry.SailorStyles.Hats",
+            "FromFile": "assets/hats.png"
+        },
+        {
+            "LogName": "Sailor Styles: Hats - Data",
+            "Action": "EditData",
+            "Target": "Data/hats",
+            "Entries": {
+                // Hats And Pieces
+                "blueberry.SailorStyles.HatsAndPieces.BigRedBow": "blueberry.SailorStyles.HatsAndPieces.BigRedBow/{{i18n:item.hatsandpieces.bigredbow.description}}/true/true//{{i18n:item.hatsandpieces.bigredbow.name}}/0/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.BlackDominoMask": "blueberry.SailorStyles.HatsAndPieces.BlackDominoMask/{{i18n:item.hatsandpieces.blackdominomask.description}}/true/true//{{i18n:item.hatsandpieces.blackdominomask.name}}/1/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.ClearDominoMask": "blueberry.SailorStyles.HatsAndPieces.ClearDominoMask/{{i18n:item.hatsandpieces.cleardominomask.description}}/true/true//{{i18n:item.hatsandpieces.cleardominomask.name}}/2/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.CrystalDominoMask": "blueberry.HatsAndPieces.SailorStyles.CrystalDominoMask/{{i18n:item.hatsandpieces.crystaldominomask.description}}/true/true//{{i18n:item.hatsandpieces.crystaldominomask.name}}/3/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.CuteBow": "blueberry.SailorStyles.HatsAndPieces.CuteBow/{{i18n:item.hatsandpieces.cutebow.description}}/true/true//{{i18n:item.hatsandpieces.cutebow.name}}/4/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.MoonHairBrooch": "blueberry.SailorStyles.HatsAndPieces.MoonHairBrooch/{{i18n:item.hatsandpieces.moonhairbrooch.description}}/true/true//{{i18n:item.hatsandpieces.moonhairbrooch.name}}/5/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.RedDominoMask": "blueberry.SailorStyles.HatsAndPieces.RedDominoMask/{{i18n:item.hatsandpieces.reddominomask.description}}/true/true//{{i18n:item.hatsandpieces.reddominomask.name}}/6/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.SquareShades": "blueberry.SailorStyles.HatsAndPieces.SquareShades/{{i18n:item.hatsandpieces.squareshades.description}}/true/true//{{i18n:item.hatsandpieces.squareshades.name}}/7/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.WhiteBow": "blueberry.SailorStyles.HatsAndPieces.WhiteBow/{{i18n:item.hatsandpieces.whitebow.description}}/true/true//{{i18n:item.hatsandpieces.whitebow.name}}/8/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.HatsAndPieces.WhiteDominoMask": "blueberry.SailorStyles.HatsAndPieces.WhiteDominoMask/{{i18n:item.hatsandpieces.whitedominomask.description}}/true/true//{{i18n:item.hatsandpieces.whitedominomask.name}}/9/blueberry.SailorStyles.Hats",
+
+                // Tuxedo Top Hats
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauBlanc": "blueberry.SailorStyles.TuxedoTopHats.ChapeauBlanc/{{i18n:item.tuxedotophats.chapeaublanc.description}}/true/true//{{i18n:item.tuxedotophats.chapeaublanc.name}}/10/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauClassique": "blueberry.SailorStyles.TuxedoTopHats.ChapeauClassique/{{i18n:item.tuxedotophats.chapeauclassique.description}}/true/true//{{i18n:item.tuxedotophats.chapeauclassique.name}}/11/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauCocktail": "blueberry.SailorStyles.TuxedoTopHats.ChapeauCocktail/{{i18n:item.tuxedotophats.chapeaucocktail.description}}/true/true//{{i18n:item.tuxedotophats.chapeaucocktail.name}}/12/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauDeFiance": "blueberry.SailorStyles.TuxedoTopHats.ChapeauDeFiance/{{i18n:item.tuxedotophats.chapeaudefiance.description}}/true/true//{{i18n:item.tuxedotophats.chapeaudefiance.name}}/13/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauDeFleurs": "blueberry.SailorStyles.TuxedoTopHats.ChapeauDeFleurs/{{i18n:item.tuxedotophats.chapeaudefleurs.description}}/true/true//{{i18n:item.tuxedotophats.chapeaudefleurs.name}}/14/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauMask": "blueberry.SailorStyles.TuxedoTopHats.ChapeauMask/{{i18n:item.tuxedotophats.chapeaumask.description}}/true/true//{{i18n:item.tuxedotophats.chapeaumask.name}}/15/blueberry.SailorStyles.Hats",
+                "blueberry.SailorStyles.TuxedoTopHats.ChapeauRoyale": "blueberry.SailorStyles.TuxedoTopHats.ChapeauRoyale/{{i18n:item.tuxedotophats.chapeauroyale.description}}/true/true//{{i18n:item.tuxedotophats.chapeauroyale.name}}/16/blueberry.SailorStyles.Hats"
+            }
+        }
+    ]
+}

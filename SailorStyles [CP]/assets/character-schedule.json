@@ -1,0 +1,6 @@
+{
+	"Mon": "GOTO shop",
+	"Sun": "GOTO shop",
+	"shop": "0 33 96 2 blueberry.SailorStyles.Anim.Standing/1240 33 96 2 blueberry.SailorStyles.Anim.Sitting/1830 33 96 2 blueberry.SailorStyles.Anim.Drowsy/2020 33 96 2 blueberry.SailorStyles.Anim.Snoozing",
+	"default": "0 Forest -999 -999/2400 Forest -999 -999"
+}

@@ -1,0 +1,41 @@
+{
+    "Changes": [
+        {
+            "LogName": "Sailor Styles: Hairstyles - Sprites",
+            "Action": "Load",
+            "Target": "Characters/Farmer/blueberry.SailorStyles.Hairstyles",
+            "FromFile": "assets/hairstyles.png"
+        },
+        {
+            "LogName": "Sailor Styles: Hairstyles - Data",
+            "Action": "EditData",
+            "Target": "Data/HairData",
+            "Entries": {
+                "41540000": "blueberry.SailorStyles.Hairstyles/0/0/true/-1/false",
+                "41540001": "blueberry.SailorStyles.Hairstyles/1/0/true/-1/false",
+                "41540002": "blueberry.SailorStyles.Hairstyles/2/0/true/-1/false",
+                "41540003": "blueberry.SailorStyles.Hairstyles/3/0/true/-1/false",
+                "41540004": "blueberry.SailorStyles.Hairstyles/4/0/true/-1/false",
+                "41540005": "blueberry.SailorStyles.Hairstyles/5/0/true/-1/false",
+                "41540006": "blueberry.SailorStyles.Hairstyles/6/0/true/-1/false",
+                "41540007": "blueberry.SailorStyles.Hairstyles/7/0/true/-1/false",
+                "41540008": "blueberry.SailorStyles.Hairstyles/0/8/true/-1/false",
+                "41540009": "blueberry.SailorStyles.Hairstyles/1/8/true/-1/false",
+                "41540010": "blueberry.SailorStyles.Hairstyles/2/8/true/-1/false",
+                "41540011": "blueberry.SailorStyles.Hairstyles/3/8/true/-1/false",
+                "41540012": "blueberry.SailorStyles.Hairstyles/4/8/true/-1/false",
+                "41540013": "blueberry.SailorStyles.Hairstyles/5/8/true/-1/false",
+                "41540014": "blueberry.SailorStyles.Hairstyles/6/8/true/-1/false",
+                "41540015": "blueberry.SailorStyles.Hairstyles/7/8/true/-1/false",
+                "41540016": "blueberry.SailorStyles.Hairstyles/0/16/true/-1/false",
+                "41540017": "blueberry.SailorStyles.Hairstyles/1/16/true/-1/false",
+                "41540018": "blueberry.SailorStyles.Hairstyles/2/16/true/-1/false",
+                "41540019": "blueberry.SailorStyles.Hairstyles/3/16/true/-1/false",
+                "41540020": "blueberry.SailorStyles.Hairstyles/4/16/true/-1/false",
+                "41540021": "blueberry.SailorStyles.Hairstyles/5/16/true/-1/false",
+                "41540022": "blueberry.SailorStyles.Hairstyles/6/16/true/-1/false",
+                "41540023": "blueberry.SailorStyles.Hairstyles/7/16/true/-1/false"
+            }
+        }
+    ]
+}
