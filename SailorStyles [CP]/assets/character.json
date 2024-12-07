@@ -16,7 +16,18 @@
             "LogName": "Sailor Styles: Character - Schedule",
             "Action": "Load",
             "Target": "Characters/schedules/blueberry.SailorStyles.Character",
-            "FromFile": "assets/character-schedule.json"
+            "FromFile": "assets/blank.json"
+        },
+        {
+            "LogName": "Sailor Styles: Character - Schedule",
+            "Action": "EditData",
+            "Target": "Characters/schedules/blueberry.SailorStyles.Character",
+            "Entries": {
+                "Mon": "GOTO shop",
+                "Sun": "GOTO shop",
+                "shop": "0 33 96 2 blueberry.SailorStyles.Anim.Standing/1240 33 96 2 blueberry.SailorStyles.Anim.Sitting/1830 33 96 2 blueberry.SailorStyles.Anim.Drowsy/2020 33 96 2 blueberry.SailorStyles.Anim.Snoozing",
+                "spring": "0 Forest -999 -999/2400 Forest -999 -999"
+            }
         },
         {
             "LogName": "Sailor Styles: Character - Animations",
