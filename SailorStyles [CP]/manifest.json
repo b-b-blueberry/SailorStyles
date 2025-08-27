@@ -1,8 +1,8 @@
 ﻿{
 	"Name": "Sailor Styles [CP]",
 	"Author": "blueberry",
-	"Version": "5.0.0-alpha.0",
-	"Description": "Sailor Moon clothing and hairstyles - shirts, pants, skirts, and more!",
+	"Version": "5.0.0",
+	"Description": "Sailor Moon clothing and hairstyles - shirts, pants, skirts, kimono, and more!",
 	"UniqueID": "blueberry.SailorStyles.CP",
 	"UpdateKeys": [ "Nexus:4154" ],
 	"ContentPackFor": {
