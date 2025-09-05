@@ -1259,6 +1259,90 @@
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 151,
                     "Price": 50
+                },
+
+                // Yukata Collection
+                "blueberry.SailorStyles.YukataCollection.Dye.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Dye.T",
+                    "DisplayName": "YukataCollection.Dye.T",
+                    "Description": "YukataCollection.Dye.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 160,
+                    "Price": 250,
+                    "CanBeDyed": true,
+                    "DefaultColor": "255 255 255"
+                },
+                "blueberry.SailorStyles.YukataCollection.Indigo.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Indigo.T",
+                    "DisplayName": "YukataCollection.Indigo.T",
+                    "Description": "YukataCollection.Indigo.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 161,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Sand.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Sand.T",
+                    "DisplayName": "YukataCollection.Sand.T",
+                    "Description": "YukataCollection.Sand.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 162,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Ash.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Ash.T",
+                    "DisplayName": "YukataCollection.Ash.T",
+                    "Description": "YukataCollection.Ash.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 163,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Crimson.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Crimson.T",
+                    "DisplayName": "YukataCollection.Crimson.T",
+                    "Description": "YukataCollection.Crimson.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 164,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Sky.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Sky.T",
+                    "DisplayName": "YukataCollection.Sky.T",
+                    "Description": "YukataCollection.Sky.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 165,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Stone.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Stone.T",
+                    "DisplayName": "YukataCollection.Stone.T",
+                    "Description": "YukataCollection.Stone.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 166,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Snow.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Snow.T",
+                    "DisplayName": "YukataCollection.Snow.T",
+                    "Description": "YukataCollection.Snow.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 167,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Moss.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Moss.T",
+                    "DisplayName": "YukataCollection.Moss.T",
+                    "Description": "YukataCollection.Moss.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 168,
+                    "Price": 250
+                },
+                "blueberry.SailorStyles.YukataCollection.Earth.T": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Earth.T",
+                    "DisplayName": "YukataCollection.Earth.T",
+                    "Description": "YukataCollection.Earth.T",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 169,
+                    "Price": 250
                 }
             }
         }

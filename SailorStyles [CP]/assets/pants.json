@@ -251,6 +251,98 @@
                     "Texture": "blueberry.SailorStyles.Pants",
                     "DefaultColor": "255 255 255",
                     "SpriteIndex": 26
+                },
+
+                // Yukata Collection
+                "blueberry.SailorStyles.YukataCollection.Dye.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Dye.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Dye.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Dye.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 30
+                },
+                "blueberry.SailorStyles.YukataCollection.Indigo.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Indigo.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Indigo.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Indigo.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 31
+                },
+                "blueberry.SailorStyles.YukataCollection.Sand.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Sand.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Sand.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Sand.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 32
+                },
+                "blueberry.SailorStyles.YukataCollection.Ash.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Ash.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Ash.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Ash.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 33
+                },
+                "blueberry.SailorStyles.YukataCollection.Crimson.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Crimson.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Crimson.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Crimson.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 34
+                },
+                "blueberry.SailorStyles.YukataCollection.Sky.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Sky.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Sky.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Sky.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 35
+                },
+                "blueberry.SailorStyles.YukataCollection.Stone.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Stone.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Stone.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Stone.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 36
+                },
+                "blueberry.SailorStyles.YukataCollection.Snow.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Snow.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Snow.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Snow.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 37
+                },
+                "blueberry.SailorStyles.YukataCollection.Moss.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Moss.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Moss.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Moss.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 38
+                },
+                "blueberry.SailorStyles.YukataCollection.Earth.B": {
+                    "Name": "blueberry.SailorStyles.YukataCollection.Earth.B",
+                    "DisplayName": "blueberry.SailorStyles.YukataCollection.Earth.B",
+                    "Description": "blueberry.SailorStyles.YukataCollection.Earth.B",
+                    "Price": 250,
+                    "Texture": "blueberry.SailorStyles.Pants",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 39
                 }
             }
         }

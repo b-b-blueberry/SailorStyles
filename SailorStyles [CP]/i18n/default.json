@@ -159,7 +159,6 @@
 	"item.sakurakimono.red.b.name": "Sakura Kimono (Cherry)",
 	"item.sakurakimono.white.b.name": "Sakura Kimono (White)",
 	"item.sakurakimono.yellow.b.name": "Sakura Kimono (Yuzu)",
-	"item.sakurakimono.yukata.b.name": "Sakura Yukata",
 
 	"item.sakurakimono.dye.t.name": "Sakura Kimono",
 	"item.sakurakimono.aqua.t.name": "Sakura Kimono (Aqua)",
@@ -172,7 +171,6 @@
 	"item.sakurakimono.red.t.name": "Sakura Kimono (Cherry)",
 	"item.sakurakimono.white.t.name": "Sakura Kimono (White)",
 	"item.sakurakimono.yellow.t.name": "Sakura Kimono (Yuzu)",
-	"item.sakurakimono.yukata.t.name": "Sakura Yukata",
 
 	// Skirts n' Stuff
 	"item.skirtsnstuff.wavyskirt.name": "Wavy Skirt",
@@ -231,6 +229,9 @@
 	"item.tuxedopants.tuxedococktail.name": "Tuxedo Cocktail",
 	"item.tuxedopants.tuxedodefiance.name": "Tuxedo De Fiancé",
 	"item.tuxedopants.tuxedoblanc.name": "Tuxedo Blanc",
+
+	// Yukata Collection
+	"item.yukatacollection..t.name": "Yukata",
 
 	// DESCRIPTIONS
 
