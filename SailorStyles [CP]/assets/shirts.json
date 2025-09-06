@@ -1262,84 +1262,84 @@
                 },
 
                 // Yukata Collection
-                "blueberry.SailorStyles.YukataCollection.Dye.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Dye.T",
-                    "DisplayName": "YukataCollection.Dye.T",
-                    "Description": "YukataCollection.Dye.T",
+                "blueberry.SailorStyles.Yukata.Dye.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Dye.T",
+                    "DisplayName": "{{i18n:item.yukata.dye.t.name}}",
+                    "Description": "{{i18n:item.yukata.dye.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 160,
                     "Price": 250,
                     "CanBeDyed": true,
                     "DefaultColor": "255 255 255"
                 },
-                "blueberry.SailorStyles.YukataCollection.Indigo.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Indigo.T",
-                    "DisplayName": "YukataCollection.Indigo.T",
-                    "Description": "YukataCollection.Indigo.T",
+                "blueberry.SailorStyles.Yukata.Indigo.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Indigo.T",
+                    "DisplayName": "{{i18n:item.yukata.indigo.t.name}}",
+                    "Description": "{{i18n:item.yukata.indigo.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 161,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Sand.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Sand.T",
-                    "DisplayName": "YukataCollection.Sand.T",
-                    "Description": "YukataCollection.Sand.T",
+                "blueberry.SailorStyles.Yukata.Beige.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Beige.T",
+                    "DisplayName": "{{i18n:item.yukata.beige.t.name}}",
+                    "Description": "{{i18n:item.yukata.beige.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 162,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Ash.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Ash.T",
-                    "DisplayName": "YukataCollection.Ash.T",
-                    "Description": "YukataCollection.Ash.T",
+                "blueberry.SailorStyles.Yukata.Black.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Black.T",
+                    "DisplayName": "{{i18n:item.yukata.black.t.name}}",
+                    "Description": "{{i18n:item.yukata.black.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 163,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Crimson.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Crimson.T",
-                    "DisplayName": "YukataCollection.Crimson.T",
-                    "Description": "YukataCollection.Crimson.T",
+                "blueberry.SailorStyles.Yukata.Red.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Red.T",
+                    "DisplayName": "{{i18n:item.yukata.red.t.name}}",
+                    "Description": "{{i18n:item.yukata.red.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 164,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Sky.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Sky.T",
-                    "DisplayName": "YukataCollection.Sky.T",
-                    "Description": "YukataCollection.Sky.T",
+                "blueberry.SailorStyles.Yukata.Blue.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Blue.T",
+                    "DisplayName": "{{i18n:item.yukata.blue.t.name}}",
+                    "Description": "{{i18n:item.yukata.blue.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 165,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Stone.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Stone.T",
-                    "DisplayName": "YukataCollection.Stone.T",
-                    "Description": "YukataCollection.Stone.T",
+                "blueberry.SailorStyles.Yukata.Grey.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Grey.T",
+                    "DisplayName": "{{i18n:item.yukata.grey.t.name}}",
+                    "Description": "{{i18n:item.yukata.grey.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 166,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Snow.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Snow.T",
-                    "DisplayName": "YukataCollection.Snow.T",
-                    "Description": "YukataCollection.Snow.T",
+                "blueberry.SailorStyles.Yukata.White.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.White.T",
+                    "DisplayName": "{{i18n:item.yukata.white.t.name}}",
+                    "Description": "{{i18n:item.yukata.white.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 167,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Moss.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Moss.T",
-                    "DisplayName": "YukataCollection.Moss.T",
-                    "Description": "YukataCollection.Moss.T",
+                "blueberry.SailorStyles.Yukata.Green.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Green.T",
+                    "DisplayName": "{{i18n:item.yukata.green.t.name}}",
+                    "Description": "{{i18n:item.yukata.green.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 168,
                     "Price": 250
                 },
-                "blueberry.SailorStyles.YukataCollection.Earth.T": {
-                    "Name": "blueberry.SailorStyles.YukataCollection.Earth.T",
-                    "DisplayName": "YukataCollection.Earth.T",
-                    "Description": "YukataCollection.Earth.T",
+                "blueberry.SailorStyles.Yukata.Brown.T": {
+                    "Name": "blueberry.SailorStyles.Yukata.Brown.T",
+                    "DisplayName": "{{i18n:item.yukata.brown.t.name}}",
+                    "Description": "{{i18n:item.yukata.brown.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 169,
                     "Price": 250

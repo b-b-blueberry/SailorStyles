@@ -231,7 +231,27 @@
 	"item.tuxedopants.tuxedoblanc.name": "Tuxedo Blanc",
 
 	// Yukata Collection
-	"item.yukatacollection..t.name": "Yukata",
+	"item.yukata.dye.t.name": "Yukata",
+	"item.yukata.indigo.t.name": "Yukata (Indigo)",
+	"item.yukata.beige.t.name": "Yukata (Sand)",
+	"item.yukata.black.t.name": "Yukata (Ash)",
+	"item.yukata.red.t.name": "Yukata (Crimson)",
+	"item.yukata.blue.t.name": "Yukata (Sky)",
+	"item.yukata.grey.t.name": "Yukata (Stone)",
+	"item.yukata.white.t.name": "Yukata (Snow)",
+	"item.yukata.green.t.name": "Yukata (Kelp)",
+	"item.yukata.brown.t.name": "Yukata (Clay)",
+
+	"item.yukata.dye.b.name": "Yukata",
+	"item.yukata.indigo.b.name": "Yukata (Indigo)",
+	"item.yukata.beige.b.name": "Yukata (Sand)",
+	"item.yukata.black.b.name": "Yukata (Ash)",
+	"item.yukata.red.b.name": "Yukata (Crimson)",
+	"item.yukata.blue.b.name": "Yukata (Sky)",
+	"item.yukata.grey.b.name": "Yukata (Stone)",
+	"item.yukata.white.b.name": "Yukata (Snow)",
+	"item.yukata.green.b.name": "Yukata (Kelp)",
+	"item.yukata.brown.b.name": "Yukata (Clay)",
 
 	// DESCRIPTIONS
 
@@ -381,7 +401,6 @@
 	"item.sakurakimono.red.b.description": "A red kimono, lower half.",
 	"item.sakurakimono.white.b.description": "A white kimono, lower half.",
 	"item.sakurakimono.yellow.b.description": "A yellow kimono, lower half.",
-	"item.sakurakimono.yukata.b.description": "A simple yukata, lower half.",
 
 	"item.sakurakimono.dye.t.description": "A plain kimono, upper half.",
 	"item.sakurakimono.aqua.t.description": "An aquamarine kimono, upper half.",
@@ -394,7 +413,6 @@
 	"item.sakurakimono.red.t.description": "A red kimono, upper half.",
 	"item.sakurakimono.white.t.description": "A white kimono, upper half.",
 	"item.sakurakimono.yellow.t.description": "A yellow kimono, upper half.",
-	"item.sakurakimono.yukata.t.description": "A simple yukata, upper half.",
 
 	// Skirts n' Stuff
 	"item.skirtsnstuff.wavyskirt.description": "A comfy skirt. The pleats flow like flower petals!",
@@ -452,5 +470,28 @@
 	"item.tuxedopants.tuxedoroyale.description": "For a most royal tuxedo.",
 	"item.tuxedopants.tuxedococktail.description": "For a most distinguished tuxedo.",
 	"item.tuxedopants.tuxedodefiance.description": "For a groom's beige grey tuxedo.",
-	"item.tuxedopants.tuxedoblanc.description": "For a glamorous white tuxedo."
+	"item.tuxedopants.tuxedoblanc.description": "For a glamorous white tuxedo.",
+
+	// Yukata Collection
+	"item.yukata.dye.t.description": "A simple robe, upper half.",
+	"item.yukata.indigo.t.description": "An indigo robe, upper half.",
+	"item.yukata.beige.t.description": "A beige robe, upper half.",
+	"item.yukata.black.t.description": "A black robe, upper half.",
+	"item.yukata.red.t.description": "A red robe, upper half.",
+	"item.yukata.blue.t.description": "A blue robe, upper half.",
+	"item.yukata.grey.t.description": "A grey robe, upper half.",
+	"item.yukata.white.t.description": "A white robe, upper half.",
+	"item.yukata.green.t.description": "A green robe, upper half.",
+	"item.yukata.brown.t.description": "A brown robe, upper half.",
+
+	"item.yukata.dye.b.description": "A simple robe, lower half.",
+	"item.yukata.indigo.b.description": "An indigo robe, lower half.",
+	"item.yukata.beige.b.description": "A beige robe, lower half.",
+	"item.yukata.black.b.description": "A black robe, lower half.",
+	"item.yukata.red.b.description": "A red robe, lower half.",
+	"item.yukata.blue.b.description": "A blue robe, lower half.",
+	"item.yukata.grey.b.description": "A grey robe, lower half.",
+	"item.yukata.white.b.description": "A white robe, lower half.",
+	"item.yukata.green.b.description": "A green robe, lower half.",
+	"item.yukata.brown.b.description": "A brown robe, lower half."
 }
