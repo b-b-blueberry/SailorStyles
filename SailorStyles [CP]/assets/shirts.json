@@ -1066,8 +1066,8 @@
                 },
                 "blueberry.SailorStyles.SakuraKimono.Orange.T": {
                     "Name": "blueberry.SailorStyles.SakuraKimono.Orange.T",
-                    "DisplayName": "{{i18n:item.sakurakimono.orange.t.name}}",
-                    "Description": "{{i18n:item.sakurakimono.orange.t.description}}",
+                    "DisplayName": "{{i18n:item.sakurakimono.indigo.t.name}}",
+                    "Description": "{{i18n:item.sakurakimono.indigo.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 128,
                     "Price": 375

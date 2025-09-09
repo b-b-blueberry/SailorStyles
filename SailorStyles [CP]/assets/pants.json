@@ -60,8 +60,8 @@
                 },
                 "blueberry.SailorStyles.SakuraKimono.Orange.B": {
                     "Name": "blueberry.SailorStyles.SakuraKimono.Orange.B",
-                    "DisplayName": "{{i18n:item.sakurakimono.orange.b.name}}",
-                    "Description": "{{i18n:item.sakurakimono.orange.b.description}}",
+                    "DisplayName": "{{i18n:item.sakurakimono.indigo.b.name}}",
+                    "Description": "{{i18n:item.sakurakimono.indigo.b.description}}",
                     "Price": 375,
                     "Texture": "blueberry.SailorStyles.Pants",
                     "DefaultColor": "255 255 255",
