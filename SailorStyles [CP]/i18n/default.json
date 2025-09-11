@@ -253,6 +253,11 @@
 	"item.yukata.green.b.name": "Yukata (Sea)",
 	"item.yukata.brown.b.name": "Yukata (Clay)",
 
+	// Hakama Collection
+	"item.hakama.dye.t.name": "Hakama",
+
+	"item.hakama.dye.b.name": "Hakama",
+
 	// DESCRIPTIONS
 
 	// Hats And Pieces
@@ -493,5 +498,11 @@
 	"item.yukata.grey.b.description": "A grey robe, lower half.",
 	"item.yukata.white.b.description": "A white robe, lower half.",
 	"item.yukata.green.b.description": "A green robe, lower half.",
-	"item.yukata.brown.b.description": "A brown robe, lower half."
+	"item.yukata.brown.b.description": "A brown robe, lower half.",
+
+	// Hakama Collection
+	"item.hakama.dye.t.description": "A ceremonial robe, upper half.",
+
+	"item.hakama.dye.b.description": "A ceremonial robe, lower half."
+
 }

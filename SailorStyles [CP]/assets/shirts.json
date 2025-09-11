@@ -1343,6 +1343,16 @@
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 169,
                     "Price": 250
+                },
+
+                // Hakama Collection
+                "blueberry.SailorStyles.Hakama.Dye.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.Dye.T",
+                    "DisplayName": "{{i18n:item.hakama.dye.t.name}}",
+                    "Description": "{{i18n:item.hakama.dye.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 169,
+                    "Price": 800
                 }
             }
         }
