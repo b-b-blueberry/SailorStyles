@@ -1,5 +1,14 @@
 ﻿{
+	///////////////////////////////////
 	// SHOP
+	///////////////////////////////////
+
+
+
+	// Artemis runs the shop. He's greedy, he's a cat.
+
+	// Dialogue must be short to fit in the shop menu sidebar.
+	// Text #5 is hardcoded seasonal dialogue.
 
 	"catshop.text.name": "Artemis",
 	"catshop.text.1": "Meow!",
@@ -11,9 +20,19 @@
 	"catshop.text.5.fall": "Oooh, it's nice having a pile of clothes in this weather.",
 	"catshop.text.5.winter": "Isn't this the perfect season to buy a sweater or two?",
 
+
+
+	///////////////////////////////////
 	// NAMES
+	///////////////////////////////////
+
+
 
 	// Hats And Pieces
+
+	// Names are mostly descriptive, no particular importance or theme.
+	// 'Square Shades' is a double-meaning (shape, lame).
+
 	"item.hatsandpieces.moonhairbrooch.name": "Moon Hair Brooch",
 	"item.hatsandpieces.bigredbow.name": "Big Red Bow",
 	"item.hatsandpieces.cutebow.name": "Cute Bow",
@@ -26,6 +45,11 @@
 	"item.hatsandpieces.squareshades.name": "Square Shades",
 
 	// Everyday Heroes
+
+	// Names are mostly descriptive, no particular importance or theme.
+	// 'Home Made Dress' isn't accurate, it just looks like a loose-fitting simple sewing project. ikuko would never be so bothered.
+	// 'Wicked Life' references a pin-badge spotted online that the item's styled after.
+
 	"item.everydayheroes.beigebuttonup.name": "Beige Buttonup",
 	"item.everydayheroes.beigesupercroptop.name": "Beige Super-Crop Top",
 	"item.everydayheroes.blackblouseandblazer.name": "Black Blouse and Blazer",
@@ -125,6 +149,9 @@
 	"item.everydayheroes.yellowgreendress.name": "Yellow-Green Dress",
 
 	// Uniform Operation
+
+	// Names refer to characters by title, not by given name, to reduce confusion as to who's who.
+
 	"item.uniformoperation.chibiblue.name": "School Uniform (Chibi Blue)",
 	"item.uniformoperation.chibiwhite.name": "School Uniform (Chibi White)",
 	"item.uniformoperation.jupiter.name": "School Uniform (Jupiter)",
@@ -135,6 +162,9 @@
 	"item.uniformoperation.venus.name": "School Uniform (Venus)",
 
 	// Sailor Suits
+
+	// Names refer to characters by title, not by given name, to reduce confusion as to who's who.
+
 	"item.sailorsuits.chibimoon.name": "Sailor Suit (Chibi Moon)",
 	"item.sailorsuits.jupiter.name": "Sailor Suit (Jupiter)",
 	"item.sailorsuits.mars.name": "Sailor Suit (Mars)",
@@ -148,17 +178,10 @@
 	"item.sailorsuits.venus.name": "Sailor Suit (Venus)",
 
 	// Sakura Kimono
-	"item.sakurakimono.dye.b.name": "Kimono",
-	"item.sakurakimono.aqua.b.name": "Kimono (Aqua)",
-	"item.sakurakimono.blue.b.name": "Kimono (Berry)",
-	"item.sakurakimono.green.b.name": "Kimono (Lime)",
-	"item.sakurakimono.lemon.b.name": "Kimono (Lemon)",
-	"item.sakurakimono.indigo.b.name": "Kimono (Indigo)",
-	"item.sakurakimono.pink.b.name": "Kimono (Peach)",
-	"item.sakurakimono.purple.b.name": "Kimono (Plum)",
-	"item.sakurakimono.red.b.name": "Kimono (Cherry)",
-	"item.sakurakimono.white.b.name": "Kimono (Apricot)",
-	"item.sakurakimono.yellow.b.name": "Kimono (Pomelo)",
+
+	// Names should try and follow a fruit parfait theme,
+	// with some exceptions for colours without a matching fruit (e.g. aqua),
+	// and indigo, given its importance as a traditional dye.
 
 	"item.sakurakimono.dye.t.name": "Kimono",
 	"item.sakurakimono.aqua.t.name": "Kimono (Aqua)",
@@ -172,7 +195,22 @@
 	"item.sakurakimono.white.t.name": "Kimono (Apricot)",
 	"item.sakurakimono.yellow.t.name": "Kimono (Pomelo)",
 
+	"item.sakurakimono.dye.b.name": "Kimono",
+	"item.sakurakimono.aqua.b.name": "Kimono (Aqua)",
+	"item.sakurakimono.blue.b.name": "Kimono (Berry)",
+	"item.sakurakimono.green.b.name": "Kimono (Lime)",
+	"item.sakurakimono.lemon.b.name": "Kimono (Lemon)",
+	"item.sakurakimono.indigo.b.name": "Kimono (Indigo)",
+	"item.sakurakimono.pink.b.name": "Kimono (Peach)",
+	"item.sakurakimono.purple.b.name": "Kimono (Plum)",
+	"item.sakurakimono.red.b.name": "Kimono (Cherry)",
+	"item.sakurakimono.white.b.name": "Kimono (Apricot)",
+	"item.sakurakimono.yellow.b.name": "Kimono (Pomelo)",
+
 	// Skirts n' Stuff
+
+	// Names should be generic colours to reflect that they're just here to loosely match some Everyday Heroes items.
+
 	"item.skirtsnstuff.wavyskirt.name": "Wavy Skirt",
 	"item.skirtsnstuff.blackdress.name": "Black Dress",
 	"item.skirtsnstuff.bluedress.name": "Blue Dress",
@@ -183,6 +221,11 @@
 	"item.skirtsnstuff.whitedress.name": "White Dress",
 
 	// Tuxedo Top Hats
+
+	// Names to match Stylish Rogue items below,
+	// with some exceptions for hats that match several Stylish Rogue items
+	// (e.g. chapeaublanc matches tuxedomystique and tuxedoblonde)
+
 	"item.tuxedotophats.chapeaumask.name": "Chapeau Mask",
 	"item.tuxedotophats.chapeauclassique.name": "Chapeau Classique",
 	"item.tuxedotophats.chapeaudefleurs.name": "Chapeau De Fleurs",
@@ -192,6 +235,9 @@
 	"item.tuxedotophats.chapeaublanc.name": "Chapeau Blanc",
 
 	// Man About Town
+
+	// Names are mostly descriptive, with some exceptions for iconic outfits.
+
 	"item.manabouttown.greenblazeronblack.name": "Green Blazer on Black",
 	"item.manabouttown.bluesleevelesstracktop.name": "Blue Sleeveless Track Top",
 	"item.manabouttown.puffyjoggingtop.name": "Puffy Jogging Top",
@@ -209,7 +255,13 @@
 	"item.manabouttown.crimsonjacketsandytop.name": "Crimson Sandy Jacket",
 	"item.manabouttown.schooluniformtuxedo.name": "School Uniform (Tuxedo)",
 
+	// School Uniform matches Uniform Operation items above
+
 	// Stylish Rogue
+
+	// Names are made up for each of Tuxedo Mask's various styles.
+	// We've used French words since he's a romantic icon.
+
 	"item.stylishrogue.tuxedomask.name": "Tuxedo Mask",
 	"item.stylishrogue.tuxedoclassique.name": "Tuxedo Classique",
 	"item.stylishrogue.tuxedodefleurs.name": "Tuxedo De Fleurs",
@@ -222,6 +274,9 @@
 	"item.stylishrogue.tuxedodenuit.name": "Tuxedo De Nuit",
 
 	// Tuxedo Pants
+
+	// Names to match Tuxedo Top Hats items above.
+
 	"item.tuxedopants.tuxedomask.name": "Tuxedo Mask",
 	"item.tuxedopants.tuxedoclassique.name": "Tuxedo Classique",
 	"item.tuxedopants.tuxedodefleurs.name": "Tuxedo De Fleurs",
@@ -231,6 +286,10 @@
 	"item.tuxedopants.tuxedoblanc.name": "Tuxedo Blanc",
 
 	// Yukata Collection
+
+	// Names loosely follow natural themes to suit the earthy colours,
+	// and indigo owing to its importance as a traditional dye
+
 	"item.yukata.dye.t.name": "Yukata",
 	"item.yukata.indigo.t.name": "Yukata (Indigo)",
 	"item.yukata.beige.t.name": "Yukata (Sand)",
@@ -254,6 +313,12 @@
 	"item.yukata.brown.b.name": "Yukata (Clay)",
 
 	// Hakama Collection
+
+	// There's a lot of flavours, so the names don't follow a particular theme.
+	// Mostly just colours for the lower-half of the robe with some unique names for colour pairs.
+	// We've written names with the colour of the Bottom item, even on the Top item,
+	// since given the top sprite is so small there's very little to suggest what the matching bottom item would be.
+
 	"item.hakama.dye.t.name": "Hakama",
 	"item.hakama.whitegreen.t.name": "Hakama (Green)",
 	"item.hakama.beigebrown.t.name": "Hakama (Brown)",
@@ -286,9 +351,22 @@
 	"item.hakama.blackgrey.b.name": "Hakama (Dusk)",
 	"item.hakama.skyyellow.b.name": "Hakama (Dawn)",
 
+
+
+	///////////////////////////////////
 	// DESCRIPTIONS
+	///////////////////////////////////
+
+
 
 	// Hats And Pieces
+
+	// Most of these are character accessories from the comics and the show.
+	// Domino Mask items reference how they only appeared in the comics and were ditched after the show's pilot episode.
+	// Coattail Mask is a double-fictional character from the comic-within-a-comic Aurora Wedding in Sailor V.
+	// I tried to avoid naming Tuxedo Mask outright since he sort-of doesn't exist in-universe sometimes, but now this mod has a whole line of Tuxedo Mask items so ???
+	// this may be slightly incredibly niche trivia. they may judge me for it. it would be justified
+
 	"item.hatsandpieces.moonhairbrooch.description": "Sailor Moon's hair brooches. Made to fit a certain style.",
 	"item.hatsandpieces.bigredbow.description": "Minako's red bow. A big, red ribbon is best.",
 	"item.hatsandpieces.cutebow.description": "Naru's hair bow. Never without it!",
@@ -301,6 +379,16 @@
 	"item.hatsandpieces.squareshades.description": "A funky pair of hip shades.",
 
 	// Everyday Heroes
+
+	// Honestly just write whatever you like for these, so long as it's in the style of the Stardew Valley clothing item descriptions.
+	// It's probably harder to translate a hundred descriptions directly than it is to come up with something more natural.
+	// You can squeeze in the tiniest amount of fun-poking since the outfits from the show are just terrible and japan in 1996 was clearly in some kind of tragic fashion drought.
+
+	// Dyeable items should NOT mention dyeability. The game adds it automatically.
+
+	// Items with a paired Skirts n' Stuff lower half should include a newline and specifically mention that it needs the bottom
+	// (e.g. blackdresstop, pinkdressandjacket, whitedress)
+
 	"item.everydayheroes.beigebuttonup.description": "A green sweater snugly wrapped in a buttonup cardigan.",
 	"item.everydayheroes.beigesupercroptop.description": "An incredibly short shirt in plain beige.",
 	"item.everydayheroes.blackblouseandblazer.description": "Expensive green jacket, plain black blouse, stylish yellow belt.",
@@ -400,6 +488,11 @@
 	"item.everydayheroes.yellowgreendress.description": "A deep green dress over a yellow top.",
 
 	// Uniform Operation
+
+	// Descriptions can just be descriptive of the appearance, up to you if you've got some solid trivia to add.
+	// I wrote 'tailored' on the 'Sailor Stars' item since apparently in the show it fits makoto who's a head taller than everyone else,
+	// which the middle-school uniform didn't, but given it's a high-school uniform it probably would come in a taller fit and i just didn't think of that at the time
+
 	"item.uniformoperation.chibiblue.description": "A children's school uniform.",
 	"item.uniformoperation.chibiwhite.description": "A children's school uniform.",
 	"item.uniformoperation.jupiter.description": "A tall, earthy-brown school uniform.",
@@ -410,6 +503,10 @@
 	"item.uniformoperation.venus.description": "A junior school uniform.",
 
 	// Sailor Suits
+
+	// Mostly descriptive, Sailor V and Sailor Moon get their in-universe titles as well
+	// (champion of (love and) justice, pretty soldier in a sailor suit)
+
 	"item.sailorsuits.chibimoon.description": "A cute little sailor suit covered in bows.",
 	"item.sailorsuits.jupiter.description": "A stellar sailor suit adorned with bows and a gemstone.",
 	"item.sailorsuits.mars.description": "A stellar sailor suit adorned with bows and a gemstone.",
@@ -423,17 +520,11 @@
 	"item.sailorsuits.venus.description": "A stellar sailor suit adorned with bows and a gemstone.",
 
 	// Sakura Kimono
-	"item.sakurakimono.dye.b.description": "A plain kimono, lower half.",
-	"item.sakurakimono.aqua.b.description": "A turquoise kimono, lower half.",
-	"item.sakurakimono.blue.b.description": "A blue kimono, lower half.",
-	"item.sakurakimono.green.b.description": "A green kimono, lower half.",
-	"item.sakurakimono.lemon.b.description": "A yellow kimono, lower half.",
-	"item.sakurakimono.indigo.b.description": "An indigo kimono, lower half.",
-	"item.sakurakimono.pink.b.description": "A pink kimono, lower half.",
-	"item.sakurakimono.purple.b.description": "A purple kimono, lower half.",
-	"item.sakurakimono.red.b.description": "A red kimono, lower half.",
-	"item.sakurakimono.white.b.description": "A white kimono, lower half.",
-	"item.sakurakimono.yellow.b.description": "A gold kimono, lower half.",
+
+	// Mostly descriptive, we've gone with the colour instead of the flavour given in the item names above.
+	// Since the Top and Bottom item names are the same, we've left the upper/lower distinction in the description instead.
+
+	// Dyeable items should NOT mention dyeability. The game adds it automatically.
 
 	"item.sakurakimono.dye.t.description": "A plain kimono, upper half.",
 	"item.sakurakimono.aqua.t.description": "A turquoise kimono, upper half.",
@@ -447,7 +538,24 @@
 	"item.sakurakimono.white.t.description": "A white kimono, upper half.",
 	"item.sakurakimono.yellow.t.description": "A gold kimono, upper half.",
 
+	"item.sakurakimono.dye.b.description": "A plain kimono, lower half.",
+	"item.sakurakimono.aqua.b.description": "A turquoise kimono, lower half.",
+	"item.sakurakimono.blue.b.description": "A blue kimono, lower half.",
+	"item.sakurakimono.green.b.description": "A green kimono, lower half.",
+	"item.sakurakimono.lemon.b.description": "A yellow kimono, lower half.",
+	"item.sakurakimono.indigo.b.description": "An indigo kimono, lower half.",
+	"item.sakurakimono.pink.b.description": "A pink kimono, lower half.",
+	"item.sakurakimono.purple.b.description": "A purple kimono, lower half.",
+	"item.sakurakimono.red.b.description": "A red kimono, lower half.",
+	"item.sakurakimono.white.b.description": "A white kimono, lower half.",
+	"item.sakurakimono.yellow.b.description": "A gold kimono, lower half.",
+
 	// Skirts n' Stuff
+
+	// 'Wavy Skirt' is a recreation of the middle-school uniform skirt, which you can mention if you prefer.
+	// Other skirts are generic recolours to match Everyday Heroes items without needing to dye however many pants items,
+	// no particular flavour text in mind.
+
 	"item.skirtsnstuff.wavyskirt.description": "A comfy skirt. The pleats flow like flower petals!",
 	"item.skirtsnstuff.blackdress.description": "For a matching black dress top.",
 	"item.skirtsnstuff.bluedress.description": "For a matching blue dress top.",
@@ -458,6 +566,13 @@
 	"item.skirtsnstuff.whitedress.description": "For a matching white dress top.",
 
 	// Tuxedo Top Hats
+
+	// We're getting a little fancy with these descriptions.
+	// The 'handsome jewel hunter' line references the latter half of the original series, where he's working to steal the silver crystal.
+	// The 'royal' theme comes from the second series where he's wearing the iconic purple tuxedo when he's king of the whole world for some reason.
+	// The 'fiance' theme comes from some official art where he's wearing the beige suit at his wedding? i think? it's been a while
+	// All the other item flavour text is just made-up
+
 	"item.tuxedotophats.chapeaumask.description": "The iconic disguise of a handsome jewel hunter.",
 	"item.tuxedotophats.chapeauclassique.description": "A stylish top hat.",
 	"item.tuxedotophats.chapeaudefleurs.description": "A deep, dark top hat with a rose-red sash.",
@@ -467,6 +582,9 @@
 	"item.tuxedotophats.chapeaublanc.description": "A stellar white top hat.",
 
 	// Man About Town
+
+	// Nothing much to say, stay with the Stardew Valley writing style.
+
 	"item.manabouttown.greenblazeronblack.description": "A sharp blazer with fresh-pressed lapels.",
 	"item.manabouttown.bluesleevelesstracktop.description": "Fitness wear. Better get a workout!",
 	"item.manabouttown.puffyjoggingtop.description": "Works up a sweat!",
@@ -485,6 +603,9 @@
 	"item.manabouttown.schooluniformtuxedo.description": "The strict and sharp senior uniform of Moto Azabu High.",
 
 	// Stylish Rogue
+
+	// ditto
+
 	"item.stylishrogue.tuxedomask.description": "The iconic outfit of a dashing champion of justice.",
 	"item.stylishrogue.tuxedoclassique.description": "A perfectly regular tuxedo.",
 	"item.stylishrogue.tuxedodefiance.description": "A groom's outfit in a subdued beige grey.",
@@ -497,6 +618,9 @@
 	"item.stylishrogue.tuxedodenuit.description": "A formal evening jacket over a thick, grey waistcoat.",
 
 	// Tuxedo Pants
+
+	// Descriptions vaguely suggestively match Tuxedo Mask and Stylish Top Hats items.
+
 	"item.tuxedopants.tuxedomask.description": "For a perfectly regular tuxedo.",
 	"item.tuxedopants.tuxedoclassique.description": "For a perfectly regular tuxedo.",
 	"item.tuxedopants.tuxedodefleurs.description": "For a fancy floral tuxedo.",
@@ -506,6 +630,12 @@
 	"item.tuxedopants.tuxedoblanc.description": "For a glamorous white tuxedo.",
 
 	// Yukata Collection
+
+	// We've written descriptions to mention the colours rather than the items' flavour names given above.
+	// Description format roughly matches Sakura Kimono items above.
+
+	// Dyeable items should NOT mention dyeability. The game adds it automatically.
+
 	"item.yukata.dye.t.description": "A simple robe, upper half.",
 	"item.yukata.indigo.t.description": "An indigo robe, upper half.",
 	"item.yukata.beige.t.description": "A beige robe, upper half.",
@@ -530,6 +660,11 @@
 
 	// Hakama Collection
 
+	// We've written descriptions to only mention the colour of the Bottom item, even on the Top item,
+	// since given the top sprite is so small there's very little to suggest what the matching bottom item would be.
+	// Description format roughly matches Yukata Collection items above.
+
+	// Dyeable items should NOT mention dyeability. The game adds it automatically.
 
 	"item.hakama.dye.t.description": "A ceremonial robe, upper half.",
 	"item.hakama.whitegreen.t.description": "A green robe, upper half.",
@@ -562,4 +697,7 @@
 	"item.hakama.aquabeige.b.description": "A beige robe, lower half.",
 	"item.hakama.blackgrey.b.description": "A grey robe, lower half.",
 	"item.hakama.skyyellow.b.description": "A yellow robe, lower half."
+
+	// welcome to the bottom
+	// egg egg egg
 }
