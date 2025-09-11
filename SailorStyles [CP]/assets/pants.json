@@ -285,7 +285,8 @@
                     "Price": 250,
                     "Texture": "blueberry.SailorStyles.Pants.Yukata",
                     "DefaultColor": "255 255 255",
-                    "SpriteIndex": 0
+                    "SpriteIndex": 0,
+                    "CanBeDyed": true
                 },
                 "blueberry.SailorStyles.Yukata.Indigo.B": {
                     "Name": "blueberry.SailorStyles.Yukata.Indigo.B",
