@@ -1352,6 +1352,120 @@
                     "Description": "{{i18n:item.hakama.dye.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
                     "SpriteIndex": 176,
+                    "Price": 800,
+                    "CanBeDyed": true,
+                    "DefaultColor": "255 255 255"
+                },
+                "blueberry.SailorStyles.Hakama.WhiteGreen.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteGreen.T",
+                    "DisplayName": "{{i18n:item.hakama.whitegreen.t.name}}",
+                    "Description": "{{i18n:item.hakama.whitegreen.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 177,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.BeigeBrown.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.BeigeBrown.T",
+                    "DisplayName": "{{i18n:item.hakama.beigebrown.t.name}}",
+                    "Description": "{{i18n:item.hakama.beigebrown.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 178,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhiteBlack.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteBlack.T",
+                    "DisplayName": "{{i18n:item.hakama.whiteblack.t.name}}",
+                    "Description": "{{i18n:item.hakama.whiteblack.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 179,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhiteTeal.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteTeal.T",
+                    "DisplayName": "{{i18n:item.hakama.whiteteal.t.name}}",
+                    "Description": "{{i18n:item.hakama.whiteteal.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 180,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhiteRed.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteRed.T",
+                    "DisplayName": "{{i18n:item.hakama.whitered.t.name}}",
+                    "Description": "{{i18n:item.hakama.whitered.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 181,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhiteMagenta.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteMagenta.T",
+                    "DisplayName": "{{i18n:item.hakama.whitemagenta.t.name}}",
+                    "Description": "{{i18n:item.hakama.whitemagenta.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 182,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.GreenWhite.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.GreenWhite.T",
+                    "DisplayName": "{{i18n:item.hakama.greenwhite.t.name}}",
+                    "Description": "{{i18n:item.hakama.greenwhite.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 183,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhitePeach.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhitePeach.T",
+                    "DisplayName": "{{i18n:item.hakama.whitepeach.t.name}}",
+                    "Description": "{{i18n:item.hakama.whitepeach.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 184,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.SnowBlue.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.SnowBlue.T",
+                    "DisplayName": "{{i18n:item.hakama.snowblue.t.name}}",
+                    "Description": "{{i18n:item.hakama.snowblue.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 185,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhitePurple.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhitePurple.T",
+                    "DisplayName": "{{i18n:item.hakama.whitepurple.t.name}}",
+                    "Description": "{{i18n:item.hakama.whitepurple.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 186,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.WhiteYellow.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteYellow.T",
+                    "DisplayName": "{{i18n:item.hakama.whiteyellow.t.name}}",
+                    "Description": "{{i18n:item.hakama.whiteyellow.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 187,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.AquaBeige.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.AquaBeige.T",
+                    "DisplayName": "{{i18n:item.hakama.aquabeige.t.name}}",
+                    "Description": "{{i18n:item.hakama.aquabeige.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 188,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.BlackGrey.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.BlackGrey.T",
+                    "DisplayName": "{{i18n:item.hakama.blackgrey.t.name}}",
+                    "Description": "{{i18n:item.hakama.blackgrey.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 189,
+                    "Price": 800
+                },
+                "blueberry.SailorStyles.Hakama.SkyYellow.T": {
+                    "Name": "blueberry.SailorStyles.Hakama.SkyYellow.T",
+                    "DisplayName": "{{i18n:item.hakama.skyyellow.t.name}}",
+                    "Description": "{{i18n:item.hakama.skyyellow.t.description}}",
+                    "Texture": "blueberry.SailorStyles.Shirts",
+                    "SpriteIndex": 190,
                     "Price": 800
                 }
             }

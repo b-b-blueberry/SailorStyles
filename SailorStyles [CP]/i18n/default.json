@@ -255,8 +255,36 @@
 
 	// Hakama Collection
 	"item.hakama.dye.t.name": "Hakama",
+	"item.hakama.whitegreen.t.name": "Hakama (Green)",
+	"item.hakama.beigebrown.t.name": "Hakama (Brown)",
+	"item.hakama.whiteblack.t.name": "Hakama (Black)",
+	"item.hakama.whiteteal.t.name": "Hakama (Teal)",
+	"item.hakama.whitered.t.name": "Hakama (Red)",
+	"item.hakama.whitemagenta.t.name": "Hakama (Magenta)",
+	"item.hakama.greenwhite.t.name": "Hakama (Spring)",
+	"item.hakama.whitepeach.t.name": "Hakama (Peach)",
+	"item.hakama.snowblue.t.name": "Hakama (Blue)",
+	"item.hakama.whitepurple.t.name": "Hakama (Purple)",
+	"item.hakama.whiteyellow.t.name": "Hakama (Yellow)",
+	"item.hakama.aquabeige.t.name": "Hakama (Marine)",
+	"item.hakama.blackgrey.t.name": "Hakama (Dusk)",
+	"item.hakama.skyyellow.t.name": "Hakama (Dawn)",
 
 	"item.hakama.dye.b.name": "Hakama",
+	"item.hakama.whitegreen.b.name": "Hakama (Green)",
+	"item.hakama.beigebrown.b.name": "Hakama (Brown)",
+	"item.hakama.whiteblack.b.name": "Hakama (Black)",
+	"item.hakama.whiteteal.b.name": "Hakama (Teal)",
+	"item.hakama.whitered.b.name": "Hakama (Red)",
+	"item.hakama.whitemagenta.b.name": "Hakama (Magenta)",
+	"item.hakama.greenwhite.b.name": "Hakama (Spring)",
+	"item.hakama.whitepeach.b.name": "Hakama (Peach)",
+	"item.hakama.snowblue.b.name": "Hakama (Blue)",
+	"item.hakama.whitepurple.b.name": "Hakama (Purple)",
+	"item.hakama.whiteyellow.b.name": "Hakama (Yellow)",
+	"item.hakama.aquabeige.b.name": "Hakama (Marine)",
+	"item.hakama.blackgrey.b.name": "Hakama (Dusk)",
+	"item.hakama.skyyellow.b.name": "Hakama (Dawn)",
 
 	// DESCRIPTIONS
 
@@ -501,8 +529,37 @@
 	"item.yukata.brown.b.description": "A brown robe, lower half.",
 
 	// Hakama Collection
+
+
 	"item.hakama.dye.t.description": "A ceremonial robe, upper half.",
+	"item.hakama.whitegreen.t.description": "A green robe, upper half.",
+	"item.hakama.beigebrown.t.description": "A brown robe, upper half.",
+	"item.hakama.whiteblack.t.description": "A black robe, upper half.",
+	"item.hakama.whiteteal.t.description": "A teal robe, upper half.",
+	"item.hakama.whitered.t.description": "A red robe, upper half.",
+	"item.hakama.whitemagenta.t.description": "A magenta robe, upper half.",
+	"item.hakama.greenwhite.t.description": "A white robe, upper half.",
+	"item.hakama.whitepeach.t.description": "A peach robe, upper half.",
+	"item.hakama.snowblue.t.description": "A blue robe, upper half.",
+	"item.hakama.whitepurple.t.description": "A purple robe, upper half.",
+	"item.hakama.whiteyellow.t.description": "A yellow robe, upper half.",
+	"item.hakama.aquabeige.t.description": "A beige robe, upper half.",
+	"item.hakama.blackgrey.t.description": "A grey robe, upper half.",
+	"item.hakama.skyyellow.t.description": "A yellow robe, upper half.",
 
-	"item.hakama.dye.b.description": "A ceremonial robe, lower half."
-
+	"item.hakama.dye.b.description": "A ceremonial robe, lower half.",
+	"item.hakama.whitegreen.b.description": "A green robe, lower half.",
+	"item.hakama.beigebrown.b.description": "A brown robe, lower half.",
+	"item.hakama.whiteblack.b.description": "A black robe, lower half.",
+	"item.hakama.whiteteal.b.description": "A teal robe, lower half.",
+	"item.hakama.whitered.b.description": "A red robe, lower half.",
+	"item.hakama.whitemagenta.b.description": "A magenta robe, lower half.",
+	"item.hakama.greenwhite.b.description": "A white robe, lower half.",
+	"item.hakama.whitepeach.b.description": "A peach robe, lower half.",
+	"item.hakama.snowblue.b.description": "A blue robe, lower half.",
+	"item.hakama.whitepurple.b.description": "A purple robe, lower half.",
+	"item.hakama.whiteyellow.b.description": "A yellow robe, lower half.",
+	"item.hakama.aquabeige.b.description": "A beige robe, lower half.",
+	"item.hakama.blackgrey.b.description": "A grey robe, lower half.",
+	"item.hakama.skyyellow.b.description": "A yellow robe, lower half."
 }

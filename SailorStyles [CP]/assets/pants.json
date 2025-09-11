@@ -117,8 +117,8 @@
                     "Description": "{{i18n:item.sakurakimono.dye.b.description}}",
                     "Price": 375,
                     "Texture": "blueberry.SailorStyles.Pants.Kimono",
-                    "SpriteIndex": 0,
                     "DefaultColor": "255 255 255",
+                    "SpriteIndex": 0,
                     "CanBeDyed": true
                 },
                 "blueberry.SailorStyles.SakuraKimono.Aqua.B": {
@@ -377,7 +377,134 @@
                     "Price": 800,
                     "Texture": "blueberry.SailorStyles.Pants.Hakama",
                     "DefaultColor": "255 255 255",
-                    "SpriteIndex": 0
+                    "SpriteIndex": 0,
+                    "CanBeDyed": true
+                },
+                "blueberry.SailorStyles.Hakama.WhiteGreen.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteGreen.B",
+                    "DisplayName": "{{i18n:item.hakama.whitegreen.b.name}}",
+                    "Description": "{{i18n:item.hakama.whitegreen.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 1
+                },
+                "blueberry.SailorStyles.Hakama.BeigeBrown.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.BeigeBrown.B",
+                    "DisplayName": "{{i18n:item.hakama.beigebrown.b.name}}",
+                    "Description": "{{i18n:item.hakama.beigebrown.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 2
+                },
+                "blueberry.SailorStyles.Hakama.WhiteBlack.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteBlack.B",
+                    "DisplayName": "{{i18n:item.hakama.whiteblack.b.name}}",
+                    "Description": "{{i18n:item.hakama.whiteblack.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 3
+                },
+                "blueberry.SailorStyles.Hakama.WhiteTeal.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteTeal.B",
+                    "DisplayName": "{{i18n:item.hakama.whiteteal.b.name}}",
+                    "Description": "{{i18n:item.hakama.whiteteal.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 4
+                },
+                "blueberry.SailorStyles.Hakama.WhiteRed.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteRed.B",
+                    "DisplayName": "{{i18n:item.hakama.whitered.b.name}}",
+                    "Description": "{{i18n:item.hakama.whitered.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 5
+                },
+                "blueberry.SailorStyles.Hakama.WhiteMagenta.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteMagenta.B",
+                    "DisplayName": "{{i18n:item.hakama.whitemagenta.b.name}}",
+                    "Description": "{{i18n:item.hakama.whitemagenta.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 6
+                },
+                "blueberry.SailorStyles.Hakama.GreenWhite.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.GreenWhite.B",
+                    "DisplayName": "{{i18n:item.hakama.greenwhite.b.name}}",
+                    "Description": "{{i18n:item.hakama.greenwhite.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 7
+                },
+                "blueberry.SailorStyles.Hakama.WhitePeach.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhitePeach.B",
+                    "DisplayName": "{{i18n:item.hakama.whitepeach.b.name}}",
+                    "Description": "{{i18n:item.hakama.whitepeach.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 8
+                },
+                "blueberry.SailorStyles.Hakama.SnowBlue.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.SnowBlue.B",
+                    "DisplayName": "{{i18n:item.hakama.snowblue.b.name}}",
+                    "Description": "{{i18n:item.hakama.snowblue.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 9
+                },
+                "blueberry.SailorStyles.Hakama.WhitePurple.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhitePurple.B",
+                    "DisplayName": "{{i18n:item.hakama.whitepurple.b.name}}",
+                    "Description": "{{i18n:item.hakama.whitepurple.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 10
+                },
+                "blueberry.SailorStyles.Hakama.WhiteYellow.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.WhiteYellow.B",
+                    "DisplayName": "{{i18n:item.hakama.whiteyellow.b.name}}",
+                    "Description": "{{i18n:item.hakama.whiteyellow.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 11
+                },
+                "blueberry.SailorStyles.Hakama.AquaBeige.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.AquaBeige.B",
+                    "DisplayName": "{{i18n:item.hakama.aquabeige.b.name}}",
+                    "Description": "{{i18n:item.hakama.aquabeige.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 12
+                },
+                "blueberry.SailorStyles.Hakama.BlackGrey.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.BlackGrey.B",
+                    "DisplayName": "{{i18n:item.hakama.blackgrey.b.name}}",
+                    "Description": "{{i18n:item.hakama.blackgrey.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 13
+                },
+                "blueberry.SailorStyles.Hakama.SkyYellow.B": {
+                    "Name": "blueberry.SailorStyles.Hakama.SkyYellow.B",
+                    "DisplayName": "{{i18n:item.hakama.skyyellow.b.name}}",
+                    "Description": "{{i18n:item.hakama.skyyellow.b.description}}",
+                    "Price": 800,
+                    "Texture": "blueberry.SailorStyles.Pants.Hakama",
+                    "DefaultColor": "255 255 255",
+                    "SpriteIndex": 14
                 }
             }
         }
