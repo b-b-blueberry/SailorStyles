@@ -1351,7 +1351,7 @@
                     "DisplayName": "{{i18n:item.hakama.dye.t.name}}",
                     "Description": "{{i18n:item.hakama.dye.t.description}}",
                     "Texture": "blueberry.SailorStyles.Shirts",
-                    "SpriteIndex": 169,
+                    "SpriteIndex": 176,
                     "Price": 800
                 }
             }
