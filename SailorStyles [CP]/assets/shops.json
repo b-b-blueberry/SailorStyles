@@ -48,6 +48,12 @@
                         }
                     ],
                     "Items": [
+
+
+                        // STANDARD ITEMS
+
+
+                        // Everyday Heroes
                         {
                             "Id": "blueberry.SailorStyles.EverydayHeroes",
                             "ItemId": "RANDOM_ITEMS (S)",
@@ -58,6 +64,7 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+                        // Skirts n' Stuff
                         {
                             "Id": "blueberry.SailorStyles.SkirtsNStuff.1",
                             "ItemId": "(P)blueberry.SailorStyles.SkirtsNStuff.{{Random:Black, Blue, Green, Orange, Pink, Purple, White |key=skirt}}Dress",
@@ -74,6 +81,12 @@
                             "AvailableStockLimit": "Player",
                             "UseObjectDataPrice": true
                         },
+
+
+                        // SPECIAL ITEMS
+
+
+                        // Sakura Kimono
                         {
                             "Id": "blueberry.SailorStyles.SakuraKimono.1.Top",
                             "ItemId": "(S)blueberry.SailorStyles.SakuraKimono.{{Random:Dye, Aqua, Blue, Green, Lemon, Orange |key=kimono}}.T",
@@ -106,6 +119,12 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+
+
+                        // MENSWEAR ITEMS
+
+
+                        // Man About Town
                         {
                             "Id": "blueberry.SailorStyles.ManAboutTown",
                             "ItemId": "RANDOM_ITEMS (S)",
@@ -116,6 +135,7 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+                        // Stylish Rogue
                         {
                             "Id": "blueberry.SailorStyles.Tuxedos.Shirts",
                             "ItemId": "RANDOM_ITEMS (S)",
@@ -126,6 +146,7 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+                        // Tuxedo Top Hats
                         {
                             "Id": "blueberry.SailorStyles.Tuxedos.1.Hats",
                             "ItemId": "(H)blueberry.SailorStyles.TuxedoTopHats.Chapeau{{Random:Blanc, Classique, Cocktail |key=tuxedo1}}",
@@ -146,6 +167,7 @@
                             "UseObjectDataPrice": false,
                             "Price": 150
                         },
+                        // Tuxedo Pants
                         {
                             "Id": "blueberry.SailorStyles.Tuxedos.1.Pants",
                             "ItemId": "(P)blueberry.SailorStyles.TuxedoPants.Tuxedo{{Random:Blanc, Classique, Cocktail |key=tuxedo1}}",
@@ -162,6 +184,12 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": false
                         },
+
+
+                        // ACCESSORY ITEMS
+
+
+                        // Hats and Pieces
                         {
                             "Id": "blueberry.SailorStyles.HatsAndPieces",
                             "ItemId": "RANDOM_ITEMS (H)",
@@ -173,6 +201,12 @@
                             "UseObjectDataPrice": false,
                             "Price": 50
                         },
+
+
+                        // COSPLAY ITEMS
+
+
+                        // Uniform Operation
                         {
                             "Id": "blueberry.SailorStyles.UniformOperation",
                             "ItemId": "RANDOM_ITEMS (S)",
@@ -183,6 +217,7 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+                        // Sailor Suits
                         {
                             "Id": "blueberry.SailorStyles.SailorSuits",
                             "ItemId": "RANDOM_ITEMS (S)",
