@@ -119,6 +119,72 @@
                             "AvoidRepeat": true,
                             "UseObjectDataPrice": true
                         },
+                        // Yukata Collection
+                        {
+                            "Id": "blueberry.SailorStyles.Yukata.1.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.Yukata.{{Random:Dye, Indigo, Beige, Black, Red |key=yukata}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Yukata.1.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.Yukata.{{Random:Dye, Indigo, Beige, Black, Red |key=yukata}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Yukata.2.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.Yukata.{{Random:Blue, Grey, White, Green, Brown |key=yukata}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Yukata.2.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.Yukata.{{Random:Blue, Grey, White, Green, Brown |key=yukata}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        // Hakama Collection
+                        {
+                            "Id": "blueberry.SailorStyles.Hakama.1.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.Hakama.{{Random:Dye, WhiteGreen, BeigeBrown, WhiteBlack, WhiteTeal, WhiteRed, WhiteMagenta, GreenWhite |key=hakama}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Hakama.1.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.Hakama.{{Random:Dye, WhiteGreen, BeigeBrown, WhiteBlack, WhiteTeal, WhiteRed, WhiteMagenta, GreenWhite |key=hakama}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Hakama.2.Top",
+                            "ItemId": "(S)blueberry.SailorStyles.Hakama.{{Random:WhitePeach, SnowBlue, WhitePurple, WhiteYellow, AquaBeige, BlackGrey, SkyYellow |key=hakama}}.T",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
+                        {
+                            "Id": "blueberry.SailorStyles.Hakama.2.Bottom",
+                            "ItemId": "(P)blueberry.SailorStyles.Hakama.{{Random:WhitePeach, SnowBlue, WhitePurple, WhiteYellow, AquaBeige, BlackGrey, SkyYellow |key=hakama}}.B",
+                            "AvailableStock": 1,
+                            "AvailableStockLimit": "Player",
+                            "AvoidRepeat": true,
+                            "UseObjectDataPrice": true
+                        },
 
 
                         // MENSWEAR ITEMS
